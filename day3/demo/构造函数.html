@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script>
+          function People(name,age){
+              this.name = name;
+              this.age = age;
+          }
+
+          function Girl(name,age,sex){
+            // People.apply(this,[name,age]);
+            // People.apply(this,arguments);
+            // People(name,age); 会指向于window
+            // People.call(this,name,age);
+            this.constructor.apply(this,arguments);
+            // this.constructor.apply(this,arguments);
+            this.age = sex;
+          }
+
+          Girl.prototype = new People();
+        var g = new  Girl("mary",24,'nv');
+        // console.log(g.name);
+        // console.log(g.age);
+         console.log(g.constructor);
+      </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      function People(){
+        this.name = "xiaoming";
+        this.age = 18;
+        this.sex = "man";
+      }
+
+      var xiaoming = new People();
+
+      // 构造函数的执行顺序
+      // 隐秘的创健一个空对象 {}
+      // this就指向这个创建的空对象
+      // 顺序执行函数体里面的语句
+      // 执行完毕之后返回这个对象
+
+
+      // 当我们new 多少次，里面的语句就会执行多少次，
+      // 并且返回一个对象，这个对象里面就会有name 属性， age属性
+      // sex 属性，这些返回的对象都有相同的属性群，
+      // 所以可以看做是一类的东西；那么People这个构造函数，
+      // 也可以看成类的定义；
+
+      function People(name,age,sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+      var xiaoming = new People("xiaoming",18,"man");
+      var xiaohong = new People("xiaohong",18,"nv");
+      // People()
+
+
+        function stark(age){
+          var name = "stark";
+          var age = age;
+        }
+
+        stark(18);
+      // console.log(People);
+      // console.log(xiaoming);
+
+      function Dog(name,pingzhong,age,sex){
+        this.name = name;
+        this.pingzhong = pingzhong;
+        this.age = age;
+        this.sex = sex;
+      }
+
+      var taidi = new Dog('xiaohuang','taidi',2,"母狗");
+      var zangao = new Dog('大黄','藏獒',2,"公狗");
+
+      // console.log(zangao);
+      // console.log(taidi.pingzhong);
+
+      // 构造函数中，不允许出现return语句，出现return语句了，将不能返回新创建的对象
+      function People(name,age,sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        return {'a':1,"b":2};
+      }
+      var xiaobai = new People("xiaobai",19,"man");
+      // console.log(xiaobai);
+
+
+      // js没有规定构造函数中语句的规范，想怎么写就怎么写
+      function People(name,age,tall){
+        this.age = age;
+        this.name = name;
+        this.address = "beijing";
+        this.tall = tall;
+        // this.status = "成年";
+        if (this.age >= 18) {
+            this.status = "成年";
+        }else {
+            this.status = "未成年";
+        }
+
+      }
+
+      var xiaobai = new People("xiaobai",19, "180cm");
+      console.log(xiaobai.tall);
+      // (xiaobai);
+
+  </script>
+</html>

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        .ballon{
+          width: 81px;
+          height: 119px;
+          background: url(./image/ballon.png) no-repeat;
+          position: absolute;
+          top: 60px;
+          left: 100px;
+        }
+        body{
+          height: 100%;
+          background: url(./image/timg.jpg);
+          background-size: cover;
+          overflow: hidden;
+        }
+    </style>
+  </head>
+
+  <body>
+      <!-- <div class="ballon">
+
+      </div> -->
+
+      <h1>0</h1>
+      <script>
+          var h1 = document.getElementsByTagName('h1')[0];
+          var fenshu = 0;
+          function  Ballon(){
+              this.top = 600;
+              this.left = Math.random() * 800;
+              // this.score = parseInt(Math.random() * 8);
+              this.score = parseInt(Math.random()*8);
+              this.init();
+              this.fly();
+              var self = this;
+              this.dom.onclick = function(){
+                  self.bomb();
+                  fenshu += self.score;
+                  h1.innerHTML = fenshu;
+                  // console.log(fenshu);
+              }
+          }
+
+          Ballon.prototype.init = function(){
+              this.dom = document.createElement("div");
+              this.dom.className = "ballon";
+              document.body.appendChild(this.dom);
+
+              this.dom.style.left = this.left + "px";
+              // this.x = -(this.score-1) % 4 * 96;
+              this.x = -(this.score) % 4 * 96
+              this.y = -parseInt(this.score / 4) * 120;
+              this.dom.style.backgroundPosition = this.x + "px " + this.y + "px";
+          }
+
+          Ballon.prototype.fly = function(){
+              var self = this;
+              this.timer = setInterval(function(){
+                // 根据分数控制上升的速度
+                  // 会想到分数 和 上升 top 有关系
+
+                  self.top -= self.score;
+                  self.dom.style.top = self.top + "px";
+              },10)
+          }
+
+          // 气球爆破
+          Ballon.prototype.bomb = function(){
+              clearInterval(this.timer);
+              document.body.removeChild(this.dom);
+          }
+
+
+          // var b = new Ballon();
+          // var b = new Ballon();
+          // var b = new Ballon();
+          // var b = new Ballon();
+          // var b = new Ballon();
+          // var oDiv = document.getElementsByTagName("div")[0];
+          // console.log(oDiv);
+          //
+          // var a = 500;
+          // setInterval(function(){
+          //     a--;
+          //     oDiv.style.top = a + "px";
+          // },20)
+
+
+          setInterval(function(){
+            new Ballon();
+          },100)
+      </script>
+  </body>
+</html>

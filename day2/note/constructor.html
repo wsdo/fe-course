@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+    <script>
+        function Dog(){
+
+        }
+        // console.log(Dog.prototype.constructor);
+
+        var shinvbi = new　Dog();
+        // console.log(shinvbi.constructor);
+
+        // 只要是对象，一定有原型对象，就是说只要这个东西时对象，
+        // 那么它一定有__proto__属性。
+        // 世界上只有一个对象没有原型对象，这个对象就是Object.prototype;
+
+        console.log(shinvbi.__proto__.__proto__.constructor);
+
+        // new Array  []
+        //  Object  {}
+        //  是一个函数，是系统内置的构造函数，用于创造对象的，Object.prototype
+        //  是所有对象的原型链终点。
+
+        Object.prototype.hehe = function(){
+            alert("呵呵");
+        }
+
+        // var arr =  [1,2,33,5];
+        // arr.hehe();
+        // shinvbi.hehe();
+
+        
+    </script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      function People(eat,say,sex){
+          this.eat = eat;
+          this.say = say;
+          this.sex = sex;
+      }
+      People.prototype.xingzou = function (){
+          alert("我天生就会行走");
+      }
+
+
+      function Student(eat,say,sex,lol,wangzhe){
+          // this.eat = eat;
+          // this.say = say;
+          // this.sex = sex;
+          // People.call(this,eat,say,sex);
+          People.apply(this,arguments);
+          this.lol = lol;
+          this.wangzhe = wangzhe;
+      }
+      // 核心语句
+      Student.prototype = new People();
+      // Student.prototype = People;
+
+      Student.prototype.name = "xiaoming";
+      // 继承了父类，还可以覆盖重新
+      Student.prototype.say = "我就是小学生";
+
+      Student.prototype.xingzou = function(){
+            alert("我是小学生，会走路");
+      }
+
+      // 有同学说，继承后，打印学生的实例，控制台没有继承的属性？
+
+
+      // 继承后不
+      xiaoming = new Student("小学生要吃饭了","我要打lol","男","放学回家就打lol");
+      console.log(xiaoming);
+      // console.log(xiaoming.lol);
+      // console.log(xiaoming.eat);
+      // xiaoming.xingzou();
+      // console.log(xiaoming.say);
+
+      var daming = new People("我是大明","哈哈哈","llllll");
+        daming.xingzou();
+      // xiaoming.xingzou();
+  </script>
+</html>

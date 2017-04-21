@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div{
+        width: 64px;
+        height: 127px;
+        background: url(image/run.png) no-repeat;
+        background-position: -128px -256px;
+        position: absolute;
+        top: 100px;
+        left:100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="">
+
+    </div> -->
+    <script type="text/javascript">
+        // 第一步首先想到  new
+
+        // 哪些是可以变化的
+        // 变化left的值就会动 此时会跑，僵尸跑
+        // 如果想让小人腿动 需要改变 backgroundPosition 改变它的x轴
+        // 发现小人走了几步就消失了
+        // 然后小人的动作一共有8个从第1个开始，到第七个就消失了
+        // 此时当小人走到第7步的时候让他回到第0个图
+        // 出现小人跑到有边框没有停下，还继续跑
+        // 想让他停下 会想到屏幕的宽度
+        // 想到 left 不变了就会停止在原地踏步，position不动了就停止了
+        // 直接定时器停止就ok了
+
+        // 新建一个对象
+        function Run(left, top){
+          // 初始化top值
+          this.top = top;
+          // 初始化left 这个是在屏幕的哪个位置出现
+          this.left = left;
+          // 创建一个div 就是创建一个小人
+          this.dom = document.createElement("div");
+
+          // 把创建的小人追加到body 也就是页面中
+          document.body.appendChild(this.dom)
+          // 给小人设置left值
+          this.dom.style.left = this.left + "px";
+          // 给小人设置top值，就是距离顶部的距离
+          this.dom.style.top = this.top + "px";
+          this.xingzou = function(){
+              // 变化left的值就会动 此时会跑，僵尸跑
+              // this.dom 相当于小人
+              // this.left = 300;
+            // 想让他一直跑 相当定时器
+            // 定时器里面的this 指向了window window 没有这个left
+            // 备份 this
+            var self = this;
+            self.foot = 1;
+            this.timer = null;
+            this.timer = setInterval(function(){
+                self.left++;
+                self.foot++;
+                // 发现小人走了几步就消失了
+                // 然后小人的动作一共有8个从第1个开始，到第七个就消失了
+                  // 此时当小人走到第7步的时候让他回到第0个图
+                if (self.foot > 7) {
+                  self.foot = 0;
+                }
+                // 变化left的值就会动 此时会跑，僵尸跑
+                self.dom.style.left = self.left + "px";
+                // 如果想让小人腿动 需要改变 backgroundPosition 改变它的x轴
+                self.dom.style.backgroundPosition = -self.foot*64 + "px -256px";
+                // self.dom.style.backgroundPosition = "0px -256px";
+                // 出现小人跑到有边框没有停下，还继续跑
+                if (self.left > 500) {
+                  self.die();
+                }
+                // 想让他停下 会想到屏幕的宽度
+                // 想到 left 不变了就会停止在原地踏步，position不动了就停止了
+                // 直接定时器停止就ok了
+            },20)
+
+            this.die = function(){
+              clearInterval(this.timer);
+              document.body.removeChild(this.dom);
+            }
+          }
+          this.xingzou();
+        }
+      var r =  new Run(10,100);
+      setInterval(function(){
+          new Run(Math.random() * 400, Math.random() * 400);
+      },10)
+
+    </script>
+  </body>
+</html>

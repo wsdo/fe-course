@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      function People(eat,say){
+          this.eat = eat;
+          this.say = say;
+      }
+      People.prototype.xingzou = "我天生就会行走";
+
+      function Student(lol){
+          this.lol = lol;
+      }
+      // 核心语句
+      Student.prototype = new People('我天生就会吃饭','天气真热');
+
+      xiaoming = new Student("放学回家就打lol");
+
+      console.log(xiaoming.lol);
+      console.log(xiaoming.eat);
+      console.log(xiaoming.xingzou);
+  </script>
+</html>

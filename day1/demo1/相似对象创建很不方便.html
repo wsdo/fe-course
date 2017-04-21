@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>new Object 创建对象的方式</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+
+    var obj = new Object(); // 这是一个空对象，里面没有任何属性
+    obj.name = "stark";
+    obj.age = 18;
+    obj.sex = "man";
+
+
+    var person1 = new Object(); // 这是一个空对象，里面没有任何属性
+    person1.name = "stark";
+    person1.age = 18;
+    person1.sex = "man";
+
+    var person2 = new Object(); // 这是一个空对象，里面没有任何属性
+    person2.name = "maxwell";
+    person2.age = 19;
+    person2.sex = "man";
+
+    // console.log(person1);
+    // console.log(person2);
+    // 工厂方法
+    // 原料
+    // 加工
+    // 输出产品
+    function createPerson(name,age,sex){
+      var person = new Object(); // 这是一个空对象，里面没有任何属性
+          person.name = name;
+          person.age = age;
+          person.sex = sex;
+          return person;
+    }
+
+      // var person2 = createPerson();
+      var person2 = createPerson("stark",18,"man");
+      var person1 = createPerson("maxwell",19,"man");
+      // console.log(person2);
+      console.log(person1);
+
+      // 构造函数
+      function CreatePerson(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+      }
+      // 构造函数的执行顺序
+      // 隐秘的创健一个空对象 {}
+      // this就指向这个创建的空对象
+      // 顺序执行函数体里面的语句
+      // 执行完毕之后返回这个对象
+
+      var stark  = new CreatePerson("stark","18","man");
+      console.log(stark.name);
+
+      // 学习了一个新的函数调用方式：使用new 关键词来调用
+      // 此时很有意思，函数不仅仅能够执行，还能返回一个对象。
+      // 我们就称呼这个函数，叫做构造函数，一般的，
+      // 构造函数用大写字母开头，
+
+      // 这个列子中，CreatePerson 取代了 createPerson 函数；
+      // 第二个CreatePerson 明显是开头大写，这是构造函数的惯例，
+      // 为了区分和普通函数的区别，
+      // 因为构造函数也是函数，只不过可以创建对象而已。
+      //
+      // 构造函数和工厂函数的区别？
+
+
+
+  </script>
+</html>

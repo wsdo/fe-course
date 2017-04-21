@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script>
+          function People(name,age){
+              this.name = name;
+              this.age = age;
+          }
+          function Girl(name,age,sex){
+            // People() 普通函数调用
+            // People(name,age);
+            // console.log(this.constructor);
+            this.constructor.apply(this,arguments);
+
+            // this.constructor  = People
+              // People.apply(this,[name,age]);
+              // this.sex = sex;
+              // this.name = name;
+              this.age = age;
+          }
+          Girl.prototype = new People();
+        var g = new  Girl("mary",24,'nv');
+        // console.log(g);
+        console.log(g.name);
+        console.log(g.age);
+        // console.log(window.name);
+        // alert(window.name)
+      </script>
+  </body>
+</html>

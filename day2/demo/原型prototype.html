@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script type="text/javascript">
+        // function Wangzhe(name, property, dialogue){
+        //     this.name = name;
+        //     this.property = property;
+        //     this.dialogue = dialogue;
+        //     this.say = function(){
+        //         alert(this.dialogue);
+        //     }
+        // }
+
+        var anqila = new Wangzhe('安琪拉', '法师', '魔法，为我而存在哦，火烧屁屁咯');
+        var houyi = new Wangzhe('后裔', '射手', '周日被我射熄火了，所以今天是周一');
+
+        // anqila.say();
+
+
+
+        // console.log(anqila.say == houyi.say);
+        // console.log(anqila.say);
+        // console.log(houyi.say);
+
+        // 构造函数最明显的缺点就是，每个方法都要在每个实例上重新创建一遍。
+        // 在这个列子中，
+      // anqila和houyi 都有一个 say 方法，但是这个方法不是同一个function 实例
+      // 额，因此每定义一个函数（也就是实例化一个对象）。
+      // function Wangzhe(name, property, dialogue){
+      //     this.name = name;
+      //     this.property = property;
+      //     this.dialogue = dialogue;
+      //     this.say =  new Function("console.log(this.dialogue)");
+      // }
+      //  这个例子，得出这种创建函数实例化出的对象都包含一个不同 Function实例
+
+      function Wangzhe(name, property, dialogue){
+          this.name = name;
+          this.property = property;
+          this.dialogue = dialogue;
+          this.say = say;
+      }
+
+      function say(){
+        alert(this.dialogue);
+      }
+
+      var anqila = new Wangzhe('安琪拉', '法师', '魔法，为我而存在哦，火烧屁屁咯');
+      var houyi = new Wangzhe('后裔', '射手', '周日被我射熄火了，所以今天是周一');
+
+      console.log(anqila.say == houyi.say);
+
+      // 我想写一个方法数组的元素相加
+      var  arr1 = new Array(12,4,8,19);
+      //   arr1.sum = function(){
+      //     var result = 0;
+      //     for (var i = 0; i < this.length; i++) {
+      //         result += this[i];
+      //     }
+      //     return result;
+      // }
+      var arr2 = new Array(88,99,100,122112);
+      var arr3 = new Array(12321,12321,123,123);
+
+      // alert(arr1.sum());
+      // alert(arr2.sum());
+
+      Array.prototype.sum = function(){
+          var result = 0;
+          for (var i = 0; i < this.length; i++) {
+              result += this[i];
+          }
+          return result;
+      }
+      alert(arr1.sum());
+      alert(arr2.sum());
+      alert(arr3.sum());
+      // 我们把函数放在构造函数的外貌作为全局函数，
+      // 因此anqila 和 houyi 对象就共享了在全局作用域中定义的同一个say函数。
+      // 但是问题来了：在全局作用域中定义的函数实际上只能被某个对象调用，
+      // 这让改全局作用域有点浪费,更让人不能接受的是：如果对象需要定义很多方法，
+      // 那么就要定义很多全局函数，那么我们这个对象就没有封装性可言了。
+      // 因为我们需要另一种高大上的模式， 原型模式 prototype。
+
+
+
+
+
+      </script>
+  </body>
+</html>

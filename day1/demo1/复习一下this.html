@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div{
+        width: 100px;
+        height: 100px;
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+
+    </div>
+  </body>
+  <script type="text/javascript">
+    function fun(){
+      alert(this);
+    }
+    // 直接用()调用函数，函数里面的this指的是window对象
+    // fun();
+
+    // 函数绑定给了一个事件，那么事件发生的时候函数将执行，
+    // this就是触发事件的那个html对象
+    var box = document.getElementById("box");
+    // box.onclick =fun;
+
+    // 用定时器来调用函数，函数里面的this是window
+    // setInterval(fun,1000);
+
+    // 创建一个对象，将这个对象的 haha属性，设置为刚才的fun函数，
+    // 那么用对象的方法来调用的时候，函数里面的this是这个对象。
+    var obj = {
+      name : "stark",
+      sex : "男",
+      haha: fun
+    }
+
+    function stark() {
+       alert(this.sex)
+       alert(this.name)
+    }
+    // stark.apply(obj);
+    // stark.call(obj);
+
+    // obj.haha();
+
+    function xiaoming(a, b, c) {
+        alert(this.name)
+        console.log(a + b +c);
+    }
+
+    // xiaoming.apply(obj,[2,3,4]);
+    // xiaoming.call(obj,2,3,4);
+
+
+    function showInfo(n){
+      for(var i=1; i<=n; i++){
+        console.log(this.name);
+      }
+    }
+
+    showInfo.apply(obj,[10]);
+    showInfo.call(obj,10);
+  </script>
+</html>

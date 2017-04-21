@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+  var obj = {
+      aaa:function(){
+          alert(this);
+      }
+  };
+  var arr = [1,2,3];
+  obj.aaa.call();
+// // 不写任何参数就可以指向window
+//   var obj = {
+//       aaa:function(){
+//           alert(this);
+//       }
+//   };
+//   var arr = [1,2,3];
+//   obj.aaa.call(window);
+//   // apply 也有此写法
+//   var obj = {
+//       aaa:function(){
+//           alert(this);
+//       }
+//   };
+//   var arr = [1,2,3];
+//   obj.aaa.apply();
+  </script>
+</html>
