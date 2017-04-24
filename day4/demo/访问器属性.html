@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      var person = {
+          name : 'stark',
+          get age(){
+              if (this._age > 18) {
+                  return "你才" + this._age + "呢！";
+              }else {
+                return  "你真有眼光，我就是"+ this._age + "岁:)";
+              }
+          },
+          set age(val){
+              this._age = val;
+          }
+      }
+      person.age = 17;
+      console.log(person.age);
+
+      // 在读取访问器属性时，会调用 getter 函数，这个函数负责返回有效的值；
+      // 在写入访问器属性时，会调用 setter 函数并传入新值，
+      // 这个函数负责决定如何处理数据。
+  </script>
+</html>

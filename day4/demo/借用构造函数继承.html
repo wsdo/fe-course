@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>借用构造函数继承</title>
+  </head>
+  <body>
+      <script>
+          function People(name,age){
+              this.name = name;
+              this.age = age;
+          }
+
+          function Girl(name,age,sex){
+            // 直接调用函数 此时的this指向window
+            // People.call(this,name,age);
+            // People.apply(this,[name, age]);
+            People.apply(this,arguments);
+            this.sex = sex;
+          }
+          var mary = new  Girl("mary",24,'girl');
+          // alert(mary.name);
+          // alert(mary.age);
+         console.log(mary.constructor);
+        //  优点：
+        //  解决了子类实例共享父类引用属性问题
+        // 缺点：
+          // 无法实现函数复用，每个子类实例都持有一个新的函数，太多了就会影响性能。
+      </script>
+  </body>
+</html>

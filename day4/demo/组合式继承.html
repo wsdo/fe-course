@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      function Peoples(name, age){
+          this.name = name;
+          this.age = age;
+      }
+
+      function Girl(name, age, sex){
+          // People.apply(this,[name,age]);
+          this.constructor.apply(this,[name,age]);
+          this.sex = sex;
+      }
+
+      Girl.prototype = new Peoples();
+      // Girl.prototype.constructor = People;
+      var mary = new Girl("mary", 24, "girl");
+      // console.log(mary.__proto__);
+      console.log(mary.constructor);
+
+      alert(mary.name);
+
+  </script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      var obj = {
+
+      }
+
+      var obj1 = {
+        name : "刘德华",
+        sayHello : "冷冷的冰雨，在脸上胡乱的拍!"
+      }
+
+      for(var key in obj1){
+          console.log(key);
+          obj[key] = obj1[key];
+      }
+
+      alert(obj.name);
+      alert(obj.sayHello);
+  </script>
+</html>
