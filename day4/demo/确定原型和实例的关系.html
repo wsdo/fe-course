@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+    <script>
+      // 确定原型和实例的关系
+        // instanceof 操作符，
+        // 只要用这个操作符来测试实例与原型链中出现过的构造函数
+        // 结果就会返回 true
+      function Car(){
+
+      }
+
+      function Bmw(){
+
+      }
+
+      Bmw.prototype = new Car(); //继承
+      var X5 = new Bmw();
+
+      // console.log(X5 instanceof Bmw); //true
+      // console.log(X5 instanceof Car); //true
+
+      // 第二种方式
+      // 使用 isPrototypeOf() 方法，同样，只要是原型链中出现过的原型，
+      // 都可以说是该原型所派生的实例的原型，因此 isPrototypeOf()
+      // 方法也会返回 true
+      console.log(Bmw.prototype.isPrototypeOf(X5));
+      console.log(Car.prototype.isPrototypeOf(X5));
+      console.log(Object.prototype.isPrototypeOf(X5));
+
+    </script>
+</html>
