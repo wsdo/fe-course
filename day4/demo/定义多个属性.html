@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      var  person = {};
+      Object.defineProperties(person, {
+          name : {
+              set : function(value){
+                  if (value == "stark") {
+                      this._name = "没错，我的名字就是" + value +" wang";
+                  }else {
+                      this._name = "老兄，你把我的名字记错了";
+                  }
+              },
+              get : function(){
+                  return this._name;
+              }
+          },
+          age : {
+              set : function(value){
+                  if (value > 18) {
+                      this._age = "人家还小呢！";
+                  } else {
+                      this._age = "我今年" + value + "岁:)";
+                  }
+              },
+              get : function(){
+                  return this._age;
+              }
+            }
+      })
+
+      // person.name = "stark";
+      // console.log(person.name);
+      // person.age = 26;
+      // console.log(person.age);
+      person.age = 17;
+      console.log(person.age);
+  </script>
+</html>

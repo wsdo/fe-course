@@ -36,4 +36,20 @@
     访问器属性
         访问器属性不包含数据值
         它包含一对 getter  setter 函数，这个函数负责返回有效值
-      
+
+
+              // 在读取访问器属性时，会调用 getter 函数，这个函数负责返回有效的值；
+              // 在写入访问器属性时，会调用 setter 函数并传入新值，
+              // 这个函数负责决定如何处理数据。
+    定义多个属性
+    Object.defineProperties();
+
+    var  person = {};
+    Object.defineProperties(person, {
+        name : {
+
+        },
+        age : {
+
+        }
+    })
