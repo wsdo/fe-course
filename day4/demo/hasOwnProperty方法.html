@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      var obj = {
+         a : "canglaoshi",
+         b : "xiaobai",
+         c : "zhoujielun"
+      }
+
+      obj.__proto__ = {
+          d : 5
+      }
+      Object.prototype.f = "天海翼";
+
+      console.log(obj.hasOwnProperty("a")); //true
+      console.log(obj.hasOwnProperty("b")); //true
+      console.log(obj.hasOwnProperty("c")); //true
+      console.log(obj.hasOwnProperty("d")); //false
+      console.log(obj.hasOwnProperty("e")); //false
+      console.log(obj.hasOwnProperty("f")); //false
+
+      // 这个方法定义在 Object.prototype 对象上面，
+      // 所以任何一个Object 都能够拥有这个方法。
+      // 这个方法返回 布尔值，表示自己是否拥有这个属性，不考虑原型链。
+      // 就看自己身上有没有这个属性，不进行原型链查找
+
+      for( var k in obj){
+          obj.hasOwnProperty(k) && console.log("自己身上的属性" + k + '----' + obj[k]);
+      }
+  </script>
+</html>

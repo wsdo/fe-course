@@ -8,7 +8,7 @@
 
   </body>
   <script>
-      // in
+
       var obj = {
           a : 1,
           b : "hehe",
@@ -20,6 +20,7 @@
       }
       // in 操作符 返回一个布尔值，表示这个属性是不是对象的属性
       Object.prototype.f = "天海翼";
+
       console.log("a" in obj);  //true
       console.log("b" in obj);  //true
       console.log("e" in obj);  //true
@@ -28,5 +29,10 @@
 
       // in 不仅仅检测是对象自己有没有这个属性，如果原型链上有这个属性，那么也会返回true。
       // 整个原型链如果没有这个属性，就返回false，也就是说，in操作符会进行原型链查找。
+
+      for(var k in obj){
+          // console.log(k + "----" + obj[k]);
+          
+      }
   </script>
 </html>
