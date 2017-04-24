@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      function People(eat,say){
+          this.eat = eat;
+          this.say = say;
+          this.skill = ['javascript', 'java', 'Python', 'php'];
+      }
+      People.prototype.xingzou = "我天生就会行走";
+
+      function Student(lol){
+          this.lol = lol;
+      }
+      // 核心语句
+      Student.prototype = new People('我天生就会吃饭','天气真热');
+
+      xiaoming = new Student("放学回家就打lol");
+      // alert(xiaoming.eat);
+      // alert(xiaoming.skill);
+      xiaoming.skill.push("golang");
+      alert("xiaoming同学的技能" + xiaoming.skill);
+      console.log(xiaoming.lol);
+      console.log(xiaoming.eat);
+      console.log(xiaoming.xingzou);
+
+      xiaobai = new Student("王者荣耀");
+      alert("小白同学的技能" +　xiaobai.skill)
+
+      // 在xiaobai实例身上修改的 People.skill 后 Student.skill 也变了，
+      // 因为来自原型对象的引用属性是所有实例共享的。
+      // 可以这样理解：执行xiaoming.skill.push("golang");
+      // 先对xiaoming进行属性查找,找遍了实例属性,没找到，就开始往原型身上查找，
+      // 拿到了People.prototype 的 skill 发现有 skill属性，
+      // 于是就给这个 skill 末尾插入了 golang 。
+      // 此时此刻小白同学 的skill 通过查找原型对象，
+      // 直到People.prototype 的skill 属性返回
+  </script>
+</html>

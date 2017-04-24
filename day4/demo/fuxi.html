@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script type="text/javascript">
+            // 复习
+            // 对象创建
+            字面量 {}
+            new Object()
+
+            // 工厂函数
+            function people (){
+                var obj = new Object();
+                    obj.name = "stark";
+                    obj.age = 18;
+                return obj;
+            }
+
+            // 构造函数
+            function People (name, age, sex){
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+            第一步创建一个隐秘的空对象
+            按顺序执行语句
+            返回这个对象
+
+            使用 new People("stark", 18, "man");
+
+            prototype 原型
+              任何一个函数都有这个属性
+              对于普通函数，并没有什么鸟用
+              对构造函数，有极大的用处
+
+              用 点语法设置值
+
+            function Person(){
+
+            }
+            var p = new Person();
+
+            Person() 是构造函数
+            p 是实例 拥有__proto__ 属性
+            原型链 p.__proto__.__proto__   ->   Object()
+
+            Object() 没有 __proto__
+            Object() 有 constructor  -> Function
+
+            Person.prototype  == p.__proto__
+
+            原型对象Person.prototype 拥有 constructor 属性
+
+            Person.prototype.constructor -> Person() 构造函数
+
+            原型链查找，当访问一个属性的时候，
+            如果自己身上没有这个属性就去原型上面搜索，
+            如果在原型身上搜索到了，就当做就自己的属性返回
+
+            p.constructor 本身并没有这个属性，然后去原型身上查找，
+            找原型身上constructor执行的值并且返回。
+
+            // 继承
+            // 第一种 原型链继承
+            function People(name,age){
+                this.name = name;
+                this.age = age;
+            }
+
+            function Status(){
+
+            }
+
+            // 核心语句
+            // Status.prototype = new People();
+            var temp = new People();
+            Status.prototype = temp;
+
+            第二种 借用构造函数继承
+
+            function People(name,age){
+                this.name = name;
+                this.age = age;
+            }
+
+            function Status(){
+                People.call(this,name,age);
+                People.apply(this,[name,age]);
+            }
+
+            // 核心语句
+            // Status.prototype = new People();
+
+            第三种 组合式继承
+            function People(name,age){
+                this.name = name;
+                this.age = age;
+            }
+
+            function Status(){
+                People.call(this,name,age);
+                // People.apply(this,[name,age]);
+                // 优化
+                // People.apply(this,arguments);
+                this.constructor.apply(this,arguments);
+
+            }
+            // 核心语句
+            Status.prototype = new People();
+            // Status.prototype.constructor = People;
+
+            // 反弹案列
+
+      </script>
+  </body>
+</html>
