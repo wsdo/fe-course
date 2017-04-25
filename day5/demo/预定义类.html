@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+        // \d [0-9] 数字字符
+
+        // var reg = /\d/;
+        // console.log(reg.test("asas12"));
+        // \D [^0-9] 非数字字符
+        // var reg = /\D/;
+        // console.log(reg.test("9asklaskl12912912"));
+
+        // \s 空白字符
+        // var reg = /\s/;
+        // console.log(reg.test("asa asda")); //true
+        // console.log(reg.test("asda"));
+
+        // \S 非空白字符
+        var reg = /\S/ //只要满足一种条件就会返回true
+        // console.log(reg.test("ajssji")); // true
+        // console.log(reg.test(" ")); // false
+        // console.log(reg.test("asads asda")); // true
+
+        // 空白字符就是 空格
+        // 非空白字符就是 除了空格之外
+        // 比如 asas 这种字符就是非空格
+
+        // /w  /[a-zA-Z0-9]/  包含大小写字母和数字
+
+        var reg = /\w/;
+        // console.log(reg.test("1211212"));  //true
+        // console.log(reg.test("aasasa")); // true
+        // console.log(reg.test("AADSAS")); //true
+        // console.log(reg.test("AADasasa123213SAS")); //true
+        // console.log(reg.test(" ")); //false
+        // console.log(reg.test("!@#$%^$*%")); //false
+
+        // \W /[^a-zA-Z0-9]/ 不包含大小写字母和数字
+
+        var reg = /\W/;
+        console.log(reg.test("asjasji")); //fasle
+        console.log(reg.test("13123212")); //fasle
+        console.log(reg.test("AASASDASD")); //fasle
+        console.log(reg.test("AA1231212xsdfdsSASDASD")); //fasle
+        console.log(reg.test(" ")); //true
+        console.log(reg.test("@#@#$^#$$#")); //true
+    </script>
+  </body>
+</html>

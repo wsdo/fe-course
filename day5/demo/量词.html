@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>量词</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        // ？出现量词零次或一次
+        // + 出现一次或多次 至少出现一次
+        var reg = /\s?/;
+        // console.log(reg.test("asaas")); //true
+
+        var reg = /\s+/;
+        // console.log(reg.test("stark")); //false
+
+        // * 出现零次或多次 （包含零次）
+        // var reg = /\s*/
+        // console.log(reg.test("asasa")); //true
+
+        // {n} 出现n次
+        // {n,m} 出现n到m次
+        // {n,} 至少出现n次
+
+        var reg = /\s{2,4}/;
+        // console.log(reg.test("j  assa j "));
+
+        var reg = /\s{2}/;
+        // console.log(reg.test("jas   sa j "));
+
+        var reg = /\s{5,}/
+        console.log(reg.test("asdas    asasas"));
+
+
+    </script>
+  </body>
+</html>
