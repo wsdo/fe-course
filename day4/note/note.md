@@ -53,3 +53,6 @@
 
         }
     })
+
+    长期存储密码 
+    git config --global credential.helper store
