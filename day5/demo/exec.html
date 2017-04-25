@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script>
+        var reg = /abc/g;
+        var str = "aaaajjjabckkkkabclll";
+        var reg1 =  new RegExp('abc','g');
+        console.log(reg1.exec(str));
+
+        // 它是这则对象的方法
+        正则表达式我们有两种创建方式
+        字面量形式： var reg = /abc/g
+        实例化形式： var reg = new RegExp('abc','g');
+        表示创建一个匹配 abc 字符串的正则对象
+
+        使用exec方式： reg.exec();
+        
+      </script>
+  </body>
+</html>
