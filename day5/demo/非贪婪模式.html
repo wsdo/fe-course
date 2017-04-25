@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    // ？出现量词零次或一次
+    // 非贪婪模式
+
+    // 贪婪
+    var reg = /a+/
+    // console.log(reg.exec('aaaab')[0]); //aaaa
+    //非贪婪
+    var reg = /a+?/
+    // console.log(reg.exec('aaaab')[0]);//a
+    console.log(reg.exec('bbbxb'));//
+
+  </script>
+</html>
