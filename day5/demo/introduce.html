@@ -9,5 +9,27 @@
   </body>
   <script type="text/javascript">
       // 正则表达式介绍
+      // 正则表达式 （regular expression） 是一个描述字符模式的对象。
+      // javascript 的 RegExp 类表示正则表达式
+      //
+      // 正则表达式的定义
+      // javascript中的正则表达式用RegExp对象表示，可以使用 RegExp()
+      // 构造函数来创建 RegExp 对象，不过 RegExp
+      // 对象更多的是通过一种特殊的直接量语法来创建
+
+
+      var pattern = /d$/;
+
+      console.log(typeof pattern);
+      console.log(pattern.constructor);
+
+      var pattern = new RegExp("w$");
+
+
+      今天我们学习 6个方法
+      正则相关 exec  test
+      字符串相关方法： search match split replace
+
+      
   </script>
 </html>

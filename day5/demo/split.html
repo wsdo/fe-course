@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        var str = "a  b    c";
+        // console.log(str.split('  '));
+        console.log(str.split(/\s+/));
+        // split 用来分割字符串为数组
+        // 此时\s 表示空白字符  + 表示 出现一次或多次（至少要出现一次）
+        //
+        // 当我们不能用一个完整的字符串表达这个切割符号的时候，
+        // 但是我们能提炼换一个规则来切割，
+        // 此时我们就可以用正则表达式表示这个规则，来切割字符串
+        // str.split(/\s+/)
+
+        console.log('===================');
+
+        var str2 = "bbaaccdddddaeeadaseeeef";
+        console.log(str2.split(/a+/));
+
+    </script>
+
+  </body>
+</html>
