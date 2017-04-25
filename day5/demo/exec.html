@@ -10,15 +10,24 @@
         var str = "aaaajjjabckkkkabclll";
         var reg1 =  new RegExp('abc','g');
         console.log(reg1.exec(str));
+        console.log(reg1.lastIndex);
+        console.log(reg1.exec(str));
+        console.log(reg1.lastIndex);
+        console.log(reg1.exec(str));
+        console.log(reg1.lastIndex);
 
         // 它是这则对象的方法
-        正则表达式我们有两种创建方式
-        字面量形式： var reg = /abc/g
-        实例化形式： var reg = new RegExp('abc','g');
-        表示创建一个匹配 abc 字符串的正则对象
+        // 正则表达式我们有两种创建方式
+        // 字面量形式： var reg = /abc/g
+        // 实例化形式： var reg = new RegExp('abc','g');
+        // 表示创建一个匹配 abc 字符串的正则对象
+        //
+        // 使用exec方式： reg.exec();
 
-        使用exec方式： reg.exec();
-        
+        // 不管正则表达式是否具有全局修饰符 g
+        // exec 都会返回同一样的数组
+
+        // lastIndex 每次调用后这个都会变化
       </script>
   </body>
 </html>
