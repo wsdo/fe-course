@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      var str = 'abcde';
+      // 打算匹配cd 在str变量里面首次出现的位置
+      console.log(str.indexOf('cd'));
+      console.log("============");
+      console.log(str.search('cd'));
+      console.log("=============");
+      console.log(str.search(/cd/));
+      console.log("=============");
+      console.log(str.search(/ff/));
+
+      // search 用来寻找字符或者字符串中的位置，
+      // 我们可以传递字符串，也可以传递字符。
+      // 它的参数是一个正则表达式，返回第一个与之匹配的字符串的起始位置，
+      // 如果找不到匹配的字符串，它将返回-1。
+      //
+      // indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+  </script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>match</title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+      var str = 'abbccccddddeeeefffbbbsssbbsbb';
+      var str = 'xiaobai晚上回家看小电影,小电影很好看';
+      console.log(str.match(/小电影/g));
+      // console.log(str.match(/bb/g));
+      // console.log(str.match('小电影'));
+
+    // 在字符串中寻找匹配的字符串，他是一个字符串方法，
+    // 参数是匹配的 字符串 或者  匹配规则
+    // g 表示全局匹配  str.match(/bb/g)
+    // 当不加g 全局的时候，
+    // 第一个参数值是 匹配的规则或字符 文本
+    // 第二个参数值是 返回匹配的位置 属性是index
+    // 第三个参数值是 返回匹配的所有内容 属性是input
+    // [
+    //   "小电影",
+    //   index: 12,
+    //   input: "xiaobai晚上回家看小电影,小电影很好看"
+    // ]
+
+    // 加上g全局的时候，返回匹配的具体内容是数组形式
+    // ["小电影", "小电影"]
+  </script>
+</html>

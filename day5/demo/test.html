@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+    <script>
+        var reg = /hello/;
+        var str = 'hello stark';
+
+        console.log(reg.test(str));
+
+        var demo = prompt('不准输入空格');
+        alert(!(/\s/.test(demo)));
+
+        // 它是正则对象的一个方法
+        //   他表示该字符串是否匹配我们的规则
+        //   返回 布尔值 如果匹配到 就返回true
+        //   如果没匹配到就返回 false
+    </script>
+</html>

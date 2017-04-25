@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+    <script type="text/javascript">
+        // g 表示全局匹配
+        var str = "starkjjjjssasaastark";
+        // console.log(str.match(/stark/)); //["stark", index: 0, input: "starkjjjjssasaastark"]
+        // console.log(str.match(/stark/g)); //["stark", "stark"]
+
+        // i 表示忽略大小写
+
+        var str = "hello SHUDONG";
+        console.log(str.match(/shudong/)); //null
+        console.log(str.match(/shudong/i)); //["SHUDONG", index: 6, input: "hello SHUDONG"]
+
+
+    </script>
+</html>
