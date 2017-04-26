@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      // 在登录用户或注册用户名的时候，避免不必要的错误，
+      // 需要在你输入的字符串前后去掉空格
+      // var str = " stark.wang ";
+      var str2 = " shudong  wang ";
+      // 函数
+      String.prototype.trim = function(){
+          // return this.replace(/\s+/g,'');
+          return this.replace(/^\s\w+\s$/g,'');
+      }
+
+      // console.log(str.trim()); //stark.wang
+      console.log(str2.trim()); //shudongwang
+
+
+  </script>
+</html>

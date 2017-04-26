@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      var reg = /^1[3578]\d{9}$/;
+      var str = prompt("请输入手机号");
+      if (reg.test(str)) {
+          alert('手机号验证成功')
+      }else{
+          alert("失败");
+      }
+  </script>
+</html>

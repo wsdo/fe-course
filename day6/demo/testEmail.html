@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script type="text/javascript">
+          //验证邮箱
+          // 要有@符号
+          // @前面至少有一位
+          // @前面不能有特殊符号
+          // 只能有一个@
+          // 不能有空格
+          // 以字母开头
+          // 以字母结尾
+          // @与.之间还有字符
+          // .之后还有后缀字符
+        var reg = /^\w+@\w+\.[a-z]{2,4}$/
+        var str = prompt('请输入邮箱');
+        if (reg.test(str)) {
+            alert("邮箱验证成功");
+        }else {
+            alert("请输入正确的邮箱");
+        }
+      </script>
+  </body>
+</html>
