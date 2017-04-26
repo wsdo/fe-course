@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        *{
+          margin: 0;
+          padding: 0;
+        }
+        div{
+          width: 600px;
+          height: 400px;
+          border: 1px solid #000;
+          margin: 100px;
+          position: relative;
+        }
+        p{
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          background-color: red;
+          border-radius: 50%;
+          top: 100px;
+          left: 100px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="" id="box">
+        <!-- <p></p> -->
+    </div>
+  </body>
+    <script>
+        // 小球运动
+        //   怎么能让小球运动？
+        //   x
+        //   y
+        //   改变x 轴和 y 轴 的距离就会让小球动起来
+        // 获取小球的dom
+        var box = document.getElementById("box");
+        function Ball(left,top){
+            // 小球的直径
+            this.d = 30;
+            // 初始化left 值，如果没有传这个参数，就取后面的随机数。
+            this.left = left || Math.random() * (box.clientWidth  - this.d)
+            // 初始化top 值，如果没有传这个参数，就取后面的随机数。
+            this.top = top || Math.random() * (box.clientHeight - this.d);
+            // 初始化x坐标轴值
+            this.x = parseInt(Math.random() * 11) -5;
+            // 初始化y坐标轴值
+            this.y = parseInt(Math.random() * 11) -5;
+            // 初始化
+            this.init();
+            this.move();
+        }
+
+        // 初始化
+        Ball.prototype.init = function(){
+            this.dom = document.createElement("p");
+            box.appendChild(this.dom);
+        }
+
+        // 渲染小球
+        Ball.prototype.render = function(){
+            this.dom.style.left = this.left + "px";
+            this.dom.style.top = this.top + "px";
+        }
+
+        //   改变x 轴和 y 轴 的距离就会让小球动起来
+        Ball.prototype.move = function(){
+            var self = this;
+            this.timer = setInterval(function(){
+                self.left += self.x;
+                self.top += self.y;
+                // 碰到边框反弹
+                // 当小球碰到底部或顶部 改变y轴的位移方向
+                if (self.top >= box.clientHeight - self.d || self.top <= 0) {
+                    self.y = -self.y;
+                }
+
+                // 当小球碰到左边或右边 改变x轴位移方向
+                if (
+                  self.left >= box.clientWidth - self.d
+                  || self.left  <= 0
+                ) {
+                    self.x = -self.x;
+                }
+                self.render();
+            },10)
+        }
+
+        var b = new Ball();
+        var b = new Ball();
+        var b = new Ball();
+        var b = new Ball();
+    </script>
+</html>
