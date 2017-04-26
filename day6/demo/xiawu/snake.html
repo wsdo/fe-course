@@ -22,25 +22,27 @@
     </table>
   </body>
     <script type="text/javascript">
-          // 绘制地图
+    // 绘制地图
     var table = document.getElementById("table");
-    var maxTable = 20;
-    var tds = [];
-    for(var i = 0;i < maxTable; i++){
+    var maxTable = 20; //最大表格
+    var tds = []; //把表格都存为二维数组 方便蛇身读取
+    for(var i = 0; i < maxTable; i++){
         var tr = document.createElement("tr");
-        var thisrowid= [];
+        // 声明一个空数组，用来存放里面的td
+        var thisrowid = [];
         for(var j = 0; j < maxTable; j++){
             var td = document.createElement("td");
             tr.appendChild(td);
             // 把td追加到里面行的数组
             thisrowid.push(td);
         }
+        // console.log(thisrowid);
         // 把行和列的数组追加到一个新的数组
         tds.push(thisrowid);
         table.appendChild(tr);
     }
-    // console.log(tds);
-      tds[4][4].className = "red";
+    console.log(tds);
+      // tds[4][4].className = "red";
       // tds[4][5].className = "red";
       // tds[4][6].className = "red";
       // tds[4][7].className = "red";
@@ -53,10 +55,13 @@
             {x:4,y:5}
           ];
 
-          this.render();
+          // this.render();
+          // this.bingEvent();
+          this.direction = "right";
       }
 
       Snake.prototype.render = function(){
+          // 每一秒清空所有的className 的名字
           for(var i = 0; i < maxTable; i++){
               for(var j = 0; j < maxTable; j++){
                   tds[i][j].className = "";
@@ -65,24 +70,92 @@
           // 渲染小蛇
           // 画出一条蛇
           for(var i = 0; i < this.bodyArr.length; i++){
-            console.log(this.bodyArr[i].x);
               tds[this.bodyArr[i].x][this.bodyArr[i].y].className = "red";
           }
       }
-          // 让蛇动起来
+      // 让蛇动起来
       Snake.prototype.move = function(){
           this.bodyArr.pop(); //删除尾巴
-          this.bodyArr.unshift({
-            x : this.bodyArr[0].x ,
-            y : this.bodyArr[0].y + 1
-          })
-      }
+          // this.bodyArr.unshift({
+          //   x : this.bodyArr[0].x + 1,
+          //   y : this.bodyArr[0].y
+          // })
           // 让蛇能改变方向
+          switch (this.direction) {
+            case "right":
+                this.bodyArr.unshift({
+                  x : this.bodyArr[0].x,
+                  y : this.bodyArr[0].y + 1
+                })
+
+              break;
+            case "up":
+                this.bodyArr.unshift({
+                  x : this.bodyArr[0].x -1,
+                  y : this.bodyArr[0].y
+                })
+
+              break;
+            case "down":
+                this.bodyArr.unshift({
+                  x : this.bodyArr[0].x +1,
+                  y : this.bodyArr[0].y
+                })
+
+              break;
+            case "left":
+                this.bodyArr.unshift({
+                  x : this.bodyArr[0].x,
+                  y : this.bodyArr[0].y - 1
+                })
+
+              break;
+            default:
+
+          }
+      }
+
+      Snake.prototype.bingEvent = function(){
+          var self = this;
+          document.onkeydown = function(event){
+              event = event || window.event;
+              switch (event.keyCode) {
+                case 37:
+                    if (self.direction == "right") {
+                        return;
+                    }
+                    self.direction = "left";
+                  break;
+                case 38:
+                    if (self.direction == "down") {
+                        return;
+                    }
+                    self.direction = "up";
+                  break;
+                case 39:
+                    if (self.direction == "left") {
+                        return;
+                    }
+                    self.direction = "right";
+                  break;
+                case 40:
+                    if (self.direction == "up") {
+                        return;
+                    }
+                    self.direction = "down";
+                  break;
+                default:
+
+              }
+
+          }
+      }
+
+
           //
           // 随机绘制一个食物
           // 蛇吃到食物会加长 然后 食物消失，
           // 又重新随机出现一个食物
-          //
           // 蛇不能掉头
           // 不能吃到自己
           // 不能碰到边界
