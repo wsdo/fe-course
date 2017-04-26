@@ -14,8 +14,8 @@
       var str2 = " shudong  wang ";
       // 函数
       String.prototype.trim = function(){
-          // return this.replace(/\s+/g,'');
-          return this.replace(/^\s\w+\s$/g,'');
+          // return this.replace(/\s+/g,''); 去掉所有空格
+          return this.replace(/^\s|\s$/g,''); 去掉首尾
       }
 
       // console.log(str.trim()); //stark.wang
