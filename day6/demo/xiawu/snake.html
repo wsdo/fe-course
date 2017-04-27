@@ -14,6 +14,9 @@
       .red{
         background-color: red;
       }
+      .blue{
+        background-color: blue;
+      }
     </style>
   </head>
   <body>
@@ -41,7 +44,7 @@
         tds.push(thisrowid);
         table.appendChild(tr);
     }
-    console.log(tds);
+    // console.log(tds);
       // tds[4][4].className = "red";
       // tds[4][5].className = "red";
       // tds[4][6].className = "red";
@@ -55,8 +58,8 @@
             {x:4,y:5}
           ];
 
-          // this.render();
-          // this.bingEvent();
+          this.render();
+          this.bingEvent();
           this.direction = "right";
       }
 
@@ -70,7 +73,10 @@
           // 渲染小蛇
           // 画出一条蛇
           for(var i = 0; i < this.bodyArr.length; i++){
-              tds[this.bodyArr[i].x][this.bodyArr[i].y].className = "red";
+              tds[this.bodyArr[i].x][this.bodyArr[i].y].className = "blue";
+              // this.bodyArr[i].x
+              // this.bodyArr[i].y
+              // tds[][].className = "blue";
           }
       }
       // 让蛇动起来
@@ -113,6 +119,14 @@
             default:
 
           }
+          // 蛇头 和食物的x坐标 y左边相等
+          // 表示蛇吃到食物了此时就调用长大方法
+          if (this.bodyArr[0].x == food.foodx && this.bodyArr[0].y == food.foody) {
+              // 食物改变位置
+              food.change();
+              // 小蛇自己长大一个td
+              this.growup();
+          }
       }
 
       Snake.prototype.bingEvent = function(){
@@ -151,7 +165,64 @@
           }
       }
 
+      // 创建了食物
+      function Food(foodx, foody){
+          // 调用食物自己的改变方法
+          this.change();
+      }
+      // 渲染食物
+      Food.prototype.render = function(){
+          tds[this.foodx][this.foody].className = "red";
+      }
 
+      // 蛇长大方法 就是在蛇头添加一个td，蛇尾不减少
+      Snake.prototype.growup = function(){
+        switch (this.direction) {
+          case "right":
+              this.bodyArr.unshift({
+                x : this.bodyArr[0].x,
+                y : this.bodyArr[0].y + 1
+              })
+            break;
+          case "up":
+              this.bodyArr.unshift({
+                x : this.bodyArr[0].x -1,
+                y : this.bodyArr[0].y
+              })
+
+            break;
+          case "down":
+              this.bodyArr.unshift({
+                x : this.bodyArr[0].x +1,
+                y : this.bodyArr[0].y
+              })
+
+            break;
+          case "left":
+              this.bodyArr.unshift({
+                x : this.bodyArr[0].x,
+                y : this.bodyArr[0].y - 1
+              })
+
+            break;
+          default:
+
+        }
+      }
+
+      Food.prototype.change = function(){
+        // 随机绘制食物的位置
+        this.foodx = parseInt(Math.random() * maxTable);
+        this.foody = parseInt(Math.random() * maxTable);
+
+        // 食物不能出现在自己的身上
+        for (var i = 0; i < snake.bodyArr.length; i++) {
+            if (this.foodx == snake.bodyArr[i].x && this.foody == snake.bodyArr[i].y)
+                this.change();
+                // alert("食物出现在自己的身上了");
+            }
+        // }
+      }
           //
           // 随机绘制一个食物
           // 蛇吃到食物会加长 然后 食物消失，
@@ -162,9 +233,29 @@
           // 食物出现的位置不能在蛇身上
           // 分数
           var snake = new Snake();
-          setInterval(function(){
-              snake.move();
-              snake.render();
+          var food = new Food();
+          var timer =  setInterval(function(){
+              if (
+                // 碰到右边框
+                snake.bodyArr[0].y > maxTable - 2
+                ||
+                // 碰到底边框
+                snake.bodyArr[0].x > maxTable - 2
+                ||
+                // 碰到左边框
+                snake.bodyArr[0].x < 1
+                ||
+                // 碰到上边框
+                snake.bodyArr[0].y < 1
+              ) {
+                  clearInterval(timer);
+                  alert("game over");
+                  return;
+              }else {
+                snake.move();
+                snake.render();
+                food.render();
+              }
           },1000)
     </script>
 </html>

@@ -1,3 +1,4 @@
+git fetch origin
 git checkout zhengze
 git pull
 
