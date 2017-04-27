@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+    <script type="text/javascript">
+        var reg = /how(are)you(wo)hen(hao)\1hehe\2heihei\3haha/;
+        console.log(reg.test("howareyouwohenhaoarehehewoheiheihaohaha asdassa"));
+
+
+        var result = 'mingxing杰森斯坦森范迪塞尔保罗'.replace(/mingxing(杰森斯坦森)(范迪塞尔)(保罗)/,function(match,$1,$2,$3){
+              return "他们都是速度与激情8的主角："+$1+'、'+$2+'、'+$3+
+              "最喜欢" + $2;
+        })
+        console.log(result); //abcd----fi---cd
+    </script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        html{
+          font-size: 20px;
+        }
+        .content{
+          float: left;
+          width: 2.5rem;
+          height: 2.5rem;
+          background: #36a1ff;
+          text-align: center;
+          line-height: 2.5rem;
+          font-size: 1.5rem;
+          border: 3px solid #d2d2d2;
+        }
+    </style>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      function LmBtn(min, max, dom){
+          this.min = min;
+          this.max = max;
+          this.chooseNum = 0;
+          this.createView = function(){
+              var bgView = document.createElement("div");
+              var lessButton = document.createElement("p");
+              var numlabel = document.createElement("p");
+              var moreButton = document.createElement("p");
+              lessButton.className = "content";
+              numlabel.className = "content";
+              moreButton.className = "content";
+              numlabel.textContent = this.chooseNum;
+              lessButton.textContent = "-";
+              moreButton.textContent = "+";
+              bgView.appendChild(lessButton);
+              bgView.appendChild(numlabel);
+              bgView.appendChild(moreButton);
+              dom.appendChild(bgView);
+              var self = this;
+              lessButton.onclick = function(){
+                  if (self.chooseNum == self.min) {
+                      self.chooseNum = self.min + 1;
+                  }
+                  numlabel.textContent = --self.chooseNum;
+              }
+
+              moreButton.onclick = function(){
+                if (self.chooseNum == self.max) {
+                    self.chooseNum = self.max -1;
+                }
+                  numlabel.textContent = ++self.chooseNum;
+              }
+          }
+          this.createView();
+      }
+
+      var lmbtn = new LmBtn(0, 10,document.body);
+      // lmbtn.cr
+  </script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+  var reg = /\d{2,4}/; //贪婪模式
+  console.log(reg.exec('12345678')); //1234
+  // ["1234", index: 0, input: "12345678"]
+
+  console.log(reg.exec('112313121')[0]); //1223
+  // 这样方便大家看
+  console.log("===============");
+
+  </script>
+</html>

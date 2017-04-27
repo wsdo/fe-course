@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script type="text/javascript">
+      // ？ 经常和 +  在一块使用  +？ 
+        // {n,m} 匹配范围n到m个
+        // 贪婪 是 比较贪，能匹配到最多就匹配最多的;
+          var reg = /\d{2,4}/; //贪婪模式
+          console.log(reg.exec('12345678')[0]); //1234
+          console.log(reg.exec('112313121')[0]); //1223
+          console.log("===============");
+          // ？非贪婪模式  匹配最少原则
+          var reg = /\d{2,4}?/;
+          console.log(reg.exec('12345678')[0]); //12
+
+          console.log("==============");
+
+          var reg = /\d{2,}/;
+          console.log(reg.exec('12345678')[0]); //12345678
+
+
+          var reg = /\d{2,}?/;
+          console.log(reg.exec('12345678')[0]); //12
+
+          console.log("=========");
+          var reg = /\d{2}/;
+          console.log(reg.exec('12345678')[0]); //12
+
+      </script>
+  </body>
+</html>

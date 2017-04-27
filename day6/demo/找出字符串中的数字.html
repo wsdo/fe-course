@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <script type="text/javascript">
+          var str = "jintianshi2017nian4yue26hao";
+          // 把里面的数字提取出来
+          // 用之前学过的字符串方法写出来
+          var tmp = '';
+          function fundNum(str){
+              for (var i = 0; i < str.length; i++) {
+                  if (str.charAt(i) <= '9' && str.charAt(i) >= '0') {
+                      // console.log(str.charAt(i));
+                      tmp += str.charAt(i);
+                  }
+              }
+              return tmp;
+          }
+          console.log(fundNum(str));//2017426
+          function fundNum1(str){
+              return str.match(/\d+/g).join('');
+          }
+          console.log(fundNum1(str));//2017426
+
+      </script>
+  </body>
+</html>
