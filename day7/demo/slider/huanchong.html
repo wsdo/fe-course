@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        // 第一个参数是 t 表示当前的帧编号
+        // 第二个参数是 b 表示起始位置
+        // 第三个参数是 c 表示变化量
+        // 第四个参数是 d 表示总帧数
+        //
+        // 我们的盒子的初始位置是100，想让盒子在3000毫秒的时候，
+        // 移动到700 间隔时间20毫秒，总帧数是150帧
+
+        // linear(1, 100, 600, 150) //104
+        // linear(2, 100, 600, 150) //108
+        // linear(3, 100, 600, 150) //112
+        // linear(4, 100, 600, 150) //116
+        function linear(t,b,c,d){
+            return c * t / d + b;
+        }
+
+        // setInterval(function(){
+        //
+        // },20)
+    </script>
+</html>
