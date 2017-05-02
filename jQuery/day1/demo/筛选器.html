@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="./jquery.js" charset="utf-8"></script>
+        <style media="screen">
+            p{
+                width: 60px;
+                height: 60px;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+    </body>
+    <script type="text/javascript">
+        // $("p").css("background-color","red"); //选择所有
+        // $("p:first").css("background-color","red") //选择第一个
+        // $("p:last").css("background-color","red") //选择最后一个
+        // $("p:eq(3)").css("background-color","red") //选择第四个
+        // 匹配所有大于给定索引值的元素
+        // $("p:gt(2)").css("background-color","red") //选择第2个之后的所有元素
+        // 选择小于所有给定的索引值
+        // $("p:lt(3)").css("background-color","red") //选择第4个之前的所有元素
+
+        // $("p:odd").css("background-color","red") //选择奇数行的所有元素
+        $("p:even").css("background-color","red") //选择偶数行的所有元素
+
+
+        // var a = 2;
+        // $("p").eq(a).css("background-color","red");
+    </script>
+</html>

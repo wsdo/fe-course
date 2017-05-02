@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script> -->
+        <script src="./jquery.js"></script>
+        <style media="screen">
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: #ededed;
+                position: absolute;
+                top: 100px;
+                left: 100px;
+            }
+            #box1{
+                width: 600px;
+                height: 50px;
+                background-color: #ededed;
+                color: #000;
+            }
+            #box1 ul li{
+                float: left;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                margin-left: 10px;
+                text-align: center;
+                list-style: none;
+                background-color: red;
+            }
+
+            p{
+                width: 100px;
+                height: 100px;
+                background-color: #666;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+
+        <div id="box1">
+            <ul>
+                <li><span>哈哈</span></li>
+                <li><span>后裔</span></li>
+                <li><span>李白</span></li>
+                <li><span>程咬金</span></li>
+            </ul>
+        </div>
+
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+
+
+    </body>
+    <script type="text/javascript">
+        // $(".box").css("background-color","red");
+        // $("#box1").css("background-color","yellowgreen");
+        // $("p").css("background-color","#000");
+
+        // $(".box")[0].style.backgroundColor = "yellow";
+        // 使用jQuery选择器，又想写原生的js的时候，可以使用这种方式在转换。
+        // $("p")[1].style.backgroundColor = "yellow";
+
+        // 想让box 改变多个属性
+        // jQuery(".box").css({"background-color":"red","width":"200px"});
+
+        // 也可以使用这种方式
+        var obj = {
+                "background-color":"red",
+                "width":"200px",
+                "height":"200px",
+            };
+
+        $(".box").css(obj);
+
+        // 体验一下animate
+        // $(".box").animate({"left":900,"width":100},4000,function(){
+            // console.log("运动完成");
+        // })
+
+        // 鼠标移入
+        // $(".box").mouseenter(function(){
+        //     $(".box").css("background-color","red");
+        // })
+        // 鼠标移出
+        // $(".box").mouseleave(function(){
+        //     $(".box").css("background-color","yellow");
+        // })
+
+        $("#box1 ul li").mouseenter(function(){
+            $(this).css("background-color","yellow");
+        })
+
+        $(".box").click(function(){
+            $(".box").animate({"left":900,"width":100},4000,function(){
+               alert("运动完成");
+           })
+        })
+    </script>
+</html>

@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    border: none;
+}
+.carousel{
+    width: 600px;
+    height: 300px;
+    margin: 100px auto;
+    border: 1px soild #000;
+    position: relative;
+    overflow: hidden;
+}
+.carousel .imageList ul{
+    list-style: none;
+    position: relative;
+}
+.carousel .imageList ul li{
+    position: absolute;
+    top: 0;
+    left: 600px;
+    width: 600px;
+    height: 300px;
+}
+.carousel img{
+    width: 600px;
+    height: 300px;
+}
+.carousel .imageList ul li.first{
+    left:0;
+}
+.btns a{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    margin-top: -20px;
+    background-color: yellow;
+    z-index: 999;
+}
+.btns a.leftBtn{
+    left: 10px;
+}
+.btns a.rightBtn{
+    right: 10px;
+}
