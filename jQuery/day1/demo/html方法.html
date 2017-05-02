@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="box" data-name="stark" data-age="18">
+
+        </div>
+        <div class="box1">
+
+        </div>
+        <div class="box2">
+
+        </div>
+
+        <div class="box3">
+            中華人民共和國
+        </div>
+    </body>
+    <script type="text/javascript">
+        var name = $(".box").data("name");
+        var age = $(".box").data("age");
+        var html = "<h1> 我的名字是"+name+" 我的年齡"+age+" </h1>"
+        $(".box1").html(html);
+
+        var text = "我的名字是"+name;
+        $(".box2").text(text);
+
+        console.log($(".box3").html());
+        console.log($(".box3").text());
+    </script>
+</html>

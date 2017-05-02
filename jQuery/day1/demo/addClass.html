@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="jquery.js" charset="utf-8"></script>
+        <style media="screen">
+            .red{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <input class="box1" type="checkbox" name="" value="" checked>
+        <input  class="box2" type="checkbox" name="" value="">
+        <input type="checkbox" name="" value="">
+        <input type="checkbox" name="" value="">
+        <div class="box">
+
+        </div>
+
+        <ul>
+              <li>Hello</li>
+              <li>Hello</li>
+              <li class="red">Hello</li>
+        </ul>
+    </body>
+    <script type="text/javascript">
+        // $('ul li:last').addClass(function() {
+        //     return 'item-' + $(this).index();
+        // });
+        // $('ul li:last').addClass("red");
+        // $('ul li:last').removeClass("red");
+        $('ul li:last').toggleClass("red");
+        $('ul li:first').toggleClass("red");
+    </script>
+</html>

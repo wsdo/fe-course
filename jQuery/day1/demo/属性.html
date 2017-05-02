@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <img src="https://img6.bdstatic.com/img/image/smallpic/h8.jpg" alt="">
+
+        <div class="box" data-nameAge="stark" age="9">
+
+        </div>
+    </body>
+    <script type="text/javascript">
+        // attr  设置或返回被选元素的属性值。 是获取一个dom 的属性
+        // 返回一个属性值
+        var imgurl = $("img").attr("src");
+        console.log(imgurl);
+        // 设置一个属性值
+        $("img").attr("src","https://img6.bdstatic.com/img/image/smallpic/h7.jpg");
+
+        $("img").attr({
+            "src":"https://img6.bdstatic.com/img/image/smallpic/h6.jpg",
+            "title" : "这是一张动漫图片"
+        })
+
+        var age = $(".box").attr("age");
+        console.log(age);
+
+        // data 注意 data-value  value 必须是小写 不能加-
+        var name = $(".box").data("name");
+        // console.log(name);
+
+        // removeAttr 移出属性
+
+        $(".box").removeAttr("age");
+        var age = $(".box").attr("age");
+        console.log(age);
+
+    </script>
+</html>

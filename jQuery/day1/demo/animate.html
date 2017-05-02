@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="./jquery.js" charset="utf-8"></script>
+        <style media="screen">
+            p{
+                width: 60px;
+                height: 60px;
+                background-color: orange;
+                position: absolute;
+                top: 100px;
+                left: 100px;
+            }
+            .box2{
+                top: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="box1"></p>
+        <p class="box2"></p>
+    </body>
+    <script type="text/javascript">
+    // 用于创建自定义动画的函数。
+//     这个函数的关键在于指定动画形式及结果样式属性对象。
+//     这个对象中每个属性都表示一个可以变化的样式属性（如“height”、“top”或“opacity”）。
+// 注意：所有指定的属性必须用骆驼形式，
+// 比如用marginLeft代替margin-left.
+// 而每个属性的值表示这个样式属性到多少时动画结束。
+// 如果是一个数值，样式属性就会从当前的值渐变到指定的值。
+// 如果使用的是“hide”、“show”或“toggle”这样的字符串值，
+// 则会为该属性调用默认的动画形式。
+        // $("p").animate({"left":1000},1000);
+
+        // $("p").animate({"left":1000},2000,function(){
+        //     // 当动画执行完毕后执行这个里面的代码块
+        //     $(this).css("background-color","red");
+        // })
+
+        // 动画排队，都是box1在动，所以排队，当一个动画执行完，再执行另一个
+        // $(".box1").animate({"left":1000},2000);
+        // $(".box1").animate({"top":400},2000);
+
+        // 斜着跑
+        // $(".box1").animate({"margin-left":1000},2000);
+        $(".box1").animate({"left":1000,"top":400},2000);
+
+        // 不同元素不排队
+        // $(".box1").animate({"left":1000},2000);
+        // $(".box2").animate({"left":1000},2000);
+
+    </script>
+</html>

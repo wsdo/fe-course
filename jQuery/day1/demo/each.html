@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            p{
+                margin-top: 10px;
+                width: 0;
+                height: 60px;
+                margin-right: 60px;
+                background-color: orange;
+            }
+        </style>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </body>
+    <script type="text/javascript">
+        $("p").each(function(i){
+            $(this).animate({"width":50 * i},1000);
+            console.log(i);
+        })
+
+        var obj = {
+            name : "stark",
+            age : "18",
+            sex : "man",
+            address : "china"
+        }
+
+        $.each(obj,function(index,value){
+            console.log(index +'---'+ value);
+        })
+
+    </script>
+</html>

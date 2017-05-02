@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="./jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <p>hello word2</p>
+        <p>hello word3</p>
+        <p>hello word4</p>
+        <p>hello word22</p>
+        <p>hello word33</p>
+        <p>hello word44</p>
+        <p>hello word55</p>
+        <input class="blur1" type="text" name="" value="">
+    </body>
+    <script type="text/javascript">
+        // 点击事件
+        // $("p").click(function(){
+        //     $(this).hide();
+        // })
+
+        // 鼠标移入
+        // $("p").mouseenter(function(){
+        //   $(this).css("background-color","yellow");
+        // });
+        //
+        // // 鼠标移出
+        // $("p").mouseleave(function(){
+        //     $(this).css("background-color","#fff")
+        // })
+
+        // 鼠标悬停，相当于移入移出
+        // $("p").hover(
+        //       function () {
+        //         $(this).css("background-color","yellow");
+        //       },
+        //       function () {
+        //         $(this).css("background-color","#fff")
+        //       }
+        // );
+
+        // 失去焦点
+        $(".blur1").blur(
+            function () {
+                alert("Hello World!");
+            }
+        );
+    </script>
+</html>

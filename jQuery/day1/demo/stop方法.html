@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .block{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+            }
+        </style>
+        <script src="./jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+
+
+
+        <button id="go">Go</button>
+        <input type="button" name="" value="stop()">
+        <input type="button" name="" value="stop(ture)">
+        <input type="button" name="" value="stop(ture,true)">
+        <input type="button" name="" value="stop(false,true)">
+        <input type="button" name="" value="stop(false,false)">
+        <input type="button" name="" value="finish()">
+        <div class="block"></div>
+    </body>
+    <script type="text/javascript">
+
+
+
+        // 开始动画
+        $("#go").click(function(){
+          $(".block").animate({left: '+200px'}, 2000);
+          $(".block").animate({top: '+200px'}, 2000);
+          $(".block").animate({left: '+200px'}, 2000);
+          $(".block").animate({top: 0}, 2000);
+        });
+
+        // 当点击按钮后停止动画 停止一个队列
+        $("input:eq(0)").click(function(){
+            $("div").stop();
+        })
+
+        //点击按钮清空队列 如果设置成true，则清空队列。可以立即结束动画。
+        $("input:eq(1)").click(function(){
+            $("div").stop(true);
+        })
+
+        // 如果设置成true，则完成队列。可以立即完成动画。
+        $("input:eq(2)").click(function(){
+            $("div").stop(true,true);
+        })
+
+        // 立即执行完当前队列然后正常执行下一个队列
+        $("input:eq(3)").click(function(){
+            $("div").stop(false,true);
+        })
+
+        // 立即执行完当前队列然后正常执行下一个队列
+        $("input:eq(4)").click(function(){
+            $("div").stop(false,false);
+        })
+        // 停止当前正在运行的动画，
+        // 删除所有排队的动画，
+        // 并完成匹配元素所有的动画。
+        $("input:eq(5)").click(function(){
+            $("div").finish();
+        })
+    </script>
+</html>

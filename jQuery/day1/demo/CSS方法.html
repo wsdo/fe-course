@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>css方法</title>
+        <script src="./jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <p>helow world</p>
+        <p>你好，世界</p>
+        <p>hi</p>
+        <p>good</p>
+    </body>
+    <script type="text/javascript">
+    // 访问匹配元素的样式属性。
+        // $("p").css({ "color": "#ff0011", "background": "blue" });
+
+        // 可以把里面json形式的对象提出出来
+        var obj = {
+                "color": "#ff0011",
+                "background": "blue",
+                "width" : "100"
+            };
+
+        $("p").css(obj);
+
+        // 当定义单个属性的时候
+        $("p").css("color","red");
+
+
+
+    </script>
+</html>
