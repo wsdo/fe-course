@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{margin:0;padding:0;list-style-type:none;text-decoration:none;}
+	li{float:left;}
+  </style>
+ </head>
+ <body>
+  <ul>
+	<li>选项卡一<br>
+		<a href="#" class="a1">选项卡一a</a>
+	</li>
+	<li>选项卡二<br>
+		<a href="#" class="a2">选项卡二a</a>
+	</li>
+  </ul>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+	$('.a2').hide();
+	var _index=0;
+	$('ul li').eq(0).mouseover(function(){
+		$('.a1').show();
+		$('.a2').hide();
+	}) 
+	$('ul li').eq(1).mouseover(function(){
+		$('.a2').show();
+		$('.a1').hide();
+	})
+  })
+  </script>
+ </body>
+</html>

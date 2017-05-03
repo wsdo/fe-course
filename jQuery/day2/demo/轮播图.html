@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jquery 轮播图</title>
+    </head>
+    <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .carousel{
+            width: 600px;
+            height: 300px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgbox{
+            width: 3000px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        .imgbox ul li{
+            float: left;
+            width: 600px;
+            height: 300px;
+            list-style: none;
+        }
+        .imgbox ul li img{
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+    <script src="jquery.js" charset="utf-8"></script>
+    <body>
+        <div class="carousel">
+            <div class="imgbox">
+                <ul>
+                    <li ><img src="images/0.jpg" alt=""></li>
+                    <li ><img src="images/1.jpg" alt=""></li>
+                    <li ><img src="images/2.jpg" alt=""></li>
+                    <li ><img src="images/3.jpg" alt=""></li>
+                    <!-- <li ><img src="images/0.jpg" alt=""></li> -->
+                </ul>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        // 初始化把第一张图片放到最后一张
+        $(".imgbox ul li:first").clone().appendTo(".imgbox ul")
+        // 标记从0开始
+        var i = 0;
+        // 下一张的方法
+        function next (){
+            i++;
+            $(".imgbox").animate({"left" : -600 * i},1000,function(){
+                // 判断图片是否超过四张
+                if (i > 3) {
+                    // 滚动到第四张图片的时候，让标记为0，下次通过i++ 变为1开始
+                    i = 0;
+                    // 让外面的大盒子从0的位置开始
+                    $(this).css("left",0);
+                }
+            })
+        }
+        // 定时器，此时定时器的时间不能小于幻灯片切换图片的时间
+        setInterval(next,2000);
+    </script>
+</html>

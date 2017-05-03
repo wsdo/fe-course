@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <style>
+	*{margin:0;padding:0;}
+	/*轮播图*/
+	#carousel{width:700px;position:relative;left:300px;}
+	.carousel_figure{width:100%;height:419px;position:relative;}
+	.carousel_figure img{width:700px;height:500px;position:absolute;left:0px;top:0px;z-index:0;}
+	/*轮播按钮*/
+	.button{position:absolute;bottom:50px;left:34%;display:inline-block;}
+	.button li{width:50px;height:10px;background:rgba(0,0,0,0.5);border:1px dotted #fff;
+				float:left;list-style-type:none;margin:0 5px;}
+	.button .hover{background:orange;}
+	/*左右按钮*/
+	span{position:absolute;width:100px;height:50px;line-height:50px;background:rgba(0,0,0,0.7);color:#fff;cursor:pointer;}
+	span:hover{background:rgba(0,0,0,0.1);}
+  </style>
+ </head>
+ <body>
+	 <div id="carousel">
+		<div class="carousel_figure">
+			<img src="images/section1.jpg">
+			<img src="images/section2.jpg">
+			<img src="images/section3.jpg">
+			<img src="images/section4.jpg">
+		<ul class="button">
+			<li class="hover"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	    </div>
+		<span style="left:0;top:50%;margin-top:25px;">Left</span>
+		<span style="right:0;top:50%;margin-top:25px;">Right</span>
+	 </div>
+ </body>
+</html>

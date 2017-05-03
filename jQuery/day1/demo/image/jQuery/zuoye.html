@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#lubok{
+				width: 500px;
+				height: 300px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#lubo{
+				width: 500px;
+				height: 300px;
+			}
+			#lubo li{
+				width: 500px;
+				height: 300px;
+				float: left;
+			}
+			#lubo li img{
+				width: 500px;
+				height: 300px;
+			}
+			span{
+				width: 98px;
+				height: 30px;
+				background: yellow;
+				display: block;
+				float: left;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 30px;
+			}
+			#daohang span p{
+				position:absolute;
+				left: 425px;
+				top:340px;
+				width: 500px;
+				height: 200px;
+				border:3px solid black;
+				font-size: 60px;
+				line-height: 200px;
+				display: none;
+				background: orange;
+			}
+			#xiala p{
+				width: 100px;
+				height: 30px;
+				margin-top: 6px;
+				border: 1px solid black;
+				background: cornflowerblue;
+				display: none;
+			}
+			#fuxuan{
+				width: 200px;
+				height: 200px;
+				float: right;
+				margin-right: 200px;
+				margin-top: 100px;
+			}			
+		</style>
+	</head>
+	<body>
+		<div id="lubok">
+			<ul id="lubo">
+				<li><img src="img/1.jpeg"/></li>
+				<li><img src="img/2.jpeg"/></li>
+				<li><img src="img/3.jpeg"/></li>
+				<li><img src="img/4.jpeg"/></li>
+				<li><img src="img/5.jpeg"/></li>
+				
+			</ul>
+		</div>
+		<div id="daohang" style="width: 500px;height: 30px;background: red;margin: 0 auto;margin-top: 10px;">
+			<span>刺客
+			<p>内容一</p></span><span>法师<p>内容二</p></span><span>坦克<p>内容三</p></span>
+			<span>射手<p>内容四</p></span><span>战士<p>内容五</p></span>
+		</div>	
+		<div id="xiala" style="width: 100px;height: 30px;position: absolute;top: 0;left: 320px;background: blue;border: 1px solid black;text-align: center;">
+			点击下拉菜单
+			<p>啦啦啦</p><p>额呵呵</p><p>哈哈哈</p><p>哒哒哒</p><p>biubiubiu</p><p>哐哐哐</p>
+		</div>
+		<div id="fuxuan">
+			<p><input type="checkbox" id="xuanding" value="" />
+				<a href="">阅读完毕,我同意协议</a>
+			</p>
+			<input type="button" id="tongyi" value="同意请点"/>
+		</div>
+	</body>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var x=1;
+        $(document).ready(function(){
+		   setTimeout("sssss()",10);
+		});
+			function sssss() {
+			$("#lubo").animate({"margin-top":-1200},4000);
+			$("#lubo").animate({"margin-top":-0},-8000);
+			sssss();
+		   };
+		$("span").mouseenter(function(){
+			$(this).css({"background":"red","color":"white"});
+		});
+		$("span").mouseleave(function(){
+			$(this).css({"background":"yellow","color":"black"});
+			$("#daohang span p").hide();
+		});
+		$("span:eq(0)").mouseenter(function(){
+			$("p:eq(0)").show();
+			$("p:eq(1)").hide();$("p:eq(2)").hide();$("p:eq(3)").hide();
+			$("p:eq(4)").hide();
+		});
+		$("span:eq(1)").mouseenter(function(){
+			$("p:eq(1)").show();
+			$("p:eq(0)").hide();$("p:eq(2)").hide();$("p:eq(3)").hide();
+			$("p:eq(4)").hide();
+		});
+		$("span:eq(2)").mouseenter(function(){
+			$("p:eq(2)").show();
+			$("p:eq(0)").hide();$("p:eq(1)").hide();$("p:eq(3)").hide();
+			$("p:eq(4)").hide();
+		});
+		$("span:eq(3)").mouseenter(function(){
+			$("p:eq(3)").show();
+			$("p:eq(0)").hide();$("p:eq(1)").hide();$("p:eq(2)").hide();
+			$("p:eq(4)").hide();
+		});
+		$("span:eq(4)").mouseenter(function(){
+			$("p:eq(4)").show();
+			$("p:eq(0)").hide();$("p:eq(1)").hide();$("p:eq(3)").hide();
+			$("p:eq(2)").hide();
+		});
+		$("#xiala").click(function(){
+			if(x==1){
+				$("#xiala p").show(1000);
+				x=0;
+			}else{
+				$("#xiala p").hide(1000);
+				x=1;
+			}
+		});
+		$("#tongyi").click(function(){
+			var yes = $("#xuanding").prop("checked");
+			if(yes){
+				alert("恭喜注册成功");
+			}else{
+				alert("请同意协议");
+			}
+		})
+	</script>
+</html>
