@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            img{
+                width:300px;
+                position: absolute;
+                display: none;
+            }
+
+            .img1{
+                top:111px;
+                left: 100px;
+            }
+            .img1{
+                top:111px;
+                left: 100px;
+            }
+            .img4{
+                top:10px;
+                left:300px;
+            }
+            .img2{
+                top:200px;
+                left: 200px;
+            }
+            .img3{
+                top:300px;
+                left: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <img class="img1" src="images/0.jpg" alt="">
+        <img class="img2" src="images/1.jpg" alt="">
+        <img class="img3" src="images/2.jpg" alt="">
+        <img class="img4" src="images/3.jpg" alt="">
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $("img").each(function(i){
+            $(this).delay(i * 500).fadeIn(1000);
+        })
+
+    </script>
+</html>

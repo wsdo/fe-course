@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box{
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                background-color: blue;
+            }
+            .box1{
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                left: 100px;
+                top: 210px;
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+
+        </div>
+        <div class="box1">
+
+        </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // $(".box").delay(1000).animate({"left":500},1000);
+        // $(".box1").animate({"left":500},1000);
+        // $(".box").delay(1000).slideUp();
+        // 小窍门，想要hide延迟一秒隐藏 设置为1
+        $(".box").delay(1000).hide(1);
+        // 如果不设置的话，就直接隐藏了 delay不起作用
+        $(".box1").delay(1000).hide();
+    </script>
+</html>
