@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jquery 轮播图</title>
+    </head>
+    <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .carousel{
+            width: 600px;
+            height: 300px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgbox{
+            width: 3000px;
+            /*position: absolute;*/
+            top: 0;
+            left: 0;
+
+        }
+        .imgbox ul li{
+            /*float: left;*/
+            width: 600px;
+            height: 300px;
+            list-style: none;
+            position: absolute;
+        }
+        .imgbox ul li img{
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+    <script src="jquery.js" charset="utf-8"></script>
+    <body>
+        <div class="carousel">
+            <div class="imgbox">
+                <ul>
+                    <li ><img src="images/0.jpg" alt=""></li>
+                    <li ><img src="images/1.jpg" alt=""></li>
+                    <li ><img src="images/2.jpg" alt=""></li>
+                    <li ><img src="images/3.jpg" alt=""></li>
+                    <li ><img src="images/0.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var countlength = $(".imgbox ul li").length -1;
+        var imgboxli = $(".imgbox ul li");
+        var i = countlength;
+        function next (){
+            imgboxli.eq(i).fadeOut(1000);
+            i--;
+            if (i < 0) {
+                i = countlength;
+            }
+            imgboxli.eq(i).fadeIn(1000);
+        }
+        setInterval(next,2000);
+    </script>
+</html>

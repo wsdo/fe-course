@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="jquery.js" charset="utf-8"></script>
+        <style media="screen">
+            p{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <form><input type="checkbox" /></form>
+
+        <ul>
+          <li><strong>list</strong> item 1 - one strong tag</li>
+          <li><strong>list</strong> item <strong>2</strong> - two <span>strong tags</span></li>
+          <li>list item 3</li>
+        </ul> -->
+
+        <p class="stark">stark</p>
+        <p id="shudong">shudong</p>
+        <p class="hello">hello</p>
+    </body>
+    <script type="text/javascript">
+        var result = $("input[type='checkbox']").parent().is("form");
+        console.log(result);
+        $("p:eq(1)").animate({"width":600},5000);
+        $("p").click(function(){
+            // 判断class类属性
+            // console.log($(this).is(".stark"));
+            // 判断id属性
+            // console.log($(this).is("#shudong"));
+            // 判断是否有事p元素，里面是标签
+            // console.log($(this).is("p"));
+            // 判断是否是第一个
+            // console.log($(this).is("p:first"));
+            // 可以函数节流  停止动画  animated
+            console.log($(this).is(":animated"));
+        })
+
+    </script>
+</html>

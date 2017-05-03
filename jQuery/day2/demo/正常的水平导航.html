@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .nav{
+                width: 960px;
+                height: 40px;
+                margin: 50px auto;
+            }
+            .nav ul li{
+                list-style: none;
+                float: left;
+                width: 120px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                background-color: green;
+                position: relative;
+            }
+            .nav ul li a{
+                color: white;
+                text-decoration: none;
+            }
+            .nav ul li .dropbox{
+                background-color: yellowgreen;
+                display: none;
+            }
+        </style>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="nav">
+            <ul>
+                <li><a href="#">坦克</a></li>
+                <li>
+                    <a href="#">刺客</a>
+                    <div class="dropbox">
+                        <div class="inner">
+                            <p><a href="#">李白</a></p>
+                            <p><a href="#">兰陵王</a></p>
+                            <p><a href="#">荆轲</a></p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">法师</a>
+                    <div class="dropbox">
+                        <div class="inner">
+                            <p><a href="#">安琪拉</a></p>
+                            <p><a href="#">貂蝉</a></p>
+                            <p><a href="#">小乔</a></p>
+                            <p><a href="#">大乔</a></p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">射手</a>
+                    <div class="dropbox">
+                        <div class="inner">
+                            <p><a href="#">后羿</a></p>
+                            <p><a href="#">孙尚香</a></p>
+                            <p><a href="#">鲁班七号</a></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </body>
+    <script type="text/javascript">
+        // 在导航上面快速滑动好几次，就会抽风
+        $("li").mouseenter(function(){
+            // 函数节流
+            var self = $(this).find(".dropbox");
+            if(self.is(":animated")){
+                return;
+            }
+            self.slideDown();
+        })
+
+        $("li").mouseleave(function(){
+            var self = $(this).find(".dropbox");
+            self.slideUp();
+        })
+
+    </script>
+</html>

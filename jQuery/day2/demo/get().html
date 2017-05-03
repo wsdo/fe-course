@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <img src="test1.jpg"/> <img src="test2.jpg"/>
+    </body>
+    <script type="text/javascript">
+        // get 里面跟数字 相当于 [0] 获取返回的dom对象
+        // 取得其中一个匹配的元素。 num表示取得第几个匹配的元素。
+        // 从0开始，返回的是DOM对象，类似的有eq(index),不过eq(index)返回的是jQuery对象。
+// 这能够让你选择一个实际的DOM 元素并且对他直接操作，而不是通过 jQuery 函数。
+// $(this).get(0)与$(this)[0]等价。
+        var get1 = $("img").get(0);
+        console.log(get1.src = "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1339399033,1426098205&fm=80&w=179&h=119&img.JPEG");
+        $("img")[1].src = "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/mantpl/img/base/loading_72b1da62.gif"
+
+    </script>
+</html>

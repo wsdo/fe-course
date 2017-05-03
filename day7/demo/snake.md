@@ -4,6 +4,7 @@
   ```
   // 绘制地图
   var table = document.getElementById("table");
+
   var maxTable = 20; //最大表格
   var tds = []; //把表格都存为二维数组 方便蛇身读取
   for(var i = 0; i < maxTable; i++){
@@ -34,7 +35,7 @@ this.bodyArr.unshift({
   y : this.bodyArr[0].y
 })
 这个方法可以在小蛇的头部添加一个像素（td）
-因为y就是列不变，x行增加了一个
+因为y就是列不变，x行增加了一个 就会在右边头部增加一个
 ```
 
 ```
