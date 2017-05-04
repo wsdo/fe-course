@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+
+        </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+            $.fn.extend({
+                drag : function(){
+                    var disX = 0;
+                    var disY = 0;
+                    var self = this;
+                    this.mousedown(function(ev){
+                        disX = ev.pageX - $(this).offset().left;
+                        disY = ev.pageY - $(this).offset().top;
+                        // console.log(ev.pageX);
+                        // console.log(ev.pageY);
+                        $(document).mousemove(function(ev){
+                            self.css("left", ev.pageX - disX);
+                            self.css("top", ev.pageY - disY);
+                        })
+
+                        $(document).mouseup(function(){
+                            $(this).off();
+                        })
+
+                        return false;
+                    })
+                },
+                shudong : function(){
+                    alert("呵呵呵！！！");
+                }
+            })
+
+    </script>
+
+
+    <script type="text/javascript">
+        // 封装插件的第二种形式
+        $(".box").drag();
+        $(".box").shudong();
+    </script>
+</html>

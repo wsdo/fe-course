@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .box{
+                padding-top: 300px;
+                position: relative;
+            }
+            .box1{
+                margin-top: 100px;
+                background: yellowgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="box1">
+                <p>hello world</p>
+            </div>
+        </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    // 获取匹配元素在当前视口的相对偏移。
+    // 返回的对象包含两个整型属性：top 和 left，以像素计。此方法只对可见元素有效。
+        var dom = $("p").offset().top;
+        console.log(dom);
+    </script>
+</html>

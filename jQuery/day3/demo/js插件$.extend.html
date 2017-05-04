@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // trim 去掉两遍空格
+
+        // 插件分为两种
+
+        // $("").css()
+        // $("").each()
+
+        // 工具函数
+        // $.each()
+        // $.trim()
+    // 需求是封装一个只去掉左边的空格
+    $.extend({
+        leftTrim : function(str){
+            return str.replace(/^\s+/,'');
+        },
+        stark : function(str){
+            alert("Hi ！！！");
+        }
+    })
+
+    // $.fn()
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        var str = " stark ";
+
+        console.log("("+str+")"); //没有使用工具函数
+        console.log("("+$.trim(str)+")"); //使用了自带的工具函数去掉两遍的空格
+        console.log("("+$.leftTrim(str)+")"); //自己封装了一个插件
+        $.stark();
+
+    </script>
+</html>
