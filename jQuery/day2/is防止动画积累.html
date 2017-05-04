@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            div{
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                background-color: orange;
+                left: 100px;
+                top: 100px;
+            }
+        </style>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+            <input type="button" name="" value="到100">
+            <input type="button" name="" value="到900">
+            <div class="">
+
+            </div>
+    </body>
+    <script type="text/javascript">
+        // 防止动画积累
+        $("input:eq(0)").click(function(){
+            $("div").animate({"left":100},1000);
+        })
+
+        $("input:eq(1)").click(function(){
+            $("div").animate({"left":900},1000);
+        })
+
+    </script>
+</html>

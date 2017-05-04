@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 10px;
+				padding: 0;
+			}
+			.no{
+				border: none;
+				outline: none;
+				display: none;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="you" value="" placeholder="请输入邮箱"/>
+		<input type="text" name="" class="no" value="邮箱格式错误!!!"/ readonly=""><br />
+		<input type="text" name="" id="yong" value="" placeholder="请输入用户名"/>
+		<input type="text" name="" class="no" value="用户名格式错误!!!"/ readonly=""><br />
+	</body>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var reg =/^\w+@\w+\.[a-z]{2,4}$/;
+		var reg1 =/\s/;
+		$("#you").blur(function(){
+			if(reg.test(you.value)==false){
+				$(".no:eq(0)").show();
+			}else{
+				$(".no:eq(0)").hide();
+			}
+		})
+		$("#yong").blur(function(){
+			if(reg1.test(yong.value)==true||yong.value==""){
+				$(".no:eq(1)").show();
+			}else{
+				$(".no:eq(1)").hide();
+			}
+		})
+	</script>
+</html>

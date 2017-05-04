@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			body{
+				background: url(img/beijing.jpg);
+			}
+			#look{
+				margin: 0 auto;
+				width: 800px;
+				height: 300px;
+				overflow: hidden;
+				margin-top: 60px;
+			}
+			#coo{
+				width: 500px;
+				height: 300px;
+				margin: 0 auto;
+				position: relative;
+			}	
+			#lubok{
+				width: 1800px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}	
+			.tu{
+				width: 500px;
+				height: 300px;
+				float: left;
+			}	
+			.tuy{
+				width: 250px;
+				height: 150px;
+				float: left;
+				transform: skewY(170deg);
+				margin-left: 10px;
+				margin-top: 60px;
+				opacity: 0.5;
+			}	
+			.tuz{
+				width: 250px;
+				height: 150px;
+				float: left;
+				transform: skewY(10deg);
+				margin-top: 60px;
+				opacity: 0.5;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="look">
+			<div id="coo" >
+				 <div id="lubok">
+					<ul id="lubo">
+						<img class="tu" src="img/1.jpeg"/>
+						<img class="tuy" src="img/2.jpeg"/>
+						<img class="tuy" src="img/3.jpeg"/>
+						<img class="tuy" src="img/4.jpeg"/>
+						<img class="tuy" src="img/5.jpeg"/>
+						<img class="tuy" src="img/1.jpeg"/>
+					</ul>
+				 </div>
+			</div>
+		</div>
+	</body>
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var x=1;
+		var i=0;
+		function addj(){
+			i++;
+			$("#lubok").animate({"left":-250*i},800,function(){
+				if(i==5){
+				i=0;
+				$(this).css({"left":0})
+			    }
+			});
+			guodu();
+		}
+		function guodu(){
+			$(".tu").removeClass("tu").addClass("tuz").next().removeClass("tuy").addClass("tu").siblings().removeClass("tu");
+		     if(i==5){
+			   $(".tuz:eq(0)").removeClass("tuz").addClass("tu").siblings().removeClass("tuz").addClass("tuy");
+		     }
+		}
+		setInterval(addj,2000)
+
+		
+	</script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .box{
+                width: 900px;
+                height: 300px;
+                border:1px solid #000;
+                position: relative;
+                overflow: hidden;
+                margin: 100px auto;
+            }
+            .box ul li{
+                list-style: none;
+                position: absolute;
+                top: 0;
+            }
+            .box ul li img{
+                width: 600px;
+                height: 300px;
+            }
+            .box ul li.img1{left: 0;}
+            .box ul li.img2{left: 225px;}
+            .box ul li.img3{left: 450px;}
+            .box ul li.img4{left: 675px;}
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <ul>
+                <li class="img1" ><a href="#"><img src="images/0.jpg" alt=""></a></li>
+                <li class="img2" ><a href="#"><img src="images/1.jpg" alt=""></a></li>
+                <li class="img3" ><a href="#"><img src="images/2.jpg" alt=""></a></li>
+                <li class="img4" ><a href="#"><img src="images/3.jpg" alt=""></a></li>
+            </ul>
+        </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+        $(".img1").mouseenter(function(){
+            // $("img1").animate({"left":600},1000);
+            $(".img2").animate({"left":600},1000);
+            $(".img3").animate({"left":700},1000);
+            $(".img4").animate({"left":800},1000);
+        })
+
+        $(".img2").mouseenter(function(){
+            // $("img1").animate({"left":600},1000);
+            $(".img2").animate({"left":100},1000);
+            $(".img3").animate({"left":700},1000);
+            $(".img4").animate({"left":800},1000);
+        })
+
+        $(".img3").mouseenter(function(){
+            // $("img1").animate({"left":600},1000);
+            $(".img2").animate({"left":100},1000);
+            $(".img3").animate({"left":200},1000);
+            $(".img4").animate({"left":800},1000);
+        })
+        $(".img4").mouseenter(function(){
+            // $("img1").animate({"left":600},1000);
+            $(".img2").animate({"left":100},1000);
+            $(".img3").animate({"left":200},1000);
+            $(".img4").animate({"left":300},1000);
+        })
+
+        $(".box").mouseleave(function(){
+            // $(".img1").animate({"left":100},1000);
+            $(".img2").animate({"left":225},1000);
+            $(".img3").animate({"left":450},1000);
+            $(".img4").animate({"left":675},1000);
+        })
+    </script>
+</html>
