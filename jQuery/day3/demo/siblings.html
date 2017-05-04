@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!-- <p>Hello</p>
+        <div>
+            <span>Hello Again</span>
+        </div>
+        <p>And Again</p> -->
+
+        <div>
+            <span>Hello</span>
+        </div>
+        <p class="selected">Hello Again</p>
+        <p>And Again</p>
+    </body>
+
+</html>
+<script src="jquery.js" charset="utf-8"></script>
+<script type="text/javascript">
+    // console.log($("div").siblings());
+    // 取得一个包含匹配的元素集合中每一个元素的所有唯一同辈元素的元素集合。
+    // 可以用可选的表达式进行筛选。
+    console.log($("div").siblings(".selected"));
+
+</script>

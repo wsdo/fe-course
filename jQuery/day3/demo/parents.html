@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="box">
+            <p>
+                <span>Hello
+                    <div class="box1">
+
+                    </div>
+                </span>
+            </p>
+            <span>Hello Again</span>
+        </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // $("span").parents();
+        // 匹配所有祖先元素 可以传入指定的参数
+        console.log($("span").parents(".box1"));
+    </script>
+</html>

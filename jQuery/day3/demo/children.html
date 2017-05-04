@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box1{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                margin-top: 10px;
+            }
+            .box5{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                margin-top: 10px;
+            }
+            .box2{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                margin-top: 10px;
+            }
+            .box3{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                margin-top: 10px;
+            }
+            .box4{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello</p>
+        <div>
+            <!-- <span>Hello Again
+                <p></p>
+                <p></p>
+                <p></p>
+            </span> -->
+            <!-- <p>And Again</p> -->
+            stark
+            <div class="box">
+
+            </div>
+            <div class="box1">
+
+            </div>
+            <div class="box2">
+
+            </div>
+            <div class="box3">
+
+            </div>
+            <div class="box4">
+
+            </div>
+        </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    // 只关注它自己的儿子，不关注孙子
+    // 在括号里面写选择元素，就单独选择一个
+    // 不写就选择全部
+    var dom = $("div").children().size();
+    console.log(dom);
+    // 直接指定类名
+    // $("div").children(".box1").css("background-color","#000")
+
+    // $("div").children(":odd").css("background-color","#000")
+    // 可以添加选择器 偶数行
+    $("div").children(":even").css("background-color","#000")
+    // 不考虑文本节点
+    $("div").children(":even").css({"background-color":"#000","color":"red"})
+
+    </script>
+</html>

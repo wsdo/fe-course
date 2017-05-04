@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box{
+                width: 100px;
+                height: 100px;
+
+            }
+        </style>
+    </head>
+    <body>
+            <div class="box"><p>Hello</p><p>Hello</p></div>
+            <div class="box1"></div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 匹配它的亲爸爸
+        var dom = $("p").parent();
+        console.log(dom.css("border","2px solid red"));
+
+    </script>
+</html>
