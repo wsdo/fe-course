@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box{
+                width: 300px;
+                height: 300px;
+                background-color: #666;
+                margin: 100px;
+                position: absolute;
+            }
+
+            p{
+                width: 100px;
+                height: 60px;
+                color: red;
+            }
+            .box1{
+                width: 500px;
+                height: 500px;
+                background-color: #cdcdcd;
+            }
+        </style>
+        <link rel="stylesheet" href="./js/jquery-ui.min.css">
+        <script src="jquery.js" charset="utf-8"></script>
+        <script src="js/jquery-ui.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="box1">
+            <div class="box">
+                <p>stark hahahahahha</p>
+            </div>
+
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        //  $( ".box" ).draggable({
+        //     //  axis: "y", //锁定在y轴上滚动
+        //      axis: "x", //锁定在x轴上滚动
+        //  });
+         $( "p" ).draggable({
+             containment :　".box1", //限制在父盒子里面运动
+             scroll: true
+         });
+    </script>
+</html>

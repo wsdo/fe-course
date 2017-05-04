@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            #resizable { width: 150px; height: 150px; padding: 0.5em; }
+          #resizable h3 { text-align: center; margin: 0; }
+          .box{
+              width: 200px;
+              height: 200px;
+              border: 1px solid #000;
+          }
+        </style>
+        <link rel="stylesheet" href="./js/jquery-ui.min.css">
+        <link rel="stylesheet" href="js/jquery-ui.structure.min.css">
+        <script src="jquery.js" charset="utf-8"></script>
+        <script src="js/jquery-ui.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="resizable" class="ui-widget-content box">
+          <h3 class="ui-widget-header">Resizable</h3>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+    $( function() {
+        // 改变尺寸
+       $( "#resizable" ).resizable();
+     } );
+    </script>
+</html>
