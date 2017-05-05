@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$.fn.extend({
+			move : function(){
+				this.mouseenter(function(){
+					$(this).stop(true);
+					$(this).css("background-color","#FF0000");
+					$(this).animate({"width":"800px"},500);
+					$(this).append("<b>Hello</b>");
+				})
+				this.mouseleave(function(){
+					$(this).stop(true);
+					$(this).css("background-color","blue");
+					$(this).animate({"width":"100px"},500);
+					$("b").remove();
+				})
+			}
+		})
+	</script>
+	<script type="text/javascript">
+		$(".box").move();
+	</script>
+</html>
