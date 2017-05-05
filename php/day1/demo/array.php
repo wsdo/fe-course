@@ -19,6 +19,9 @@ $arr = [
     '你们饿不饿啊！！'
 ];
 
+$arr1 = array("heheh","hahah","heihei");
+
 echo "<pre>";
 echo $arr[0];
 print_r($arr);
+print_r($arr1);
