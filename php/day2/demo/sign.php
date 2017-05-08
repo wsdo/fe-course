@@ -22,7 +22,9 @@ $insertsql = "insert into user (
             '{$email}',
             '{$sex}'
         )";
-// echo $sql;
+// 调试方法：把这个sql语句打印出来在Navicat里面的查询编辑里
+// 面执行这个sql语句看看有没有报错，如果报错了根据错误去排查。
+echo $insertsql;
 $result = $dbh->exec($insertsql);
 print_r($result);
 echo "注册成功";

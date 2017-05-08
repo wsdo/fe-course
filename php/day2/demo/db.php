@@ -7,6 +7,7 @@
 //
 // Example #1 连接到 MySQL
 header("Content-type: text/html; charset=utf-8");
+session_start();
 $user = "root"; //数据库的用户名
 $pass = ""; //数据库的密码
 $host = 'localhost'; //主机地址
