@@ -23,12 +23,12 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $pass,$utf8);
 // 参数四 设置字符集
 // 使用这种方式array(PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8');
 
-$sql = 'SELECT * FROM user';// sql 语句 查
-// $select = $dbh->query($sql); //pdo查询语法
-   foreach ($dbh->query($sql) as $row) {
-       echo "<pre>";
-       print_r($row['name']);
-   }
+// $sql = 'SELECT * FROM user';// sql 语句 查
+// // $select = $dbh->query($sql); //pdo查询语法
+//    foreach ($dbh->query($sql) as $row) {
+//        echo "<pre>";
+//        print_r($row['name']);
+//    }
 
 // 如果出现
 // 如果是一个空对象证明链接成功了
