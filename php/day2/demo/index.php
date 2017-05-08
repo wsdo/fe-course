@@ -1,9 +1,16 @@
 <?php
-    session_start();
+    // session_start();
+    require_once('db.php');
     // echo $_SESSION;
     // print_r($_SESSION);
+    print_r($_SESSION);
+
+    var_dump(empty($_SESSION));
+
     if (empty($_SESSION)) {
-        return '你还没有登录去登录吧！';
+        echo '你还没有登录去登录吧！';
+        header("Location:login.html");
+        return false;
     }
  ?>
 <!DOCTYPE html>

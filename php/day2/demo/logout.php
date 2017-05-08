@@ -1,6 +1,6 @@
 <?php
 require_once("db.php");
     // session_start();
-    unset($_SESSION);
+    session_unset();
     // echo "退出成功！";
  ?>
