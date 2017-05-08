@@ -10,7 +10,7 @@ header("Content-type: text/html; charset=utf-8");
 $user = "root";
 $pass = "";
 $host = 'localhost';
-$dbh = new PDO('mysql:host='.$host.';dbname=fe7', $user, $pass);
+$dbh = new PDO('mysql:host='.$host.';dbname=fe7', $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8'));
 print_r($dbh);
 
 $sql = 'SELECT * FROM user';
