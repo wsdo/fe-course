@@ -27,4 +27,4 @@ Apache  是一个开源的web服务
 php 和 mysql 是最好的搭档
 
 更改xampp的Apache 的配置路径
-D:\xampp\apache\conf
+D:\xampp\apache\conf httpd.conf
