@@ -61,7 +61,7 @@ mysql:
     平时说的那些删除，就是更改了一个数据的状态不让它显示了，就是删除！
 
     更改状态就是删除
-    
+
     select * from  user where status = 10;
 
     -- UPDATE user set `status` = 30 where id = 2
@@ -76,3 +76,20 @@ DELETE FROM `user` WHERE id = 1
 
 参考
 http://www.runoob.com/mysql/mysql-union-operation.html
+
+## mysql备份
+    备份的两种方式：
+        第一种是用：tool
+            右键导出
+        第二种是命令行：cli
+        备份数据库
+        一般用在Linux上面写定时任务，的时候自己备份。
+        必须进入到你的mysql文件夹里面的bin里面执行
+        D:\xampp\mysql\bin>mysqldump -uroot -p fe7 > d:/back/web1.sql
+
+        mysqldump -uroot -p fe7 > d:/back/web1.sql
+
+        把备份的数据恢复到数据库
+        mysql -u root -p dbname < 备份的sql文件路径
+        
+        mysql -u root -p fe7s < d:\back\web1.sql

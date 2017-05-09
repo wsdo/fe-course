@@ -1,12 +1,7 @@
 <?php
-    // session_start();
     require_once('db.php');
-    // echo $_SESSION;
-    // print_r($_SESSION);
-    // print_r($_SESSION);
-
     // var_dump(empty($_SESSION));
-
+    // empty 判断是否为空
     if (empty($_SESSION)) {
         echo '你还没有登录去登录吧！';
         header("Location:login.html");
@@ -58,17 +53,13 @@
                 <li><a href="#">用户名：<?php
                     echo $_SESSION['name'];
                  ?> </a></li>
+                 <li><a href="#">
+                     <?php
+                     echo "此刻的状态".$status[$_SESSION['status']];
+                     ?>
+                 </a></li>
                  <li><a href="logout.php">退出登录</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="logout.php">退出登录</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
+
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -76,41 +67,41 @@
 
         <div class="container">
         学习的状态:
-        <form class="" action="diaocha.php" method="post">
+        <form class="" action="status.php" method="post">
 
             <div class="radio">
             <label for="field_1">
-                <input id="field_1" type="radio" name="status" value="1">
+                <input id="field_1" type="radio" name="status" value="10">
                 非常明白
             </label>
         </div>
             <div class="radio">
             <label for="field_2">
-                <input id="field_2" type="radio" name="status" value="1">
+                <input id="field_2" type="radio" name="status" value="20">
                 比较明白
             </label>
         </div>
             <div class="radio">
             <label for="field_3">
-                <input id="field_3" type="radio" name="status" value="1">
+                <input id="field_3" type="radio" name="status" value="30">
                 一般明白
             </label>
         </div>
             <div class="radio">
             <label for="field_4">
-                <input id="field_4" type="radio" name="status" value="1">
+                <input id="field_4" type="radio" name="status" value="40">
                 懵逼
             </label>
         </div>
             <div class="radio">
             <label for="field_5">
-                <input id="field_5" type="radio" name="status" value="1">
+                <input id="field_5" type="radio" name="status" value="50">
                 非常懵逼
             </label>
         </div>
             <div class="radio">
             <label for="field_6">
-                <input id="field_6" type="radio" name="status" value="1">
+                <input id="field_6" type="radio" name="status" value="60">
                 跳楼
             </label>
         </div>

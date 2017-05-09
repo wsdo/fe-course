@@ -5,21 +5,23 @@ $name = $post['name'];
 $password = $post['password'];
 
 $sql = "select * from user where name = '{$name}'";
-// select * from user where name =wsd
+// select * from user where name =wsds
 // select * from user where name = 'wsd'
 // echo $sql;
 $select = $dbh->query($sql);
 
-    $user = [];
-   foreach ($select as $row) {
-    //    print_r($row);
+$user = [];
+    foreach ($select as $row) {
        $user = $row;
-   }
-   if(empty($user)){
+    }
+
+    if(empty($user)){
        echo "用户名不存在";
+       echo "<a href='login.html'>返回登录</a>";
        return false;
-   }
-echo "<pre>";
+    }
+
+    echo "<pre>";
 // print_r($user);
 $dbpassword = $user['password'];
 
@@ -28,6 +30,7 @@ if (md5($password) == $dbpassword) {
     $_SESSION['name'] = $user['name'];
     $_SESSION['status'] = $user['status'];
     print_r($_SESSION);
+    // 跳转到首页
     header("Location:index.php");
     // switch (variable) {
     //     case 'value':
@@ -40,15 +43,9 @@ if (md5($password) == $dbpassword) {
     // }
 
     // 表驱动法
-    $status = [
-        1 => '非常明白',
-        2 => '一般明白',
-        3 => '明白',
-        4 => '懵逼',
-        5 => '非常懵逼',
-        6 => '跳楼'
-    ];
+    
     echo "此刻的状态".$status[$_SESSION['status']];
 }else{
     echo "密码错误";
+    echo "<a href='login.html'>返回登录</a>";
 }
