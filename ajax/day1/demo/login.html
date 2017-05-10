@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box{
+                width: 100px;
+                height: 50px;
+                background-color: red;
+            }
+            #text{
+                width: 500px;
+                height: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <p id="text"></p>
+        <div class="box" id="box">
+            点击登录
+        </div>
+        <script type="text/javascript">
+                var box = document.getElementById("box");
+                var text = document.getElementById("text");
+                box.onclick = function(){
+                    // 第一步new XMLHttpRequest() 这个对象时内置的构函数
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function(){
+                        // readyState 这个是状态
+                        // 0: 请求未初始化
+                        // 1: 服务器连接已建立
+                        // 2: 请求已接收
+                        // 3: 请求处理中
+                        // 4: 请求已完成，且响应已就绪
+                        if (xhr.readyState == 4) {
+                            // console.log("已经读取完毕");
+                            // text.innerHTML =  xhr.responseText;
+                            var status =  xhr.responseText;
+                            console.log(status);
+                            if (status == 1) {
+                                text.innerHTML = "账号和密码正确";
+                            }else {
+                                text.innerHTML = "账号和密码不正确，请仔细想想";
+                            }
+                        }
+                    }
+
+                    xhr.open("get","data/login.php?name=stark&pwd=123",true);
+                    xhr.send(null);
+                }
+        </script>
+    </body>
+</html>
