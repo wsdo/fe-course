@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="box">
+
+        </div>
+    </body>
+    <script src="js/sajax2.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // ajax.get("data/login.php",{"name":"stark","pwd":"123"},function(data,err){
+        //     // getObj = name=stark&pwd=123
+        //     if (err) {
+        //         alert("服务器繁忙");
+        //         return;
+        //     }
+        // })
+
+        sajax.get("data/getData.php",{"name":"stark","pwd":"123"},function(data,arr){
+            console.log(data);
+            if (data.status == 1) {
+                if (data.data == 1) {
+                   $(".box").html("账号密码正确");
+               }else {
+                   $(".box").html("账号或密码错误");
+               }
+            }else {
+                 $(".box").html("请求有些问题");
+            }
+        });
+    </script>
+</html>

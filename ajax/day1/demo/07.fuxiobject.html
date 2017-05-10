@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+    </body>
+    <script type="text/javascript">
+        var obj = {
+            name:"stark",
+            pwd:123
+        }
+        // 访问stark这个值使用
+        console.log(obj[name]);
+        var arr = [];
+        for(key in obj){
+            // console.log(key);
+            // obj[key]
+            arr.push(key +　"=" + obj[key]);
+        }
+        console.log(arr); //["name=stark", "pwd=123"]
+        // name=stark&pwd=123;
+
+        console.log(arr.join("&")); //name=stark&pwd=123
+
+    </script>
+</html>

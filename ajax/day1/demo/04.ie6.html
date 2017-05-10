@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>post</title>
+        <script src="jquery.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="box">
+
+        </div>
+        <input type="button" name="" id="btn" value="按钮">
+    </body>
+
+    <script type="text/javascript">
+            $("#btn").click(function(){
+                // 兼容ie6
+                if (window.XMLHttpRequest) {
+                    var xhr = new XMLHttpRequest();
+                }else {
+                    var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState == 4) {
+                        if (xhr.status >=200 && xhr.status < 300 || xhr.status == 304) {
+                            $(".box").html(xhr.responseText);
+                        }else {
+                            $(".box").html("服务繁忙，请稍后再试！");
+                        }
+                        console.log(xhr.status);
+                    }
+                }
+
+                xhr.open("post","data/login.php",true);
+                // 如果是post发送请求，必须写这样一句话，模拟form表单提交
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                // Content-Type:application/x-www-form-urlencoded
+                xhr.send("name=stark&pwd=123");
+            })
+
+    </script>
+</html>

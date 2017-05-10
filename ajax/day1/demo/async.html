@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+            #text{
+                width: 500px;
+                height: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p id="text"></p>
+        <div class="box" id="box">
+
+        </div>
+        <script type="text/javascript">
+            var box = document.getElementById("box");
+            var text = document.getElementById("text");
+            box.onclick = function(){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState == 4) {
+                        text.innerHTML =  xhr.responseText;
+                    }
+                }
+                xhr.open("get","data/2.php",true);
+                // 异步 非阻塞
+                // 不用等待前面执行完然后才执行后面的代码
+                xhr.send(null);
+                console.log("starkwang");
+                console.log("starkwang");
+                console.log("starkwang");
+                console.log("starkwang");
+            }
+        </script>
+    </body>
+</html>
