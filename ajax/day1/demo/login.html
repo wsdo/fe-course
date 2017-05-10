@@ -40,7 +40,10 @@
                             // console.log("已经读取完毕");
                             // text.innerHTML =  xhr.responseText;
                             var status =  xhr.responseText;
-                            console.log(status);
+                            // if(xhr.readyState == 2){
+                            //     console.log("请求已经接收");
+                            // }
+
                             if (status == 1) {
                                 text.innerHTML = "账号和密码正确";
                             }else {

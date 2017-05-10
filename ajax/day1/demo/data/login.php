@@ -4,10 +4,12 @@
 // }else {
 //     echo 0;
 // }
-
-$name = $_GET['name'];
-$pwd = $_GET['pwd'];
-if ($name == 'stark' && $pwd == 1123) {
+// sleep(3);
+// $name = $_GET['name'];
+// $pwd = $_GET['pwd'];
+$name = $_POST['name'];
+$pwd = $_POST['pwd'];
+if ($name == 'stark' && $pwd == 123) {
     echo 1;
 }else {
     echo 0;

@@ -11,4 +11,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 
-要求手敲10遍
+要求手敲5遍
+
+1.自己封装post 五分钟搞定
+2.写一个留言板
+    要求用ajax
+
+    提交留言并且展示
+    列表
+    删除留言
+    

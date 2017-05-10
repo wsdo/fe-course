@@ -2,49 +2,45 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
-        <style media="screen">
-            .box{
-                width: 100px;
-                height: 100px;
-                background-color: red;
-            }
-            #text{
-                width: 500px;
-                height: 100px;
-            }
-        </style>
+        <title>post</title>
+        <script src="jquery.js" charset="utf-8"></script>
     </head>
-
     <body>
-        <p id="text"></p>
-        <div class="box" id="box">
+        <div class="box">
 
         </div>
-        <script type="text/javascript">
-            var box = document.getElementById("box");
-            var text = document.getElementById("text");
-            box.onclick = function(){
-                // 第一步new XMLHttpRequest() 这个对象时内置的构函数
+        <input type="button" name="" id="btn" value="按钮">
+    </body>
 
+    <script type="text/javascript">
+            $("#btn").click(function(){
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function(){
-                    // readyState 这个是状态
-                    // 0: 请求未初始化
-                    // 1: 服务器连接已建立
-                    // 2: 请求已接收
-                    // 3: 请求处理中
-                    // 4: 请求已完成，且响应已就绪
+
+                    // 兼容ie6
+                    if (window.XMLHttpRequest) {
+                        var xhr = new XMLHttpRequest();
+                    }else {
+                        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+
                     if (xhr.readyState == 4) {
-                        // console.log("已经读取完毕");
-                        text.innerHTML =  xhr.responseText;
-                        console.log(xhr.responseText);
+                        if (xhr.status >=200 && xhr.status < 300 || xhr.status == 304) {
+                            $(".box").html(xhr.responseText);
+                        }else {
+                            $(".box").html("服务繁忙，请稍后再试！");
+                        }
+                        // console.log(xhr.status);
                     }
                 }
 
-                xhr.open("get","data/2.php",true);
-                xhr.send(null);
-            }
-        </script>
-    </body>
+                xhr.open("post","data/login.php",true);
+                // 如果是post发送请求，必须写这样一句话，模拟form表单提交
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                // Content-Type:application/x-www-form-urlencoded
+                xhr.send("name=stark&pwd=123");
+            })
+
+    </script>
 </html>
