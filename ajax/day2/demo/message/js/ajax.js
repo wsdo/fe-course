@@ -64,7 +64,6 @@
                 }
             }
             var PostData = sajax._json2string(json);
-            console.log(PostData);
             xhr.open("post",url,true);
             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             xhr.send(PostData);
