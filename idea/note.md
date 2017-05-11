@@ -46,3 +46,23 @@ vps 可以创建无限个虚拟主机
 
 WordPress 可以提供api
 hexo 静态的
+
+
+
+主机管理控制台地址：
+
+https://cp.aliyun.com  [加入收藏]
+
+用户名：bxu2359540293
+
+FTP登录主机地址：
+
+bxu2359540293.my3w.com
+
+用户名：bxu2359540293[FTP客户端下载和使用手册]
+
+MySQL数据库连接地址：
+
+bdm28214172.my3w.com
+
+用户名：bdm28214172

@@ -1,0 +1,55 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+.header, .content, .message{
+	width: 1080px;
+	margin:0 auto;
+}
+.header{
+	height:100px;
+	line-height: 100px;
+	background: pink;
+	text-align: center;
+	font-size: 40px;
+}
+.content{
+	padding: 10px 0;
+	background: skyblue;
+}
+.content ul{
+	width: 500px;
+	margin:0 auto;
+}
+.content li{
+	width: 500px;
+	height:100px;
+	background:#fff;
+	margin-bottom: 10px;
+}
+.message{
+	height: 300px;
+	background: orange;
+	padding: 10px 0;
+}
+.message>div{
+	width: 500px;
+	height: 300px;
+	margin:0 auto;
+	
+	text-align: center;
+}
+.message textarea{
+	width: 500px;
+	height:200px;
+	resize: none;
+	font-size: 15px;
+}
+.message input{
+	width: 100px;
+	height:40px;
+}
