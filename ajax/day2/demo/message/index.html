@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!-- <form class="" action="create.php" method="post"> -->
+            <div class="">
+                标题：<input id="title" type="text" name="title" value
+            </div>
+            <div class="">
+                留言内容
+                <textarea id="content" name="name" rows="8" cols="80"></textarea>
+            </div>
+        <!-- </form> -->
+        <div class="">
+            <button  id="submit">提交留言 </button>
+        </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script src="js/ajax.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+
+
+        $("#submit").click(function(){
+            // 获取标题
+            var title =  $("#title").val();
+            var content = $("#content").val();
+
+                    console.log(title);
+                    console.log(content);
+            sajax.post("api/create.php",{title:title,content:content},function(data,err){
+                console.log(data);
+            })
+        })
+        // 获取留言内容
+        // 发送到后端
+    </script>
+</html>
