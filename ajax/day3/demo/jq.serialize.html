@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <form id="form">
+        <div>
+          姓名：<input type="text" id="name" name="name">
+        </div>
+        <div>
+          年龄：<input type="text"  name="age">
+        </div>
+        <div>
+          性别：<input type="radio" name="sex">
+        </div>
+        <div>
+          爱好：
+            <input type="checkbox" name="aihao" value=""> 篮球
+            <input type="checkbox" name="aihao" value=""> 王者农药
+            <input type="checkbox" name="aihao" value=""> 小电影
+            <input type="checkbox" name="aihao" value=""> 打豆豆
+            <input type="checkbox" name="aihao" value=""> 睡觉
+        </div>
+        <div>
+          密码：
+            <input type="password" name="pwd" value="">
+        </div>
+      </form>
+        <div>
+            <!-- <input id="btn" type="submit" name="" value="提交"> -->
+            <button id="btn" type="button" name="button">提交</button>
+        </div>
+  </body>
+  <script src="js/jquery.js" charset="utf-8"></script>
+  <script type="text/javascript">
+      $("#btn").click(function() {
+        // 把表单的所有数据都获取
+          var name = $("#name").val();
+          // console.log(name);
+          var formData = $("form").serialize();
+          console.log(formData);
+
+      });
+
+  </script>
+</html>

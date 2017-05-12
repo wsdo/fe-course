@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    为什么 封装的post要设置两个值？
+    设置这两个值是做什么的？
+
+    重点是当产生这个问题的时候，自己怎么去解决这个疑问?
+
+    解决问题的框架
+    sajax.get(url,{mobile:mobile},function(data,err){
+        console.log(data);
+        if (data.status == 1 && data.data != '{}') {
+            data = JSON.parse(data.data);
+            var info = data.areaName +'-'+ data.providerName;
+            $(".box").html(info);
+        }
+    })
+
+    我对这个 data 和 err 不懂 不清楚，是什么意思
+    怎么办呢？
+
+    sajax.get(url,{},function(data,err){});
+
+
+    为什么要写data 和 err
+    data 是当获取接口传来的正常的数据
+    err 是当获取后端接口出现问题时返回
+
+    var status = 0;
+    var data = null;
+    // 规定的状态
+    var statusData = {
+        status : status,
+        data : data
+    }
+
+    
+    通过看代码我发现他是调用封装的
+    就去封装的ajax.js 里面查看
+
+    我发现了里面使用callback作为形参
+    然后下面callback(statusData,null);
+    此时我想明白了 statusData 就是外面的实参函数里面 data
+    null 就是里面err
+
+
+  </script>
+</html>

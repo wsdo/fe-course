@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="mobile" name="" value="">
+    <button type="button" id="btn" name="button">点击查询</button>
+    <div class="box">
+
+    </div>
+  </body>
+  <script src="js/jquery.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+
+    $("#btn").click(function(){
+        var mobile = $("#mobile").val();
+        // var url = "api/guishudi.php";
+        // sajax.get(url,{mobile:mobile},function(data,err){
+        //     console.log(data);
+        //     if (data.status == 1 && data.data != '{}') {
+        //         data = JSON.parse(data.data);
+        //         var info = data.areaName +'-'+ data.providerName;
+        //         $(".box").html(info);
+        //     }
+        // })
+
+        // $.ajax({
+        //     type: "get",
+        //     url: "api/guishudi.php?mobile="+ mobile,
+        //     // data: {mobile,mobile}, //
+        //     success: function(msg){
+        //         data = JSON.parse(msg);
+        //         var info = data.areaName +'-'+ data.providerName;
+        //         $(".box").html(info);
+        //     },
+        //     error: function(data){
+        //         // $.toast();
+        //         alert("服务器繁忙");
+        //         console.log(data);
+        //     }
+        // });
+
+        $.get('api/read.php',function(data){
+            console.log(data);
+        })
+    })
+  </script>
+</html>
