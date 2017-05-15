@@ -26,3 +26,101 @@ $arr = array(
 );
 echo $callbackname."(".json_encode($arr).")";
 ```
+
+
+jsonp 怎么实现的？
+
+利用 html 的 <script> 元素的这个开放策略，网页可以得到从其他来源动态产生的 JSON 资料，而这种使用模式就是所谓的 JSONP。
+
+```
+sajax.jsonp = function jsonp(url,callbackname,callback){
+    // 创建了一个script 标签
+    var tagScript = document.createElement("script");
+    // 给这个标签的src赋一个值
+    tagScript.src = url;
+    // 把这个标签追加到body里面
+    document.body.appendChild(tagScript);
+    // 给window赋一个全局的函数
+    window[callbackname] = callback;
+    // 用完就删除这个script src标签
+    document.body.removeChild(tagScript);
+  }
+
+
+  // 给window赋一个全局的函数
+  window[callbackname] = callback;
+
+  window.stark = function(data){
+
+  }
+
+  想给window上面添加一个自定义函数名字
+  如果写成 window.stark = function(data){
+
+  }
+  这样 函数名字就写死了
+
+  function info (data){
+    // alert(data);
+    console.log(data);
+  }
+
+  window[info] = function(data){
+
+  };
+
+```
+
+
+jquery的 jsonp 使用方式
+使用方式
+第一种：
+    $.getJSON(url,function(data){});
+
+第二种方式：
+$.ajax({
+  // &jsoncallback=?
+  url: 'url&jsoncallback=?',
+  dataType: 'jsonp',
+  jsonpCallback : 'stark',
+  success : function(data){
+
+  }
+})
+
+url: 'url&jsoncallback=?',
+
+此时url 就是 可以使用jsonp 的api
+必须在后面加上api&jsoncallback=?
+比如 http://wwww.shudong.wang/stark.php?jsoncallback=?
+  jsonpCallback : 'stark',
+  这个 jsonpCallback 的值可以更改callback 函数的名字
+
+也可以写成这种方式
+比如 http://wwww.shudong.wang/stark.php?jsoncallback=?
+不加 jsonpCallback : 'stark', 也可以
+```
+// var url = "http://yx.xianjian.com/p/api.php?method=wf&api_key=nimakdkeiLdkfen2lidkdlDLLEKd&page=1&per_page=10&tag=&type=5&order=2&_ksTS=1494829656978_32&jsoncallback=stark";
+//
+
+
+ $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=dog&tagmode=any&format=json&jsoncallback=?", function(data){
+//     $.each(data.items, function(i,item){
+//         $("<img/>").attr("src", item.media.m).appendTo("#images");
+//           if ( i == 9 ) return false;
+//         });
+// });
+
+$.ajax({
+  // &jsoncallback=?
+  url: 'http://api.flickr.com/services/feeds/photos_public.gne?tags=dog&tagmode=any&format=json&jsoncallback=?',
+  dataType: 'jsonp',
+  jsonpCallback : 'stark',
+  success : function(data){
+    $.each(data.items, function(i,item){
+        $("<img/>").attr("src", item.media.m).appendTo("#images");
+          if ( i == 9 ) return false;
+        });
+  }
+})
+```

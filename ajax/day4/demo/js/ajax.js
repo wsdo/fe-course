@@ -76,6 +76,19 @@
             xhr.send(PostData);
         }
 
+        sajax.jsonp = function jsonp(url,callbackname,callback){
+            // 创建了一个script 标签
+            var tagScript = document.createElement("script");
+            // 给这个标签的src赋一个值
+            tagScript.src = url;
+            // 把这个标签追加到body里面
+            document.body.appendChild(tagScript);
+            // 给window赋一个全局的函数
+            window[callbackname] = callback;
+            // 用完就删除这个script src标签
+            document.body.removeChild(tagScript);
+          }
+          
         // 把对象转化为字符串
         sajax._json2string = function(json){
             var arr = [];

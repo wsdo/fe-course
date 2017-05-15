@@ -15,15 +15,40 @@
       //   // alert(data);
       //   console.log(data);
       // }
-      function jsonp(url,callbackname,cllback){
-        var tagScript = document.creadeElement("script");
+
+      // 调用自己封装的jsonp
+      jsonp("api/jsonpcallback.php?jsoncallback=info",'info',function(data){
+          console.log(data.name +'----'+data.age);
+      })
+
+      function jsonp(url,callbackname,callback){
+        // 创建了一个script 标签
+        var tagScript = document.createElement("script");
+        // 给这个标签的src赋一个值
         tagScript.src = url;
+        // 把这个标签追加到body里面
+        document.body.appendChild(tagScript);
+        // 给window赋一个全局的函数
+        window[callbackname] = callback;
+        
+        window.stark = function(data){
+
+        }
+        // 用完就删除这个script src标签
+        document.body.removeChild(tagScript);
       }
-      
-      info({
-        name: 'stark',
-        age: 18
-      });
+      // info({
+      //   name: 'stark',
+      //   age: 18
+      // });
+      //
+      // 封装jsonp
+      //
+      // 第一步：
+      //   srcipt 标签
+          // src 的 值
+          // 一个声明的 callback 函数
+      //
 
 
   </script>

@@ -3,7 +3,7 @@
 // /demo/api/jsonpcallback.php?jsoncallback=starks
 // jsoncallback 是get 传惨
 // jsoncallback=starks&name=stark
-$callbackname = $_GET['jsoncallback'];
+$callbackname = $_GET['jsoncallbackname'];
 $arr = array(
   'name' => "srark",
   "age" => 18,
