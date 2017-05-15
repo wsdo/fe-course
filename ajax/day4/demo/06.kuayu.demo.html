@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<div>stark</div>
+  </body>
+  <script src="js/jquery.js" charset="utf-8"></script>
+  <script type="text/javascript">
+      $.ajax({
+        url:'http://www.sina.com/',
+        type: 'get',
+        // dataType:'json',
+        // data: {param1: 'value1'},
+        success: function(data){
+              console.log(data);
+        }
+      })
+
+
+
+  </script>
+</html>

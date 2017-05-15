@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  var numbers = [10, 5, 100, 2, 1000];
+  console.log(_.min(numbers));
+    // => 2
+
+    var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+    var result = _.max(stooges, function(stooge){ return stooge.age; });
+    console.log(result.name);
+    // => {name: 'curly', age: 60};
+
+
+  </script>
+</html>

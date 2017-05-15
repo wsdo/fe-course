@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <table>
+          <tr>
+            <td>姓名</td>
+            <td>title</td>
+            <td>留言</td>
+            <td>时间</td>
+          </tr>
+
+
+      </table>
+
+      <script type="text/templete" id="templete">
+            <tr>
+              <td>@name@</td>
+              <td>@title@</td>
+              <td>@content@<</td>
+              <td>@createdtime@</td>
+            </tr>
+      </script>
+
+
+      <script src="js/jquery.js" charset="utf-8"></script>
+      <script type="text/javascript">
+
+          var templeteStr = $("#templete").html();
+          // console.log(templeteStr);
+
+          var obj = {
+              name : 'stark',
+              title : 'helloworld',
+              content : '你好哈哈哈',
+              createdtime : '2017年5月12日11:53:53'
+            }
+          //  obj[name];
+          function templete(str, obj){
+            // 第一个return 就是返回函数的结果
+              return str.replace(/\@([a-z]+)\@/g,function(match,$1){
+                  // 第二个return 是replace 必须返回的
+                    console.log(match);
+                    // console.log(string);
+                    // console.log("==================");
+                    // console.log(index);
+                    // console.log("------------------");
+                    // console.log(string);
+                    return obj[$1];
+              })
+          }
+
+          var strs = templete(templeteStr,obj);
+          console.log(strs);
+      </script>
+  </body>
+</html>

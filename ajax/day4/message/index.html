@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            table,tr,td{
+                border: 1px solid #000;
+            }
+            td{
+                height: 10px;
+                /*width: 200px;*/
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <form class="" action="create.php" method="post"> -->
+            <div class="">
+                标题：<input id="title" type="text" name="title" value
+            </div>
+            <div class="">
+                留言内容
+                <textarea id="content" name="name" rows="8" cols="80"></textarea>
+            </div>
+        <!-- </form> -->
+        <div class="">
+            <button  id="submit">提交留言 </button>
+        </div>
+
+         <div class="content">
+             <table  id="msg">
+                 <tr>
+                     <td>id</td>
+                     <td>name</td>
+                     <td>title</td>
+                     <td>content</td>
+                 </tr>
+             </table>
+         </div>
+    </body>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script src="js/ajax.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $("#submit").click(function(){
+            // 获取标题
+            var title =  $("#title").val();
+            var content = $("#content").val();
+
+                    // console.log(title);
+                    // console.log(content);
+            sajax.post("api/create.php",{title:title,content:content},function(data,err){
+                // console.log(data);
+                var obj = JSON.parse(data.data);
+                console.log(obj.data);
+                var msg = obj.data;
+                // var html = '';
+                if (data.status == 1) {
+                    alert("提交留言成功");
+                    var html =
+                    '<tr>\
+                        <td>'+msg.id+'</td>\
+                        <td>'+msg.title+'</td>\
+                        <td>'+msg.content+'</td>\
+                        <td>'+msg.created_time+'</td>\
+                    </tr>';
+                    $("#msg").append(html);
+                // getMessage();
+
+                }else {
+                    alert("提交留言失败");
+                }
+            })
+        })
+        // 获取留言内容
+
+
+
+        var getMessage = function(){
+            sajax.post('api/read.php',{},function(data,err){
+                // console.log(data);
+                var obj = JSON.parse(data.data);
+                // console.log(obj);
+                var html =
+                '<tr>\
+                    <td>id</td>\
+                    <td>标题</td>\
+                    <td>内容</td>\
+                    <td>时间</td>\
+                </tr>';
+                $.each(obj.message,function(index, value){
+                    // console.log(value['content']);
+
+                    html +=
+                    '<tr>\
+                        <td>'+value.id+'</td>\
+                        <td>'+value.title+'</td>\
+                        <td>'+value.content+'</td>\
+                        <td>'+value.created_time+'</td>\
+                    </tr>';
+
+
+                })
+
+                $("#msg").append(html);
+            })
+        }
+        getMessage();
+        // 发送到后端
+    </script>
+</html>

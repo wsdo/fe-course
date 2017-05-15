@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/templete" id="templete">
+          <tr>
+            <td><%= name %></td>
+            <td><%= title %></td>
+            <td><%= content %><</td>
+            <td><%= createdtime %></td>
+          </tr>
+    </script>
+  </body>
+  <script src="js/jquery.js" charset="utf-8"></script>
+  <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  var templeteStr = $("#templete").html();
+  // var str = "hello: <%= name %>";
+  // var obj = {name: 'stark'};
+  var obj = {
+      name : 'stark',
+      title : 'helloworld',
+      content : '你好哈哈哈',
+      createdtime : '2017年5月12日11:53:53'
+    }
+
+  var compiled = _.template(templeteStr);
+  var  result =   compiled(obj);
+  console.log(result);
+      // => "hello: moe"
+  </script>
+</html>
