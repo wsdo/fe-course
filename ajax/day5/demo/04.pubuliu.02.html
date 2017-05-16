@@ -58,6 +58,13 @@
                 <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301060.png" alt="">
                 <div>
                   <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
                 </div>
           </div>
           <div class="box box2">
@@ -75,16 +82,29 @@
           <div class="box box4">
                 <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301090.png" alt="">
                 <div>
-                  <p>墨子</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
+                  <p>妲己</p>
                 </div>
           </div>
           <div class="box box5">
                 <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301100.png" alt="">
                 <div>
-                  <p>墨子</p>
+                  <p>嬴政</p>
                 </div>
           </div>
-          <div class="box box6">
+          <!-- <div class="box box6">
                 <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301110.png" alt="">
                 <div>
                   <p>墨子</p>
@@ -95,64 +115,46 @@
                 <div>
                   <p>墨子</p>
                 </div>
-          </div>
+          </div> -->
       </div>
   </body>
 
   <script charset="utf-8"src="js/jquery.js"></script>
+  <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" charset="utf-8"></script>
   <script type="text/javascript">
 
         var boxWidth = 270;
-
+        var colHeight = [0,0,0];
+        // var outerHeight = 0
         // $(".box") 代表所有clas 名字为box 的盒子 成一个对象
-
         $(".box").each(function(index,value) {
-          console.log(index);
-          console.log(value);
-            // $(this).indx() - ;
-          var index = $(this).index();
-          // console.log(index);
-            var outerHeight = 0;
-            // for (var i = 0; i < array.length; i++) {
-            //   array[i]
-            // }
-            // i>=0
-            //
-            // 0 - 3 = -3
-            //
-            //
-            // 1 -3 = -2
-            // 2 -3 = -1
-            //
-            // 3 - 3 = 0
-            //
-            // 3 -= 3 = 0
-            //
-            // 0 - 3 = -3
-            // 1 -3 =  -2
-            // 2 -3 =  -1
-            //
-            // 3 - 3 = 0
-            // var i = $(this).index() - 3
 
-            // 当 $(this).index() 等于 3 的时候满足了条件 也就是第四张图片
-            // 此时给第四张图片加上一个高度
-            // 当第四张图片的时候 i = 3   i = i - 3 ; =0
-            // i-=3
+          // each 循环第一次的时候 []
+            var minValue = _.min(colHeight);
+            // console.log(minValue);
+            // console.log(colHeight);
+            var minIndex = _.indexOf(colHeight,minValue)
+            // 判断上面哪个最矮，就放在哪个下面
+            // 每次循环得到盒子的高度
+             var outerHeight =  $(this).outerHeight() + 30;
+              // console.log(outerHeight);
+            colHeight[minIndex] += outerHeight;
+            // 第一次
+            // colHeight = [580,0,0];
+            // 第二次
+            // colHeight = [580,433,0];
+            // 第三次
+            // colHeight = [580,433,433];
+            // 第四次
+            // [580,433,433]
 
-            // for  不理解
-            // var i = $(this).index() - 3;
-            // i-=3  i = i - 3 当i = 3 的时候 i =0
-
-            for (var i = $(this).index() - 3; i >= 0; i-=3) {
-              // console.log(i);
-               outerHeight += $(".box").eq(i).outerHeight() + 30;
-            }
-            // console.log(outerHeight);
+            // console.log(colHeight);
+            // console.log("box"+$(this).index()+"---"+ outerHeight);
             $(this).css({
-              "top": outerHeight,
-              "left" : ($(this).index() % 3) * boxWidth,
+              "top": minValue,
+              "left" : minIndex * boxWidth,
             })
+
         });
 
   </script>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        *{
+          margin: 0;
+          padding: 0;
+        }
+        body{
+          background-color: #ccc;
+        }
+        .waterfall{
+            width: 790px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .box{
+            position: absolute;
+            width: 230px;
+            background-color: #fff;
+            padding: 10px;
+        }
+        .box img{
+          width: 230px;
+        }
+        /*.box2{
+            left: 280px;
+
+        }
+
+        .box3{
+            left: 560px;
+
+        }
+        .box4{
+            -left: 560px;
+            top: 430px;
+        }
+        .box5{
+            left: 280px;
+            top: 430px;
+        }
+        .box6{
+            left: 560px;
+            top: 430px;
+        }
+        .box3{
+            left: 560px;
+
+        }*/
+    </style>
+  </head>
+  <body>
+      <div class="waterfall">
+          <div class="box box1">
+                <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301060.png" alt="">
+                <div>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                  <p>小乔</p>
+                </div>
+          </div>
+          <div class="box box2">
+                <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301070.png" alt="">
+                <div>
+                  <p>赵云</p>
+                </div>
+          </div>
+          <div class="box box3">
+                <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301080.png" alt="">
+                <div>
+                  <p>墨子</p>
+                </div>
+          </div>
+          <div class="box box4">
+                <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301090.png" alt="">
+                <div>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                  <p>墨子</p>
+                </div>
+          </div>
+          <div class="box box5">
+                <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301100.png" alt="">
+                <div>
+                  <p>墨子</p>
+                </div>
+          </div>
+          <div class="box box6">
+                <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301110.png" alt="">
+                <div>
+                  <p>墨子</p>
+                </div>
+          </div>
+          <div class="box box7">
+                <img src="http://cdn.tgp.qq.com/kog/v3/images/heroPortrait/301120.png" alt="">
+                <div>
+                  <p>墨子</p>
+                </div>
+          </div>
+      </div>
+  </body>
+
+  <script charset="utf-8"src="js/jquery.js"></script>
+  <script type="text/javascript">
+
+        var boxWidth = 270;
+
+        // $(".box") 代表所有clas 名字为box 的盒子 成一个对象
+
+        $(".box").each(function(index,value) {
+          console.log(index);
+          console.log(value);
+            // $(this).indx() - ;
+          var index = $(this).index();
+          // console.log(index);
+          var outerHeight = 0;
+            // for (var i = 0; i < array.length; i++) {
+            //   array[i]
+            // }
+            // i>=0
+            //
+            // 0 - 3 = -3
+            //
+            //
+            // 1 -3 = -2
+            // 2 -3 = -1
+            //
+            // 3 - 3 = 0
+            //
+            // 3 -= 3 = 0
+            //
+            // 0 - 3 = -3
+            // 1 -3 =  -2
+            // 2 -3 =  -1
+            //
+            // 3 - 3 = 0
+            // var i = $(this).index() - 3
+
+            // 当 $(this).index() 等于 3 的时候满足了条件 也就是第四张图片
+            // 此时给第四张图片加上一个高度
+            // 当第四张图片的时候 i = 3   i = i - 3 ; =0
+            // i-=3
+
+            // for  不理解
+            // var i = $(this).index() - 3;
+            // i-=3  i = i - 3 当i = 3 的时候 i =0
+
+            // 条件1 执行3次，然后满足了条件2
+            // 条件2执行一次，执行条件3；
+            // 条件3执行一次;i值0，条件2不满足，结束
+            //
+            // for(条件1;条件2；条件3;){
+            //
+            // }
+            // 获取每一列的高度
+            for (var i = $(this).index() - 3; i >= 0; i-=3) {
+              // console.log(i);
+               outerHeight += $(".box").eq(i).outerHeight() + 30;
+            }
+
+            // console.log(outerHeight);
+            $(this).css({
+              "top": outerHeight,
+              "left" : ($(this).index() % 3) * boxWidth,
+            })
+        });
+
+  </script>
+
+</html>

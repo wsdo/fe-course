@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script charset="utf-8"src="js/jquery.js"></script>
+  <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+      // 找出数组当中的最小值
+      var colHeight = [16,10,20];
+      // 返回list中的最小值。
+      var minValue = _.min(colHeight);  // 0
+      // 第一步先找到这个数组中最小值所在的下标位置
+      var minIndex = _.indexOf(colHeight,minValue);
+      // 第二步根据这个下标位置去更改这个数组
+      colHeight[minIndex]  = 443
+      console.log(minIndex);
+
+      
+      // colHeight[1] = 433;
+      // console.log(0);
+      // 此时打算更改这个数组中最小值
+      // 第一步先找到这个数组中最小值所在的下标位置
+      // var minIndex = _.indexOf(colHeight,minValue)
+
+      // 第二步根据这个下标位置去更改这个数组
+      // var outerHeight =  $(this).outerHeight() + 30;
+      // colHeight[minIndex] += outerHeight;
+
+  </script>
+</html>
