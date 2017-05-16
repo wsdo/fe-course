@@ -27,8 +27,8 @@
       createdtime : '2017年5月12日11:53:53'
     }
 
-  var compiled = _.template(templeteStr);
-  var  result =   compiled(obj);
+  var templeteStr = _.template(templeteStr);
+  var  result =   templeteStr(obj);
   console.log(result);
       // => "hello: moe"
   </script>

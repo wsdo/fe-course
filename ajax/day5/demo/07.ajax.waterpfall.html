@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        *{
+          margin: 0;
+          padding: 0;
+        }
+        body{
+          background-color: #ccc;
+        }
+        .waterfall{
+            width: 790px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .box{
+            position: absolute;
+            width: 230px;
+            background-color: #fff;
+            padding: 10px;
+        }
+        .box img{
+          width: 230px;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="waterfall">
+      </div>
+      <script type="text/templete" id="templete">
+            <div class="box">
+                  <img src="<%= img %>" alt="">
+                  <div>
+                    <p><%= hero_name %></p>
+                    <div><p>英雄：<%= hero_title %></p></div>
+                    <div><p>技能属性： <%= atk_range %></p></div>
+                    <div><p>英雄描述：<%= hero_desc %></p></div>
+                  </div>
+            </div>
+      </script>
+  </body>
+
+  <script charset="utf-8"src="js/jquery.js"></script>
+  <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  window.onload = function(){
+
+
+        var pre_page = 10;
+        var page = 1;
+        var templeteStr = $("#templete").html();
+        var boxWidth = 270;
+        var colHeight = [0,0,0];
+        var tempStr = _.template(templeteStr);
+        var countHero = 84;
+        function getPage(page,pre_page){
+
+            $.ajax({
+                url:"api/hero.php",
+                data:{page:page,pre_page:pre_page},
+                success:function(data){
+                  flag = true;
+                  console.log(2222);
+                  var data = JSON.parse(data);
+                  var obj = data.hero;
+                  $.each(obj,function(index,value) {
+                        if ( page >= (countHero / pre_page )) {
+                              flag = false;
+                        }
+                        // 把模板字符串里面变量属性，转化成真正的值
+                        var heroStr = tempStr(value);
+                        // 把字符串转化成jq可以操作的对象
+                        var $domObj = $(heroStr);
+                        // console.log($);
+                        // 把上面的dom放到页面中
+                        $(".waterfall").append($domObj);
+                        // 获取最小值
+                        var minValue = _.min(colHeight);
+                        // 获取数组最小值的索引位置
+                        var minIndex = _.indexOf(colHeight,minValue)
+                        // 获取dom的高度
+                        var outerHeight =  $domObj.outerHeight() + 30;
+                        // 更改数组最小值
+                        colHeight[minIndex] += outerHeight;
+                        // 给dom设置样式
+                         $domObj.css({
+                          "top": minValue,
+                          "left" : minIndex * boxWidth,
+                        })
+                  });
+                }
+            })
+        }
+        getPage(page,pre_page);
+        var flag = true;
+
+        $(window).scroll(function(event) {
+          console.log(flag);
+              if (!flag) {
+                  return
+              }
+              // var rate = $(window).
+              var foot = $(window).scrollTop() >= $(document).height() - $(window).height() -100;
+              console.log(foot);
+              if (foot) {
+                    page++
+                    console.log("改加载下一页了");
+                    getPage(page,pre_page);
+                    flag = false;
+                    console.log(1111);
+              }
+        });
+  }
+  </script>
+
+</html>
