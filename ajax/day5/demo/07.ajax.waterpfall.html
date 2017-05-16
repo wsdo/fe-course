@@ -24,6 +24,7 @@
         }
         .box img{
           width: 230px;
+          height: 357px;
         }
     </style>
   </head>
@@ -57,7 +58,6 @@
         var tempStr = _.template(templeteStr);
         var countHero = 84;
         function getPage(page,pre_page){
-
             $.ajax({
                 url:"api/hero.php",
                 data:{page:page,pre_page:pre_page},
