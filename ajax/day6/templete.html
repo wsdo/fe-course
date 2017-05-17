@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+    <script type="text/javascript">
+        var str = "李白就是一个@libai@，安琪拉是一个@aiqila@，刘先生是一个@liuxiansen@";
+        var obj = {
+            libai : '诗人',
+            aiqila : '美女',
+            liuxiansen : '程序员'
+        }
+
+        function templete(str, obj){
+          // 第一个return 就是返回函数的结果
+            return str.replace(/\@([a-z]+)\@/g,function(match,$1,index,string){
+                // 第二个return 是replace 必须返回的
+                  return obj[$1];
+            })
+        }
+
+      var strs =   templete(str,obj);
+      console.log(strs);
+
+
+    </script>
+</html>

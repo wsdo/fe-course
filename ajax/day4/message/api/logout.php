@@ -1,6 +1,5 @@
 <?php
-echo "string";
-die;
+
 require_once("api/db.php");
     // session_start();
     session_unset();

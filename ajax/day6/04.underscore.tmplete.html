@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <table id="dom">
+
+    </table>
+    <script type="text/templete" id="templete">
+          <img src="http://files.haohaowan.com/yxxj/li_<%= url %>" alt=""/>
+          <tr>
+            <td><%= subject %> </td>
+            <td><%= tags %> </td>
+            <td><%= url %> </td>
+          </tr>
+    </script>
+  </body>
+  <script src="js/jquery.js" charset="utf-8"></script>
+  <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  var templeteStr = $("#templete").html();
+  // var str = "hello: <%= name %>";
+  // var obj = {name: 'stark'};
+  // var obj = {
+  //     name : 'stark',
+  //     title : 'helloworld',
+  //     content : '你好哈哈哈',
+  //     createdtime : '2017年5月12日11:53:53'
+  //   }
+var obj = {
+  "id": "340",
+  "owner": "",
+  "subject": "仙五前传人物剪影",
+  "url": "13544509836287.jpg",
+  "tags": "枯荷听雨,仙剑奇侠传五,前传,人物,",
+  "like": "378",
+  "comment": "8",
+  "type": "1",
+  "height": "134"
+}
+
+// console.log(obj);
+// 第一个参数传自己写的模板
+// var comp = _.template(templeteStr);
+
+// comp 是一个函数 它的参数 可以传  对象
+// var  result =   comp(obj);
+
+// console.log(result);
+
+  $.ajax({
+    url: 'xianjian.json',
+    type: 'get',
+    dataType: 'json',
+    // data: {param1: 'value1'},
+    success : function(data){
+          var data = data.photos.photo;
+          var domObj = '';
+          $.each(data,function(index, obj) {
+              var comp = _.template(templeteStr);
+              domObj += comp(obj);
+          });
+      console.log(domObj);
+      $("#dom").append(domObj);
+      // for( val in data){
+
+        // console.log(data[val]);
+        // console.log(data.val);
+      // }
+
+      // _.each
+      // $.each(function(index, el) {
+      //
+      // });
+      // for in
+    }
+  })
+
+
+  // var templeteStr = _.template(templeteStr);
+  // var  result =   templeteStr(obj);
+  // console.log(result);
+      // => "hello: moe"
+  </script>
+</html>
