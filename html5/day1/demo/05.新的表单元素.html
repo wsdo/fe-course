@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            color: #1b94e4;
+        }
+    </style>
+</head>
+
+<body>
+    <input list="browsers" placeholder="请输入名字">
+
+    <datalist id="browsers">
+        <option value="王树冬">
+        <option value="刘效荣">
+        <option value="李爽">
+        <option value="王树西">
+        <option value="小白">
+    </datalist>
+
+
+    <form action="" novalidate>
+        <p>
+            请输入你的年龄
+            <input type="number" min="1" max="100">
+        </p>
+
+        <p>
+            请输入邮箱
+            <input type="email">
+        </p>
+
+        <p>
+            请输入你的网址
+            <input type="url">
+            <!--必须是完整的url http://www.baidu.com-->
+        </p>
+
+        <p>
+            请输入你的电话
+            <input type="tel" pattern="^[\d]{11}$">
+
+        </p>
+
+        <p>
+            请输入你要搜索的东西
+            <input type="search" autofocus>
+            <!--在页面上显示一个x 可以删掉你现在输入的所有内容-->
+
+        </p>
+
+        <p>
+            请输入你的生日
+            <input type="date">
+            <!--在页面上显示一个x 可以删掉你现在输入的所有内容-->
+
+        </p>
+
+        <p>
+            请输入你喜欢的颜色
+            <input type="color" name="color">
+        </p>
+
+
+
+        <p>
+            <input type="submit"> 提交
+        </p>
+        <!--必须输入数字，必须是整形数字，如果输入非数字的时候，比如输入汉字，或字母，这个input框，不会显示这些东西-->
+    </form>
+
+
+    <form action="demo-form.php" id="form1">
+        First name: <input type="text" name="fname"><br>
+        <input type="submit" value="提交">
+    </form>
+
+    Last name: <input type="text" name="lname" form="form1">
+</body>
+
+</html>
