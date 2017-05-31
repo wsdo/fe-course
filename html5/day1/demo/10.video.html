@@ -8,12 +8,25 @@
 
 <body>
 
-    <video width="320" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-    您的浏览器不支持 HTML5 video 标签。
-</video>
+    <video width="320" height="240" controls id="svideo" autoplay>
+        <source src="../video/1.mp4" type="video/mp4">
+        <source src="../video/2.mp4" type="video/ogg">
+        您的浏览器不支持 HTML5 video 标签。
+    </video>
+    <input type="button" name="" id="pauseBtn" value="暂停">
+    <!--<iframe height=498 width=510 src='http://player.youku.com/embed/XMjc4ODUwODc0NA==' frameborder=0 'allowfullscreen'></iframe>-->
+    <!--<embed src='http://player.youku.com/player.php/sid/XMjc4ODUwODc0NA==/v.swf' allowFullScreen='true' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>-->
 
 </body>
+<script>
+    // http://videojs.com/
+    var svideo = document.getElementById('svideo');
+    var pauseBtn = document.getElementById('pauseBtn');
+
+    pauseBtn.onclick = function() {
+        svideo.pause();
+    }
+    console.log(svideo);
+</script>
 
 </html>

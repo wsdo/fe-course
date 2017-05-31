@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>钢琴</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        
+        li {
+            height: 30px;
+            width: 100px;
+            background-color: #ccc;
+            float: left;
+            position: relative;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        
+        li::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: yellowgreen;
+            top: 100%;
+            transition: all 0.2s ease 0s;
+        }
+        
+        li:nth-child(1)::before {
+            background-color: red;
+        }
+        
+        li:nth-child(2)::before {
+            background-color: orange;
+        }
+        
+        li:nth-child(3)::before {
+            background-color: yellow;
+        }
+        
+        li:nth-child(4)::before {
+            background-color: green;
+        }
+        
+        li:nth-child(5)::before {
+            background-color: pink;
+        }
+        
+        li:nth-child(6)::before {
+            background-color: blue;
+        }
+        
+        li:nth-child(7)::before {
+            background-color: blueviolet;
+        }
+        
+        li:hover::before {
+            top: 0;
+        }
+        
+        li.now::before {
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <audio src="../audio/c4.ogg"> </audio>
+    <audio src="../audio/d4.ogg"> </audio>
+    <audio src="../audio/e4.ogg"> </audio>
+    <audio src="../audio/f4.ogg"> </audio>
+    <audio src="../audio/g4.ogg"> </audio>
+    <audio src="../audio/a4.ogg"> </audio>
+    <audio src="../audio/b4.ogg"> </audio>
+    <audio src="../audio/c5.ogg"> </audio>
+</body>
+
+<script>
+    var qinjian = document.getElementsByTagName("li");
+    var audios = document.getElementsByTagName("audio");
+
+
+    for (var i = 0; i < qinjian.length; i++) {
+
+        qinjian[i].index = i;
+        qinjian[i].onmouseover = function() {
+            audios[this.index].load();
+            audios[this.index].play();
+        }
+    }
+
+
+    document.onkeydown = function(event) {
+        console.log(event.keyCode)
+        if (event.keyCode >= 49 && event.keyCode <= 49 + 6) {
+            audios[event.keyCode - 49].load();
+            audios[event.keyCode - 49].play();
+
+            for (var i = 0; i < qinjian.length; i++) {
+                qinjian[i].className = "";
+            }
+
+            qinjian[event.keyCode - 49].className = "now";
+        }
+    }
+
+
+    document.onkeyup = function(ev) {
+        if (ev.keyCode >= 49 && ev.keyCode <= 49 + 6) {
+            qinjian[ev.keyCode - 49].className = "";
+        }
+    }
+</script>
+
+</html>
