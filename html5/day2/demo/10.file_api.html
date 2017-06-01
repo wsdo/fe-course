@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .desc {
+            border: 2px dashed #ccc;
+            padding: 25px;
+            min-height: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="page-header">
+        <div class="container">
+            <h1>文件</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <ul class="list-desc">
+
+            </ul>
+            <form name="upload">
+                <input type="file" name="fileselect" value="">
+            </form>
+        </div>
+
+    </div>
+    <script>
+        var listDesc = document.querySelector('.list-desc');
+        var fileSelect = document.forms['upload']['fileselect'];
+
+        fileSelect.addEventListener('change', fileInfo);
+
+        function fileInfo(ev) {
+            ev.stopPropagation();
+            ev.preventDefault();
+            console.log(ev)
+            var file = ev.target.files || ev.dataTransfer.files;
+            var li = document.createElement('li');
+            li.classList.add('desc')
+            for (i = 0; i < file.length; i++) {
+                var content = document.createTextNode(
+                    file[i].name +
+                    '文件类型 ：' +
+                    file[i].type +
+                    '图片大小：' + Math.round(file[i].size / 1024, 2) + ' ' + 'KB' +
+                    file[i].lastModifiedDate.toLocaleDateString()
+                )
+            }
+
+            li.appendChild(content);
+            listDesc.appendChild(li);
+        }
+
+
+        listDesc.innerHTML = '把文件拖放到这里';
+
+        listDesc.addEventListener('dragover', onDragOver);
+        listDesc.addEventListener('drop', fileInfo);
+
+        function onDragOver(ev) {
+            ev.stopPropagation();
+            ev.preventDefault();
+            console.log('文件拖放成功')
+        }
+    </script>
+</body>
+
+</html>

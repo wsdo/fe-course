@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            background: yellow;
+            margin: 10px;
+        }
+        
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <li draggable="true">李白</li>
+    <li draggable="true">兰陵王</li>
+    <li draggable="true">干将</li>
+    <li>暗器了</li>
+
+    <div id="box1">
+
+    </div>
+</body>
+<script>
+    var heroLi = document.getElementsByTagName('li');
+    var box1 = document.getElementById('box1');
+
+    for (var i = 0; i < heroLi.length; i++) {
+        heroLi[i].ondragstart = function() {
+            this.style.background = "green";
+        }
+
+        heroLi[i].ondragend = function() {
+            this.style.background = 'yellow';
+        }
+    }
+
+    box1.ondragenter = function() {
+        this.style.background = 'blue';
+    }
+
+    box1.addEventListener('drop', fileInfo);
+    box1.addEventListener('dragover', onDragOver);
+
+    function fileInfo(ev) {
+        ev.stopPropagation();
+        ev.preventDefault();
+        console.log(ev.dataTransfer)
+    }
+
+    function onDragOver(ev) {
+        ev.stopPropagation();
+        ev.preventDefault();
+        console.log('文件拖放成功')
+    }
+    // var drop_handler = function(ev) {
+    //     // alert('stark');
+    //     console.log(ev)
+    // }
+</script>
+
+</html>
