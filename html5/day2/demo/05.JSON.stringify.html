@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var stark = {
+        name: 'stark',
+        age: 18
+    }
+
+    console.log(stark);
+
+    var str = JSON.stringify(stark);
+    console.log(str);
+
+    // result {"name":"stark","age":18} 
+
+
+    function replacer(key, value) {
+        if (typeof value === "string") {
+            return undefined;
+        }
+        return value;
+    }
+
+    var foo = {
+        foundation: "Mozilla",
+        model: "box",
+        week: 45,
+        transport: "car",
+        month: 7
+    };
+    var jsonString = JSON.stringify(foo, replacer);
+    console.log(jsonString);
+
+
+    JSON.stringify({}); // '{}'
+    JSON.stringify(true); // 'true'
+    JSON.stringify("foo"); // '"foo"'
+    JSON.stringify([1, "false", false]); // '[1,"false",false]'
+    JSON.stringify({
+        x: 5
+    }); // '{"x":5}'
+
+    JSON.stringify({
+        x: 5,
+        y: 6
+    });
+    // "{"x":5,"y":6}"
+
+    JSON.stringify([new Number(1), new String("false"), new Boolean(false)]);
+    // '[1,"false",false]'
+
+    JSON.stringify({
+        x: undefined,
+        y: Object,
+        z: Symbol("")
+    });
+    // '{}'
+
+    JSON.stringify([undefined, Object, Symbol("")]);
+    // '[null,null,null]' 
+
+    JSON.stringify({
+        [Symbol("foo")]: "foo"
+    });
+    // '{}'
+
+    JSON.stringify({
+        [Symbol.for("foo")]: "foo"
+    }, [Symbol.for("foo")]);
+    // '{}'
+
+    JSON.stringify({
+            [Symbol.for("foo")]: "foo"
+        },
+        function(k, v) {
+            if (typeof k === "symbol") {
+                return "a symbol";
+            }
+        }
+    );
+
+
+    // undefined 
+
+    // 不可枚举的属性默认会被忽略：
+    JSON.stringify(
+        Object.create(
+            null, {
+                x: {
+                    value: 'x',
+                    enumerable: false
+                },
+                y: {
+                    value: 'y',
+                    enumerable: true
+                }
+            }
+        )
+    );
+
+    // "{"y":"y"}"
+</script>
+
+</html>

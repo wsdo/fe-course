@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box1" class="box">
+        hello world
+    </div>
+</body>
+<script>
+    // document.getElementById();
+    // document.getElementsByTagName();
+    var box = document.querySelector('.box');
+    box.style.background = 'red';
+    console.log(box);
+    // 支持ie11 以上版本 ，其它浏览器支持性挺好
+    // 类似于jQuery的 $();
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // eval(): 函数会将传入的字符串当做JavaScript代码进行执行。
+
+        var str = 'function fn(){alert(123456789)}';
+        eval(str);
+        console.log(typeof str);
+        // fn()
+        var str1 = '{"name":"stark"}';
+        var dataObj = eval("(" + str1 + ")");
+
+        var json = JSON.parse(str1);
+        // eval(str1)
+        console.log(dataObj);
+        // console.log(json);
+
+
+        var obj = '{"name":"stark"}';
+        JSON.parse(obj)
+    </script>
+</body>
+
+</html>

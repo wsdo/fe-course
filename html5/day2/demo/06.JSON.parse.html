@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // JSON.parse("[1, 2, 3, 4, ]");
+        // JSON.parse('{"foo" : 1, }');
+        JSON.parse('{}'); // {}
+        JSON.parse('true'); // true
+        JSON.parse('"foo"'); // "foo"
+        JSON.parse('[1, 5, "false"]'); // [1, 5, "false"]
+        JSON.parse('null'); // null
+        var obj = '{"name":"stark"}';
+        JSON.parse(obj)
+    </script>
+</body>
+
+</html>

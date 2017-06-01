@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box1" class="box2 box3 box4 box5 box8">
+        嘿嘿
+    </div>
+</body>
+<script>
+    var box = document.getElementById('box1');
+    // 获取所有的classname 的值 字符串方式出现
+    // console.log(box.classList.value)
+
+    // 获取这个classname 的长度 
+    // box.classList.remove('box3')
+    // box.classList.add('box8')
+    box.classList.toggle('box8')
+    console.log(box.classList.length)
+    console.log(box.classList.value)
+
+
+
+    // box.classList.toggle('box3');
+</script>
+
+</html>
