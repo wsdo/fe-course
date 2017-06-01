@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <input type="" id="input1" name="" value="请求获取地理位置">
+    <textarea rows="10" id="box" cols="50"></textarea>
+    <script>
+        var input1 = document.getElementById('input1');
+        var box = document.getElementById('box');
+        input1.onclick = function() {
+            navigator.geolocation.getCurrentPosition(function(postion) {
+                console.log(postion.coords);
+                box.value += '经度：' + postion.coords.longitude + '\n';
+                box.value += '纬度：' + postion.coords.latitude + '\n';
+                box.value += '准确度：' + postion.coords.accuracy + '\n';
+                box.value += '时间戳：' + postion.coords.timestamp + '\n';
+
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=Wkdqt6LHbuszoYs4oLYPxPSu"></script>
+    <style>
+        #allmap {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="allmap"></div>
+    <input type="" id="input1" name="" value="请求获取地理位置">
+    <textarea rows="10" id="box" cols="50"></textarea>
+    <script>
+        var input1 = document.getElementById('input1');
+        var box = document.getElementById('box');
+        input1.onclick = function() {
+            console.log('正在获取地理位置')
+            var timer = navigator.geolocation.getCurrentPosition(function(postion) {
+                console.log(postion.coords);
+                box.value += '经度：' + postion.coords.longitude + '\n';
+                box.value += '纬度：' + postion.coords.latitude + '\n';
+                box.value += '准确度：' + postion.coords.accuracy + '\n';
+                box.value += '时间戳：' + postion.coords.timestamp + '\n';
+                var x = postion.coords.longitude;
+                var y = postion.coords.latitude;
+                console.log(x + ' ' + y)
+                    // 百度地图API功能
+                var map = new BMap.Map("allmap"); // 创建Map实例
+                var postions = new BMap.Point(x, y);
+                map.centerAndZoom(postions, 15); // 初始化地图,设置中心点坐标和地图级别
+                var Icon = new BMap.Icon("./img/1.jpg", new BMap.Size(30, 30));
+                var marke = new BMap.Marker(postions, {
+                    icon: Icon
+                })
+                map.addOverlay(marke);
+                map.addControl(new BMap.MapTypeControl()); //添加地图类型控件
+                map.setCurrentCity("北京"); // 设置地图显示的城市 此项是必须设置的
+                map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+
+            }, function(err) {
+                console.log(err);
+                navigator.geolocation.clearWatch(timer);
+            }, {
+                timeout: 5000
+            })
+        }
+    </script>
+</body>
+
+</html>

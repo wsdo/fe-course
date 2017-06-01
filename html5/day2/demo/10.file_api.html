@@ -8,11 +8,33 @@
     <title>Document</title>
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .desc {
+        .list-desc {
             border: 2px dashed #ccc;
             padding: 25px;
             min-height: 100px;
             width: 100%;
+            list-style: none;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        
+        .dragArea {
+            text-align: center;
+            font-size: 25px;
+            width: 100%;
+        }
+        
+        .desc {
+            text-align: center;
+            font-size: 25px;
+            width: 100%;
+        }
+        
+        .clears {
+            display: inline-block;
         }
     </style>
 </head>
@@ -20,16 +42,16 @@
 <body>
     <header class="page-header">
         <div class="container">
-            <h1>文件</h1>
+            <h1>文件拖放</h1>
         </div>
     </header>
     <div class="container">
         <div class="row">
-            <ul class="list-desc">
+            <ul class="list-desc clears">
 
             </ul>
             <form name="upload">
-                <input type="file" name="fileselect" value="">
+                <input type="file" name="fileselect" value="" multiple>
             </form>
         </div>
 
@@ -41,9 +63,11 @@
         fileSelect.addEventListener('change', fileInfo);
 
         function fileInfo(ev) {
-            ev.stopPropagation();
+            // ev.stopPropagation();
             ev.preventDefault();
             console.log(ev)
+                // ev.target.files 获取上传文件的信息
+                //  ev.dataTransfer.files 获取拖拽文件的信息
             var file = ev.target.files || ev.dataTransfer.files;
             var li = document.createElement('li');
             li.classList.add('desc')
@@ -52,7 +76,7 @@
                     file[i].name +
                     '文件类型 ：' +
                     file[i].type +
-                    '图片大小：' + Math.round(file[i].size / 1024, 2) + ' ' + 'KB' +
+                    '图片大小：' + Math.round(file[i].size / 1024, 2) + ' ' + 'KB ' +
                     file[i].lastModifiedDate.toLocaleDateString()
                 )
             }
@@ -62,15 +86,23 @@
         }
 
 
-        listDesc.innerHTML = '把文件拖放到这里';
+        listDesc.innerHTML = "<p class='dargArea'>把文件拖放到这里 </p>";
 
+        // 当文件拖进来就触发
         listDesc.addEventListener('dragover', onDragOver);
+        // 当文件拖拽进去触发一个函数
+        listDesc.addEventListener('dragleave', fileInfo);
+
         listDesc.addEventListener('drop', fileInfo);
 
         function onDragOver(ev) {
-            ev.stopPropagation();
+            // ev.stopPropagation();
             ev.preventDefault();
-            console.log('文件拖放成功')
+            console.log('文件移入')
+        }
+
+        function onDragLeave() {
+            console.log('文件离开')
         }
     </script>
 </body>
