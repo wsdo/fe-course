@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>用户名：<input type="text"></p>
+    <p>
+        性别：<input type="radio" value="女" name="sex"> 女
+        <input type="radio" value="男" name="sex"> 男
+    </p>
+    描述： <textarea rows="" cols="" id="content"></textarea>
+    <input type="button" name="" value="提交" id="btn">
+    <input type="button" name="" value="清空数据" id="btnClear">
+</body>
+<script>
+    var oInput = document.getElementsByTagName('input');
+    var content = document.getElementById('content');
+    var Btn = document.getElementById('btn');
+    var btnClear = document.getElementById('btnClear');
+    localStorage.setItem('empty', 0)
+    window.onunload = function() {
+        if (localStorage.getItem('empty') != 1) {
+            saveData();
+        }
+    }
+
+    Btn.onclick = function() {
+        localStorage.setItem('empty', 0)
+        saveData();
+    }
+
+    var saveData = function() {
+        if (oInput[0].value) {
+            localStorage.setItem('name', oInput[0].value);
+        }
+
+        for (i = 1; i < oInput.length; i++) {
+            if (oInput[i].checked == true) {
+                localStorage.setItem('sex', oInput[i].value);
+            }
+        }
+
+        if (content.value) {
+            localStorage.setItem('content', content.value);
+        }
+
+    }
+
+    var clearData = function() {
+        oInput[0].value = '';
+        oInput[2].checked = true;
+        content.value = ''
+    }
+
+    if (localStorage.getItem('name')) {
+        oInput[0].value = localStorage.getItem('name');
+    }
+
+    if (localStorage.getItem('sex')) {
+        for (i = 1; i < oInput.length; i++) {
+            if (oInput[i].value == localStorage.getItem('sex')) {
+                oInput[i].checked = true;
+            }
+        }
+    }
+
+    if (localStorage.getItem('content')) {
+        content.value = localStorage.getItem('content');
+    }
+
+    btnClear.onclick = function() {
+        localStorage.setItem('empty', 1)
+        localStorage.clear();
+        clearData();
+    }
+
+    window.onunload = ;
+
+    alert(1111)
+</script>
+
+</html>
