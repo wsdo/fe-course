@@ -1,0 +1,10 @@
+CACHE MANIFEST
+
+CACHE:
+100.png
+
+FALLBACK:
+1.css
+
+NETWORK:
+*

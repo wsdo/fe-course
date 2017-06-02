@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" name="" value="电风扇">电风扇 </br>
+    <input type="checkbox" name="" value="空调">空调 </br>
+    <input type="checkbox" name="" value="巧乐兹"> 巧乐兹</br>
+    <input type="checkbox" name="" value="冰工厂">冰工厂 </br>
+    <input type="checkbox" name="" value="冰箱">冰箱 </br>
+</body>
+<script>
+    var oInput = document.getElementsByTagName('input');
+    for (var i = 0; i < oInput.length; i++) {
+        oInput[i].onclick = function() {
+
+            if (this.checked) {
+                localStorage.setItem('addShop', this.value);
+            } else {
+                localStorage.setItem('rmShop', this.value);
+            }
+        }
+    }
+
+
+    window.addEventListener('storage', function(ev) {
+        console.log(ev)
+        if (ev.key == 'addShop') {
+            for (var i = 0; i < oInput.length; i++) {
+                // 现在想要获取，点击的一个值，和本来这个值对比，如果一样就把这个窗口选中
+                // if(此窗口的电风扇 == 另一个窗口的电风扇){
+                //     把电风扇选中
+                // }
+
+                if (ev.newValue == oInput[i].value) {
+                    oInput[i].checked = true;
+                }
+            }
+
+        } else if (ev.key == 'rmShop') {
+            for (var i = 0; i < oInput.length; i++) {
+                // 现在想要获取，点击的一个值，和本来这个值对比，如果一样就把这个窗口选中
+                // if(此窗口的电风扇 == 另一个窗口的电风扇){
+                //     把电风扇选中
+                // }
+
+                if (ev.newValue == oInput[i].value) {
+                    oInput[i].checked = false;
+                }
+            }
+        }
+    })
+</script>
+
+</html>
