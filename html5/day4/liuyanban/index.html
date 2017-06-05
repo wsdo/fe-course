@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-hans" manifest="cache.appcache">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="page-header">
+                <h1>留言板</h1>
+            </div>
+            <!-- 提交留言的表单 -->
+            <form class="bs-example" id="note-form">
+              <div class="col-md-9">
+                  <!-- 提交留言内容的文本区域 -->
+                  <textarea name="note-content" class="form-control" rows="3"></textarea>
+              </div>
+              <div class="col-md-3">
+                  <!-- 提交留言的按钮 -->
+                  <button value="submit" id="submit-btn" type="submit" class="btn btn-primary btn-lg">提交</button>
+                  <input type="hidden" name="note-id" value="0">
+              </div>
+            </form>
+
+            <!-- 显示留言列表 -->
+            <ul class="list-group" id="note-list"></ul>
+
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
