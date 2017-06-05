@@ -3,4 +3,4 @@ CACHE MANIFEST
 CACHE:
 ./css/bootstrap.min.css
 ./css/style.css
-./js/script.js
+./js/index.js
