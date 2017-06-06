@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        
+        .wrapper {
+            width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        header {
+            padding: 20px 0;
+            margin-bottom: 20px;
+            text-align: center
+        }
+        
+        header h3 {
+            line-height: 1;
+            font-weight: normal;
+            font-size: 28px;
+        }
+        
+        .main .item {
+            width: 210px;
+            height: 210px;
+            margin: 0 30px 20px 0;
+            display: flex;
+            position: relative;
+            background-color: #fff;
+            float: left;
+            box-shadow: 2px 2px 5px #ccc;
+        }
+        
+        .main .item::after {
+            content: attr(data-brief);
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 210px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: floralwhite;
+            background-color: rgba(170, 170, 170, 0);
+            z-index: 1;
+            transition: all 0.3s ease-in;
+        }
+        
+        .main .item:hover::after {
+            background-color: rgba(170, 170, 170, 0.6);
+            z-index: 100;
+        }
+        /*整个框架的布局*/
+        
+        .border-radius {
+            width: 180px;
+            height: 180px;
+            margin: auto;
+            border: 1px solid red;
+        }
+        
+        .item:nth-child(1) .border-radius {
+            /*整圆*/
+            /*border-radius: 50%;*/
+            border-radius: 90px;
+        }
+        
+        .item:nth-child(2) .border-radius {
+            border-radius: 50% 50% 0 0;
+        }
+        
+        .item:nth-child(3) .border-radius {
+            height: 90px;
+            border-radius: 90px 90px 0 0;
+        }
+        
+        .item:nth-child(4) .border-radius {
+            border-radius: 90px 0 0 0;
+        }
+        
+        .item:nth-child(11) .border-radius {
+            border-radius: 90px 0 0 0;
+            width: 40px;
+            height: 40px;
+            border: 70px solid red;
+            border-radius: 90px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+
+        <header>
+            <h3>css3 边框圆角</h3>
+        </header>
+        <div class="main">
+            <div class="item" data-brief="整圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="拱形">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="半圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="左上角">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="四分之一圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="横着的椭圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="竖着的椭圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="半个横着的椭圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="半个竖着的椭圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+            <div class="item" data-brief="四分之一竖着的椭圆">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="饼环">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="圆饼">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="左上角圆饼">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="对角圆饼">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="四边不同色">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="右透明色">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="圆右透明色">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="阴阳图前世">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="阴阳图前世2">
+                <div class="border-radius">
+
+                </div>
+            </div>
+            <div class="item" data-brief="阴阳图今生">
+                <div class="border-radius">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
