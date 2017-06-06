@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div[class="stark"] {
+            color: red;
+        }
+        
+        div[name="树东"] {
+            color: aqua;
+        }
+        
+        div[class~='box'] {
+            color: salmon;
+        }
+        
+        div[class~='box'] {
+            color: salmon;
+        }
+        
+        div[class^='box'] {
+            color: saddlebrown;
+        }
+        
+        div[class$='box'] {
+            color: blueviolet;
+        }
+        
+        div[class*='box'] {
+            color: slategray;
+        }
+        
+        li[class|="test3"] {
+            color: #f00;
+        }
+        
+        img[alt='stark'] {
+            width: 200px;
+        }
+        
+        img[ age="18"] {
+            width: 500px;
+        }
+        /*[alt='google'][age='58'] {
+            width: 100px;
+            box-shadow: 4px 4px 4px red;
+        }*/
+        /*[alt='firefox'][name='火狐'] {
+            width: 600px;
+            box-shadow: 4px 4px 4px red;
+            transform: rotate(45deg);
+        }*/
+        
+        [alt='firefox'] {
+            width: 600px;
+            box-shadow: 4px 4px 4px red;
+            transform: rotate(45deg);
+        }
+        
+        input[type="button"] {
+            background-color: chartreuse;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="stark">
+        hi stark
+    </div>
+
+
+    <div name="树东">
+        hi 树东
+    </div>
+
+    <div class="box box">box box2</div>
+    <div class="asdas box2">box2 box2</div>
+    <div class="box4 box2">box box4</div>
+    <div class="asda box">box3 box2</div>
+    <div class="bosa box2">box box7</div>
+    <div class="box box2">box1 box2</div>
+
+
+    <li class="test1-abc">列表项目</li>
+    <li class="test2-abc">列表项目</li>
+    <li class="test3-abc">列表项目test3-abc</li>
+    <li class="test3abc">列表项目test3abc</li>
+    <li class="test3 abc">test3 abc</li>
+    <li class="test6-abc">列表项目</li>
+
+    <img src="../note/img/ie7.jpg" alt="stark" age="18">
+
+    <img src="../note/img/谷歌.png" alt="google" age="58">
+    <img src="../note/img/谷歌.png" alt="firefox" age="58">
+
+    <img src="../note/img/火狐.png" alt="firefox" name="火狐">
+
+
+    <input type="button" name="" value="哆啦A梦">
+</body>
+
+</html>
