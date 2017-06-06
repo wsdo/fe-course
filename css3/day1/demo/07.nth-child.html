@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>结构性伪类选择符 E:nth-child(n)_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="" />
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+        
+        li:nth-child(2) {
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <!--匹配父元素的第n个子元素E。-->
+    <!--要使该属性生效，E对象必须是某个对象的子元素。-->
+    <h1>第二行要变成红色 <code>li:nth-child(2){color:#f00;}</code></h1>
+    <ul>
+        <li>结构性伪类选择符 E:nth-child(n)</li>
+        <li>结构性伪类选择符 E:nth-child(n)</li>
+        <li>结构性伪类选择符 E:nth-child(n)</li>
+    </ul>
+</body>
+
+</html>

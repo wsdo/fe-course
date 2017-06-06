@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>E::after_CSS</title>
+    <meta/>
+    <style>
+        ul {
+            list-style: none;
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 10px;
+            line-height: 40px;
+        }
+        
+        ul li::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: blueviolet;
+        }
+        
+        ul li:hover::before {
+            background-color: red
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>content content</li>
+        <li>content content</li>
+        <li>content content</li>
+        <li>content content</li>
+        <li>content content</li>
+        <li>content content</li>
+    </ul>
+</body>
+
+</html>

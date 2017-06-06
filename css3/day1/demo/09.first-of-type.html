@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>结构性伪类选择符 E:first-of-type_CSS</title>
+    <meta/>
+    <style>
+        p:first-of-type {
+            color: #f00;
+        }
+        
+        p:last-of-type {
+            color: #f00;
+        }
+        
+        .box:last-of-type {
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <!--匹配同类型中的第一个同级兄弟元素E。-->
+    <div class="test">
+        <div class="box">我是一个div元素</div>
+        <div class="box">我是一个div元素</div>
+        <div class="box">我是一个div元素</div>
+        <div class="box">我是一个div元素</div>
+        <div class="box">我是一个div元素</div>
+        <div class="box">我是一个div元素111</div>
+        <p>我是一个p元素1</p>
+        <p>我是一个p元素2</p>
+        <p>我是一个p元素3</p>
+        <p>我是一个p元素4</p>
+        <p>我是一个p元素5</p>
+        <p>我是一个p元素6</p>
+    </div>
+</body>
+
+</html>

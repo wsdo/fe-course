@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>结构性伪类选择符 E:empty_CSS</title>
+    <meta/>
+    <style>
+        p:empty {
+            height: 250px;
+            border: 1px solid chartreuse;
+            background: chocolate;
+            width: 34px;
+        }
+        
+        div:empty {
+            height: 250px;
+            border: 1px solid chartreuse;
+            background: chocolate;
+            width: 34px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--当两个标签完全亲上的时候才可以-->
+    <div class="test">
+        <p>结构性伪类选择符 E:empty</p>
+        <p></p>
+        <p>结构性伪类选择符 E:empty</p>
+
+
+        <div>
+            <!--我是一个空节点p，请注意我与其它非空节点p的外观有什么不一样-->
+        </div>
+        <div></div>
+        <div> </div>
+        <div>stark</div>
+    </div>
+</body>
+
+</html>

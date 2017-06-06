@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>目标伪类选择符</title>
+    <meta/>
+    <style>
+        .test .hd {
+            padding: 10px 0;
+        }
+        
+        .test .nav {
+            position: fixed;
+            right: 10px;
+            left: 540px;
+        }
+        
+        .test .nav a {
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .test .bd .panel {
+            width: 500px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .test .bd h2 {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .test .bd .panel:target {
+            border-color: #f60;
+        }
+        
+        .test .bd .panel:target h2 {
+            border-color: #f60;
+        }
+        
+        h2,
+        p {
+            margin: 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        匹配相关URL指向的E元素。 解释：URL 后面跟有锚名称 #，指向文档内某个具体的元素。 <br> 这个被链接的元素就是目标元素(target element)。 <br> :target 选择器即用于选取当前活动的目标元素。 <br> 详细参看示例，IE8不支持此属性。 <br>
+    </div>
+    <div class="test">
+        <div class="hd nav">
+            <a href="#panel1">前往区块1</a>
+            <a href="#panel2">前往区块2</a>
+            <a href="#panel3">前往区块3</a>
+            <a href="#panel4">前往区块4</a>
+            <a href="#panel5">前往区块5</a>
+        </div>
+        <div class="bd">
+            <div id="panel1" class="panel">
+                <h2>区块1</h2>
+                <div>
+                    <p>区块1内容</p>
+                    <p>区块1内容</p>
+                    <p>区块1内容</p>
+                </div>
+            </div>
+            <div id="panel2" class="panel">
+                <h2>区块2</h2>
+                <div>
+                    <p>区块2内容</p>
+                    <p>区块2内容</p>
+                    <p>区块2内容</p>
+                </div>
+            </div>
+            <div id="panel3" class="panel">
+                <h2>区块3</h2>
+                <div>
+                    <p>区块3内容</p>
+                    <p>区块3内容</p>
+                    <p>区块3内容</p>
+                </div>
+            </div>
+            <div id="panel4" class="panel">
+                <h2>区块4</h2>
+                <div>
+                    <p>区块4内容</p>
+                    <p>区块4内容</p>
+                    <p>区块4内容</p>
+                </div>
+            </div>
+            <div id="panel5" class="panel">
+                <h2>区块5</h2>
+                <div>
+                    <p>区块5内容</p>
+                    <p>区块5内容</p>
+                    <p>区块5内容</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
