@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px;
+            perspective: 400px;
+        }
+        
+        img {
+            border: 1px solid #000;
+            transition: all 6s ease 0s;
+            transform: none;
+        }
+        
+        div.fly img {
+            transform: rotateX(500deg) rotateY(530deg) translateX(500px) translateZ(500px);
+        }
+    </style>
+</head>
+
+<body>
+    <input id="btn" type="button" name="" value="点我，让教主飞起来">
+
+    <div>
+        <img src="img/22.jpg" alt="">
+    </div>
+</body>
+<script>
+    var box = document.getElementsByTagName("div")[0];
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function() {
+        box.className = "fly";
+    }
+</script>
+
+</html>
