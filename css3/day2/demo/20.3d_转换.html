@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 500px;
+            border: 1px solid #000;
+            perspective: 600px;
+            margin: 100px;
+        }
+        
+        img {
+            width: 300px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #000;
+            /*transform: rotateX(90deg) rotateY(90deg);*/
+            -webkit-transition: all 10s ease 0s;
+            -moz-transition: all 10s ease 0s;
+            transition: all 10s ease 0s;
+            backface-visibility: hidden;
+            background-size: cover;
+        }
+        
+        img.baby {
+            transform: rotateX(-180deg)
+        }
+        
+        div:hover .baby {
+            transform: rotateX(0deg);
+        }
+        
+        div:hover .jiaozhu {
+            transform: rotateX(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img class="baby" src="img/11.jpg" alt="">
+        <img class="jiaozhu" src="img/22.jpg" alt="">
+    </div>
+</body>
+
+</html>
