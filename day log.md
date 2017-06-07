@@ -5,3 +5,12 @@
 2017年6月6日17:28:10
 css3第一天
 css3 边框20种效果，文本、边框阴影，发光文字动画案例，关系选择符，属性选择符，伪类选择符，伪对象选择符，过渡的基本语法，什么时候触发过渡，贝尔曲线介绍。
+
+2017年6月7日17:45:41
+css第二天
+今天讲课内容：
+背景：background-origin clip size, multi-column rule span fill befor after 
+文本： word-break warp
+2d 3d： transform:matrix translate scale rotate skew perspective
+拖拽立方体，空间移动 ，旋转轴设置，变形背面新的图片。
+作业：3d幻灯片 ，环绕相册
