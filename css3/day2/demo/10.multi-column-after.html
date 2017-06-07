@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>column-break-after</title>
+    <meta/>
+    <style>
+        body {
+            font: 14px/1.5 georgia, serif, sans-serif;
+        }
+        
+        .test p,
+        .test div {
+            margin: 0;
+            padding: 5px 10px;
+            background: #eee;
+        }
+        
+        h1 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .test {
+            width: 600px;
+            border: 10px solid #000;
+            -moz-column-count: 4;
+            -moz-column-gap: 20px;
+            -moz-column-rule: 3px solid #090;
+            -webkit-column-count: 4;
+            -webkit-column-gap: 20px;
+            -webkit-column-rule: 3px solid #090;
+            column-count: 4;
+            column-gap: 20px;
+            column-rule: 3px solid #090;
+        }
+        
+        .test div {
+            -moz-column-break-after: always;
+            -webkit-column-break-after: always;
+            column-break-after: always;
+        }
+        /*.test .box1 {
+            -moz-column-break-inside: always;
+            -webkit-column-break-inside: always;
+            column-break-inside: always;
+        }*/
+    </style>
+</head>
+
+<body>
+    <h1>column-break-after:always</h1>
+    <div class="test">
+        <p>This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</p>
+        <div>不管本列有没有填满，后面新建一列</div>
+        <span class="box1">asdassasasadsdaasd</span>
+        <p>This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</p>
+    </div>
+</body>
+
+</html>

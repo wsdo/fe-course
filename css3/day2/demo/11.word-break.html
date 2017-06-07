@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>word-break</title>
+    <meta/>
+    <style>
+        .test p {
+            width: 100px;
+            border: 1px solid #000;
+            background-color: #eee;
+        }
+        
+        .normal p {
+            word-break: normal;
+        }
+        
+        .break-all p {
+            word-break: break-all;
+        }
+        
+        .keep-all p {
+            word-break: keep-all;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="test">
+        <li class="normal">
+            <strong>normal：</strong>
+            <p>aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnn</p>
+        </li>
+        <li class="break-all">
+            <strong>break-word：</strong>
+            <p>aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnn</p>
+        </li>
+        <li class="keep-all">
+            <strong>keep-all：</strong>
+            <p>aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnn</p>
+        </li>
+    </ul>
+</body>
+
+</html>

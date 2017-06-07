@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>column-fill</title>
+    <meta/>
+    <style>
+        body {
+            font: 14px/1.5 georgia, serif, sans-serif;
+        }
+        
+        p {
+            margin: 0;
+            padding: 5px 10px;
+            background: #eee;
+        }
+        
+        h1 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .test {
+            width: 600px;
+            border: 10px solid #000;
+            -moz-column-count: 2;
+            -moz-column-gap: 20px;
+            -moz-column-rule: 3px solid #090;
+            -moz-column-fill: balance;
+            -webkit-column-count: 2;
+            -webkit-column-gap: 20px;
+            -webkit-column-rule: 3px solid #090;
+            -webkit-column-fill: balance;
+            column-count: 2;
+            column-gap: 20px;
+            column-rule: 3px solid #090;
+            column-fill: balance;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>column-fill:balance</h1>
+    <div class="test">
+        <p>This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</p>
+    </div>
+</body>
+
+</html>

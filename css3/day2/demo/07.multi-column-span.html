@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>column</title>
+    <meta />
+    <style>
+        body {
+            font: 14px/1.5 georgia, serif, sans-serif;
+        }
+        
+        p {
+            margin: 0;
+            padding: 5px 10px;
+            background: #eee;
+        }
+        
+        h1 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .test {
+            width: 600px;
+            border: 10px solid #000;
+            -moz-column-count: 3;
+            -moz-column-gap: 20px;
+            -moz-column-rule: 3px solid #090;
+            -webkit-column-count: 3;
+            -webkit-column-gap: 20px;
+            -webkit-column-rule: 3px solid #090;
+            column-count: 3;
+            column-gap: 20px;
+            column-rule: 3px solid #090;
+        }
+        
+        .test p {
+            -moz-column-span: all;
+            -webkit-column-span: all;
+            column-span: all;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>column-span:all</h1>
+    <div class="test">
+        This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.
+        <p>spanning element</p>
+        This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.
+    </div>
+</body>
+
+</html>

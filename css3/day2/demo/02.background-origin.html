@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>background-origin</title>
+    <meta/>
+    <style>
+        h1 {
+            font-size: 20px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        p {
+            border: 10px dashed #666;
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            background: #aaa url(img/1.jpg) no-repeat;
+            background-size: cover;
+        }
+        
+        .border-box p {
+            background-origin: border-box;
+        }
+        
+        .padding-box p {
+            background-origin: padding-box;
+        }
+        
+        .content-box p {
+            background-origin: content-box;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>background-origin</h1>
+    <ul class="test">
+        <li class="border-box">
+            <h2>border-box</h2>
+            <p>从border区域（含border）开始显示背景图像</p>
+        </li>
+        <li class="padding-box">
+            <h2>padding-box</h2>
+            <p>从padding区域（含padding）开始显示背景图像</p>
+        </li>
+        <li class="content-box">
+            <h2>content-box</h2>
+            <p>从content区域开始显示背景图像</p>
+        </li>
+    </ul>
+</body>
+
+</html>

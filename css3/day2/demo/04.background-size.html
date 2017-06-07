@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>background</title>
+    <meta />
+    <style>
+        h1 {
+            font-size: 20px;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        p {
+            border: 10px dashed #666;
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            background: url(img/1.jpg) no-repeat;
+        }
+        
+        .cover p {
+            background-size: cover;
+        }
+        
+        .contain p {
+            background-size: contain;
+        }
+        
+        .length p {
+            background-size: 100px 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>background-size</h1>
+    <ul class="test">
+        <li class="cover">
+            <h2>cover</h2>
+            <p>将背景图像等比缩放到完全覆盖容器，背景图像有可能超出容器。</p>
+        </li>
+        <li class="contain">
+            <h2>contain</h2>
+            <p>将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。</p>
+        </li>
+        <li class="length">
+            <h2>length</h2>
+            <p>自定义背景图像大小</p>
+        </li>
+    </ul>
+</body>
+
+</html>
