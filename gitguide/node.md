@@ -67,3 +67,33 @@ notice
 
     有了git就不需要这么麻烦了
         开发这个功能之前，先创建一个特性分支，就是这个功能分支，当你老板让你紧急修复bug的时候，你此时只需要把你的分支切换到master分支，然后再创建一个紧急修复bug 分支，修改完了测试好了，再合并到master主分支，上线，然后再切换到你这个特性分支继续开发!
+
+
+git  ssh 链接
+
+cd  ~  是进入你的家目录
+
+ls -a  查看所有的文件 包括隐藏的文件
+
+cd .ssh
+cat id_rsa.pub  查看这个公钥 
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDpIuB87xN0k+FXAH/9jNdXdLzXrXIg+3Y4uGYDtv/TaH7xTXvevQZBWqTVloHDdCDews9qGkn47AVctXYjJ0Ns9uuf1xpys48dVcIFjTpG8A7Z3pBvZC1RHjkvca1HKyUY+y3+JRUR4BrTybbn+sP+PcWagsjU3QUD7xDH6qwJfqXopwpIzNPIArbx9qseuTHvzDNE4QUK4YQuBr6C0WSl0519n56bDkHAYy51FFncrYkaXEglJtAQ3be94Jh8xKaUgE6GTHf0WDU6CfUoQTqeg1ByK4nEOLaSwF2LoSDTYFxVkOmrzeXw6md1OHZwN+GTs/14ghybnfoq9fFpYn0N wsd312@163.com
+
+把这个公钥放在git setings  SSH keys 
+ new ssh key
+
+Title  自己随便写，标明是哪台电脑
+
+Key 
+就是写你的公钥
+
+http://blog.csdn.net/tanzhengyu/article/details/51064380
+
+ 键入命令：ssh-keygen -t rsa -C "email@email.com"，引号中是你在github上的注册邮箱，之后设定你的ssh密码，如图：
+
+ssh-keygen -t rsa -C "wsd312@163.com"
+
+
+
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .stage {
+            width: 860px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            position: relative;
+            perspective: 500px;
+        }
+        
+        .stage ul {
+            list-style: none;
+        }
+        
+        .stage ul li {
+            position: absolute;
+            top: 50px;
+            left: 150px;
+            border: 1px solid #000;
+            transition: all 0.5s ease 0s;
+        }
+        
+        .stage ul li img {
+            width: 400px;
+            height: 250px;
+        }
+        
+        .stage ul li.center {
+            z-index: 800;
+            transform: none;
+        }
+        
+        .stage ul li.left1 {
+            z-index: 600;
+            transform: rotateY(30deg) translateX(-100px) translateZ(-200px)
+        }
+        
+        .stage ul li.left2 {
+            z-index: 500;
+            transform: rotateY(30deg) translateX(-200px) translateZ(-300px)
+        }
+        
+        .stage ul li.right1 {
+            z-index: 600;
+            transform: rotateY(-30deg) translateX(100px) translateZ(-200px)
+        }
+        
+        .stage ul li.right2 {
+            z-index: 500;
+            transform: rotateY(-30deg) translateX(200px) translateZ(-300px)
+        }
+    </style>
+</head>
+
+<body>
+    <input id="rightBtn" type="button" name="" value="切换下一张">
+    <div class="stage">
+        <ul>
+            <li class="left2"> <img src="img/1.jpg" alt=""> </li>
+            <li class="left1"> <img src="img/2.jpg" alt=""> </li>
+            <li class="center"> <img src="img/3.jpg" alt=""> </li>
+            <li class="right1"> <img src="img/4.jpg" alt=""> </li>
+            <li class="right2"> <img src="img/5.jpg" alt=""> </li>
+        </ul>
+    </div>
+    <script src='jquery.js'>
+    </script>
+    <script>
+        $("#rightBtn").click(function() {
+            $("li").eq(0).attr('class', 'left2');
+            $("li").eq(1).attr('class', 'center');
+            $("li").eq(2).attr('class', 'right1');
+            $("li").eq(3).attr('class', 'right2');
+        })
+    </script>
+</body>
+
+</html>
