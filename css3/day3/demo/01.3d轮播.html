@@ -53,6 +53,16 @@
             transform: rotateY(30deg) translateX(-200px) translateZ(-300px)
         }
         
+        .stage ul li.left3 {
+            z-index: 500;
+            transform: rotateY(30deg) translateX(-300px) translateZ(-400px)
+        }
+        
+        .stage ul li.left4 {
+            z-index: 500;
+            transform: rotateY(30deg) translateX(-400px) translateZ(-500px)
+        }
+        
         .stage ul li.right1 {
             z-index: 600;
             transform: rotateY(-30deg) translateX(100px) translateZ(-200px)
@@ -61,6 +71,16 @@
         .stage ul li.right2 {
             z-index: 500;
             transform: rotateY(-30deg) translateX(200px) translateZ(-300px)
+        }
+        
+        .stage ul li.right3 {
+            z-index: 500;
+            transform: rotateY(-30deg) translateX(300px) translateZ(-400px)
+        }
+        
+        .stage ul li.right4 {
+            z-index: 500;
+            transform: rotateY(-30deg) translateX(400px) translateZ(-400px)
         }
     </style>
 </head>
@@ -79,12 +99,33 @@
     <script src='jquery.js'>
     </script>
     <script>
+        var idx = 2;
         $("#rightBtn").click(function() {
-            $("li").eq(0).attr('class', 'left2');
-            $("li").eq(1).attr('class', 'center');
-            $("li").eq(2).attr('class', 'right1');
-            $("li").eq(3).attr('class', 'right2');
+            // $("li").eq(0).attr('class', 'left2');
+            // $("li").eq(1).attr('class', 'center');
+            // $("li").eq(2).attr('class', 'right1');
+            // $("li").eq(3).attr('class', 'right2');
+
+            idx--;
+
+            if (idx < 0) {
+                idx = 0;
+                return;
+            }
+            setClass(idx);
+
         })
+        var $lis = $('li');
+        var classNameArr = ['left4', 'left3', 'left2', "left1", "center", "right1", 'right2', "right3", "right4"];
+
+        function setClass(idx) {
+            var arr = classNameArr.slice(idx, idx + 5);
+            console.log(arr)
+            $lis.each(function(i) {
+                console.log(i)
+                $(this).attr("class", arr[i]);
+            })
+        }
     </script>
 </body>
 
