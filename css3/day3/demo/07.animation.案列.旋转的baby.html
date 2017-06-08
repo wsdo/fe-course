@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            border-radius: 50%;
+            border: 1px solid #000;
+            animation: xuanzhuan 1s linear 0s infinite;
+            width: 200px;
+            height: 200px;
+        }
+        
+        img:hover {
+            animation-play-state: paused;
+        }
+        
+        @-webkit-keyframes xuanzhuan {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/111.jpg" alt="">
+</body>
+
+</html>

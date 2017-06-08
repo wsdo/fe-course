@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .rolling {
+            width: 800px;
+            height: 130px;
+            border: 10px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rolling .box {
+            width: 5000px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: move 10s linear 0s infinite;
+        }
+        
+        .rolling:hover .box {
+            animation-play-state: paused;
+        }
+        
+        .rolling ul {
+            list-style: none;
+        }
+        
+        .box li {
+            float: left;
+            margin-left: 10px;
+        }
+        
+        .box li img {
+            width: 200px;
+        }
+        
+        @-webkit-keyframes move {
+            from {
+                left: 0;
+            }
+            to {
+                left: -1050px;
+                /*left: -890px;*/
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rolling" id="rolling">
+        <div class="box" id="box">
+            <ul>
+                <li>
+                    <a href=""><img src="img/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/4.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/5.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/4.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="img/5.jpg" alt=""></a>
+                </li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
