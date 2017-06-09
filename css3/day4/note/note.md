@@ -17,8 +17,6 @@ $('#box').addClass('animated shake');
 https://github.com/daneden/animate.css
 
 效果的名字
-
-
 bounce
 flash
 pulse
