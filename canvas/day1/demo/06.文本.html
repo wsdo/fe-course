@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800">对不起，你的浏览器不支持画布，请升级浏览器！</canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
+    // 创建渐变
+    var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "blue");
+    gradient.addColorStop("1.0", "red");
+    // 用渐变填色
+    ctx.fillStyle = gradient;
+
+    ctx.font = "40px 微软雅黑";
+    ctx.fillText('你好', 100, 100);
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800">对不起，你的浏览器不支持画布，请升级浏览器！</canvas>
+</body>
+<script>
+    var c = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
+
+    //在位置 y=100 绘制蓝色线条
+    ctx.strokeStyle = "blue";
+    ctx.moveTo(5, 100);
+    ctx.lineTo(395, 100);
+    ctx.stroke();
+
+    ctx.font = "20px Arial"
+
+    //在 y=200 以不同的 textBaseline 值放置每个单词
+    ctx.textBaseline = "top";
+    ctx.fillText("Top", 5, 100);
+    ctx.textBaseline = "bottom";
+    ctx.fillText("Bottom", 50, 100);
+    ctx.textBaseline = "middle";
+    ctx.fillText("Middle", 120, 100);
+    ctx.textBaseline = "alphabetic";
+    ctx.fillText("Alphabetic", 190, 100);
+    ctx.textBaseline = "hanging";
+    ctx.fillText("Hanging", 290, 100);
+</script>
+
+</html>

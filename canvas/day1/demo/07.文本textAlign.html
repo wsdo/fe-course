@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800">对不起，你的浏览器不支持画布，请升级浏览器！</canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
+    // 在位置 150 创建蓝线
+    ctx.strokeStyle = "blue";
+    ctx.moveTo(150, 20);
+    ctx.lineTo(150, 170);
+    ctx.stroke();
+
+    ctx.font = "15px Arial";
+
+    // 显示不同的 textAlign 值
+    ctx.textAlign = "start";
+    ctx.fillText("textAlign=start", 150, 60);
+    ctx.textAlign = "end";
+    ctx.fillText("textAlign=end", 150, 80);
+    ctx.textAlign = "left";
+    ctx.fillText("textAlign=left", 150, 100);
+    ctx.textAlign = "center";
+    ctx.fillText("textAlign=center", 150, 120);
+    ctx.textAlign = "right";
+    ctx.fillText("textAlign=right", 150, 140);
+</script>
+
+</html>

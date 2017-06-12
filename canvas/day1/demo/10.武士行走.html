@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="800" height="400" id="canvas"> </canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    var image = new Image();
+    image.src = "img/run.png";
+    image.onload = function() {
+        // ctx.drawImage(image, 2 * 64, 256, 64, 128, 50, 50, 64, 128);
+        var m = 0;
+        var left = 50;
+        setInterval(function() {
+            if (m > 7) {
+                m = 0;
+            }
+            left += 7;
+            ctx.clearRect(0, 0, 800, 800);
+            ctx.drawImage(image, m * 64, 256, 64, 128, left, 50, 64, 128);
+            m++;
+
+        }, 50)
+    }
+</script>
+
+</html>
