@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="1600" height="800"></canvas>
+</body>
+<script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    // var color = ['red', 'blue', 'green', 'orange', 'skyblue'];
+    var color = ['#ffcc00', '#ff9900', '#993366', '#66cccc', '#ff99cc'];
+
+    function Circle(x, y, r) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.color = _.sample(color);
+        this.deltaX = Math.random() * 8 - 4;
+        this.deltaY = Math.random() * 8 - 4;
+        ballArr.push(this);
+    }
+
+    Circle.prototype.render = function() {
+
+        if (this.r <= 0) {
+            ballArr = _.without(ballArr, this);
+            return;
+        }
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, 7, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+
+    Circle.prototype.update = function() {
+        this.x += this.deltaX;
+        this.y += this.deltaY;
+        this.r -= 0.2;
+    }
+
+    canvas.onmousemove = function(ev) {
+        new Circle(ev.offsetX, ev.offsetY, 20);
+    }
+
+
+    var ballArr = [];
+    setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        _.each(ballArr, function(i) {
+            i.update();
+            i.render();
+        })
+    }, 1)
+</script>
+
+</html>

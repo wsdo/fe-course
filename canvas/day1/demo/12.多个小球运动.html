@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+</body>
+<script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    function Circle(x, y, r, color) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.color = color;
+
+        arr.push(this);
+    }
+
+    Circle.prototype.render = function() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, 7, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+
+    Circle.prototype.update = function() {
+        this.x++;
+        // 到了canvas 画布的边界了
+        if (this.x > canvas.width) {
+            arr = _.without(arr, this);
+        }
+        // console.log(arr)
+    }
+
+    var arr = [];
+
+    new Circle(100, 100, 50, "red");
+    new Circle(200, 100, 50, "red");
+    new Circle(300, 100, 50, "red");
+    new Circle(400, 100, 50, "red");
+    new Circle(500, 100, 50, "red");
+    new Circle(600, 100, 50, "red");
+    new Circle(700, 100, 50, "red");
+
+
+    setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // ball.render();
+        // ball.update();
+
+        _.each(arr, function(i) {
+            i.render();
+            i.update();
+        })
+
+    }, 10)
+</script>
+
+</html>
