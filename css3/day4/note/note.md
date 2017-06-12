@@ -1,3 +1,5 @@
+fullPage.js  滚屏插件
+
 animate 使用方式
 <link rel="stylesheet" href="../../lib/animate.css">
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" name="" value="点击按钮">
+    <div>
+        <img src="img/xin.jpg" alt="">
+    </div>
+    <script src="jquery.js"></script>
+    <script src="velocity.min.js"></script>
+    <script src="velocity.ui.js"></script>
+    <script>
+        $("input").click(function() {
+            // $("img").velocity({
+            //     "rotateX": "40deg",
+            //     "rotateY": "40deg",
+            //     "translateZ": "400px"
+            // }, 5000, function() {
+            //     $(this).fadeOut();
+            // })
+
+            // $("img").velocity({
+            //     "rotateX": "40deg"
+            // }, 1000);
+
+            // $("img").velocity({
+            //     "rotateY": "40deg"
+            // }, 1000);
+
+            // $("bldy").velocity({
+            //     "backgroundColor": "#123"
+            // }, 1000);
+
+            // $("img").velocity({
+            //         width: 75
+            //     })
+            //     /* 等前面的宽度动画结束后，再执行高度变为0的动画 */
+            //     .velocity({
+            //         height: 0
+            //     });
+
+
+            // 点击宽度变为50，
+            // $("img").velocity({
+            //     width: 50
+            // }, "easeInSine");
+
+
+            // $("img").velocity({
+            //     opacity: 0,
+            //     tween: 1000 // 可选的
+            // }, {
+            //     duration: 2000,
+            //     progress: function(elements, complete, remaining, start, tweenValue) {
+            //         console.log((complete * 100) + "%");
+            //         console.log(remaining + "ms remaining!");
+            //         console.log("The current tween value is " + tweenValue)
+            //     }
+            // });
+
+            // $("img").velocity({
+            //     height: "10em"
+            // }, {
+            //     loop: 2,
+            //     display: "none"
+            // });
+            // $("img").velocity({
+            //     opacity: function() {
+            //         return Math.random()
+            //     }
+            // }, {
+            //     // loop: 2,
+            //     // display: "none"
+            // });
+
+
+            // $("img").velocity({
+            //     translateX: [500, 0],
+            //     /* opacity 初始值永远为0 动画结束值为1 缓动效果为"easeInSine" */
+            //     opacity: [0, "easeInSine", 1]
+            // }, {
+            //     // loop: 2,
+            //     // display: "none"
+            // });
+            $("img").velocity("callout.bounce", {
+                duration: 10050
+            });
+        })
+    </script>
+</body>
+
+</html>
