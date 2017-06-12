@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="300" id="canvas">对不起，您的浏览器不支持画布，请升级浏览器!</canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
+    ctx.strokeStyle = "red"; // 更改笔触的颜色
+    ctx.lineWidth = "9"; //更改笔触的宽度
+    ctx.strokeRect(50, 50, 100, 100); //画一个矩形的笔触，没有填充
+
+    ctx.fillStyle = "blue"; //更改填充的颜色
+    ctx.fillRect(200, 200, 100, 100); //画一个矩形填充，没有笔触
+</script>
+
+</html>

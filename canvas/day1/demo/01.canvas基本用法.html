@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+        
+        #canvas {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas">对不起，您的浏览器不支持画布，请升级浏览器!</canvas>
+</body>
+<script>
+    // 得到画布
+    var canvas = document.getElementById("canvas");
+    // 得到上下文
+    var ctx = canvas.getContext("2d");
+    // 接下来要画东西，都是ctx的方法和属性
+    ctx.fillStyle = "blue"; //填充颜色
+    ctx.fillRect(40, 30, 100, 100) //画一个矩形
+</script>
+
+</html>
