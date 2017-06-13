@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: black;
+        }
+        
+        #c1 {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c1" width="400" height="400"></canvas>
+    <script>
+        window.onload = function() {
+
+
+            var canvas = document.getElementById('c1');
+            var ctx = canvas.getContext('2d');
+
+            function toDraw() {
+                var x = 200;
+                var y = 200;
+                var r = 150;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                var oDate = new Date();
+                var oHours = oDate.getHours();
+                var oMin = oDate.getMinutes();
+                var oSen = oDate.getSeconds();
+
+                // var oHoursValue = (oHours * Math.PI / 6) + (oMin * Math.PI / 360)
+                var oHoursValue = (-90 + oHours * 30 + oMin / 2) * Math.PI / 180;
+                var oSenValue = (-90 + oSen * 6) * Math.PI / 180;
+                var oMinValue = (-90 + oMin * 6) * Math.PI / 180;
+
+                // 实现了一个分钟的刻度
+                ctx.beginPath();
+                for (var i = 0; i < 60; i++) {
+                    ctx.moveTo(x, y);
+                    ctx.arc(x, y, r, 6 * i * Math.PI / 180, 6 * (i - 1) * Math.PI / 180, false);
+                }
+                ctx.closePath();
+                ctx.stroke();
+
+
+                // 实现小时的刻度
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (var i = 0; i < 12; i++) {
+                    ctx.moveTo(x, y);
+                    ctx.arc(x, y, r, 30 * i * Math.PI / 180, 30 * (i + 1) * Math.PI / 180, false);
+                }
+                ctx.closePath();
+                ctx.stroke();
+
+                // 画一个大白圆，把其它的盖住
+
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.arc(x, y, r * 18 / 20, 0, 360 * (i + 1) * Math.PI / 180)
+                ctx.closePath();
+                ctx.fill()
+
+
+                // 秒针
+
+                ctx.beginPath();
+                ctx.lineWidth = 1;
+                ctx.moveTo(x, y);
+                ctx.arc(x, y, r * 0.9, oSenValue, oSenValue, false)
+                ctx.closePath();
+                ctx.stroke();
+
+
+                // 分针
+
+                ctx.beginPath();
+                ctx.lineWidth = 3;
+                ctx.moveTo(x, y);
+                ctx.arc(x, y, r * 0.8, oMinValue, oMinValue, false)
+                ctx.closePath();
+                ctx.stroke();
+
+
+                // 小时
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.moveTo(x, y);
+                ctx.arc(x, y, r * 0.6, oHoursValue, oHoursValue, false)
+                ctx.closePath();
+                ctx.stroke();
+            }
+            toDraw()
+
+            setInterval(toDraw, 1000);
+        }
+    </script>
+</body>
+
+</html>
