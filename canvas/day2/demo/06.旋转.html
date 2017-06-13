@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #c5aa80;
+            /*background: url(img/1.jpg);*/
+            /*background-size: 100% auto;*/
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+
+        ctx.save();
+        // ctx.rotate(0.2);
+        ctx.fillRect(100, 100, 40, 40);
+        ctx.restore();
+
+
+        ctx.save();
+        ctx.rotate(0.2);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(100, 100, 40, 40);
+        ctx.fill();
+        // ctx.restore();
+
+
+        // ctx.save();
+        ctx.rotate(0.1);
+        ctx.fillStyle = 'pink';
+        ctx.fillRect(100, 100, 40, 40);
+        ctx.fill();
+        // ctx.restore();
+
+        // for (var i = 0.1; i <= 1; i += 0.1) {
+        //     ctx.save();
+        //     ctx.rotate(i);
+        //     ctx.fillRect(100, 100, 40, 40);
+        //     ctx.restore();
+        // }
+    </script>
+
+</body>
+
+</html>

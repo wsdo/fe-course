@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/konva/1.6.3/konva.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+
+    </div>
+</body>
+<script>
+    // 第一步：创建舞台
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: window.innerWidth,
+        height: window.innerHeight
+    })
+
+    // 第二步：创建一个层
+    var layer = new Konva.Layer();
+
+    // 第三部:把这个层添加到舞台上
+    stage.add(layer);
+
+    // 第四部：画一个矩形
+    var rect = new Konva.Rect({
+            x: 100,
+            y: 100,
+            width: 100,
+            height: 200,
+            fill: 'orange',
+            opacity: .4,
+            rotation: 40,
+            scaleX: 1.5,
+            scaleY: 1.5,
+            draggable: true
+        })
+        // 第五步：把矩形添加到层上去
+    layer.add(rect);
+
+    // stage.add(layer);
+    // 第六步：把层渲染到舞台上
+    stage.draw();
+</script>
+
+</html>

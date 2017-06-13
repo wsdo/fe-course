@@ -77,3 +77,6 @@ copy
 Only draws the new shape and removes everything else.
 
 只有新图形会被保留，其它都被清除掉。
+
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement

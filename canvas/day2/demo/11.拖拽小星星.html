@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽的小星星</title>
+    <script src="https://cdn.bootcss.com/konva/1.6.3/konva.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    function star() {
+        var scale = Math.random();
+        var star = new Konva.Star({
+            x: Math.random() * stage.getWidth(),
+            y: Math.random() * stage.getHeight(),
+            numPoints: 5,
+            innerRadius: 30,
+            outerRadius: 50,
+            fill: '#89b717',
+            opactiy: .8,
+            draggable: true,
+            scale: {
+                x: scale,
+                y: scale
+            },
+            rotation: Math.random() * 180,
+            shadowColor: 'black',
+            shadowBlur: 10,
+            shadowOffset: {
+                x: 5,
+                y: 5
+            },
+            shadowOpacity: 0.6,
+            startScale: scale
+        })
+        layer.add(star);
+    }
+
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+    })
+    var layer = new Konva.Layer();
+
+    for (var i = 0; i < 10; i++) {
+        star()
+    }
+
+    stage.add(layer);
+</script>
+
+</html>
