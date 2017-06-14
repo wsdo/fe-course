@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input,
+        p,
+        canvas {
+            margin: 0;
+            padding: 0;
+        }
+        
+        p {
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 30px;
+            background-color: lightblue;
+            margin: 20px 0;
+        }
+        
+        canvas {
+            border: 1px black solid;
+            background-color: black;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="name" />
+    <p>点我</p>
+    <canvas width=600 height=400 id="canvas"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas"),
+        val = document.getElementById("name"),
+        btn = document.querySelector("p");
+
+    draw("个人信息", 300, 100, "orange");
+    draw("在王者荣耀中英勇无畏，特发此状，以资鼓励！", 300, 300, "red");
+    btn.addEventListener("click", check);
+
+    function check() {
+        if (val.value) {
+            draw(val.value + "  小伙伴", 300, 200, "green", toUrl);
+        } else {
+            alert("不能为空");
+        }
+    };
+
+    function draw(txt, x, y, color, callback) {
+        var ctx = canvas.getContext("2d");
+        ctx.font = "20px 微软雅黑";
+        ctx.textAlign = "center";
+        ctx.textBaseLine = "middle";
+        ctx.fillStyle = color;
+        ctx.fillText(txt, x, y);
+        if (callback) {
+            callback();
+        }
+    }
+
+    function toUrl() {
+        var dataUrl = canvas.toDataURL();
+        var img = document.createElement("img");
+        img.src = dataUrl;
+        document.body.appendChild(img);
+    }
+</script>
+
+</html>

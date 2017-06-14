@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/konva/1.6.3/konva.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: window.innerWidth,
+        height: window.innerHeight
+    })
+
+    var bgLayer = new Konva.Layer();
+    stage.add(bgLayer);
+
+    var centerX = stage.width() / 2;
+    var centerY = stage.height() / 2;
+    var innerRadius = 125;
+    var outerRadius = 250;
+
+    var innerCircle = new Konva.Circle({
+        x: centerX,
+        y: centerY,
+        radius: innerRadius,
+        stroke: '#ccc',
+        strokeWidth: 4,
+        dash: [10, 4]
+    });
+
+    var outerCircle = new Konva.Circle({
+        x: centerX,
+        y: centerY,
+        radius: outerRadius,
+        stroke: '#ccc',
+        strokeWidth: 4,
+        dash: [10, 5] //虚线 
+    });
+    var centerCircle = new Konva.Circle({
+        x: centerX,
+        y: centerY,
+        radius: 40,
+        fill: 'indigo'
+    })
+
+    // new 一个圆环
+    var ring = new Konva.Ring({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        innerRadius: 40,
+        outerRadius: 80,
+        fill: '#e1e1e1',
+        opacity: .5
+
+    });
+
+    var animateLayer = new Konva.Layer();
+    stage.add(animateLayer);
+
+    var ballx = centerX + innerRadius * Math.cos(-60 * Math.PI / 180);
+    var bally = centerY + innerRadius * Math.sin(-60 * Math.PI / 180);
+
+    // 创建二环上 group
+    // var ball = new Konva.Circle({
+    //     x: centerX,
+    //     y: centerY,
+    //     radius: 30,
+    //     fill: 'red',
+    //     offset: {
+    //         x: -ballx,
+    //         y: bally
+    //     }
+    // })
+
+    var twoBall = new Konva.Group({
+        x: centerX,
+        y: centerY
+    })
+
+    var L2_CircleText_CSS3 = new CircleText({
+        x: ballx,
+        y: bally,
+        innderRadius: 30,
+        outerRadius40,
+        innerStyle: 'red',
+        outerStyle: 'orange',
+        text: 'css3'
+    })
+
+    animateLayer.add(twoBall);
+
+    var angularSpeed = 90;
+
+    var animate = new Konva.Animation(function(frame) {
+
+        twoBall.rotate(.6)
+
+
+    }, animateLayer)
+    animate.start();
+
+
+
+
+
+
+
+
+    bgLayer.add(innerCircle);
+    bgLayer.add(outerCircle);
+    bgLayer.add(centerCircle);
+    bgLayer.add(ring);
+    // bgLayer.add(ball);
+    bgLayer.draw();
+</script>
+
+</html>

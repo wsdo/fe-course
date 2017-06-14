@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            display: -webkit-box;
+        }
+        
+        p {
+            /*float: left;*/
+        }
+        
+        p:nth-child(1) {
+            height: 100px;
+            background: palegoldenrod;
+            -webkit-box-flex: 2;
+            /*width: 16%;*/
+        }
+        
+        p:nth-child(2) {
+            height: 100px;
+            background: red;
+            /*width: 33.33%;*/
+            -webkit-box-flex: 1;
+        }
+        
+        p:nth-child(3) {
+            height: 100px;
+            background: blue;
+            /*width: 50%;*/
+            -webkit-box-flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+
+</html>

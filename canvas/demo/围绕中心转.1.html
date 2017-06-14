@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/konva/1.6.3/konva.min.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #F0F0F0;
+    }
+</style>
+
+<body>
+    <div id="container"></div>
+</body>
+<script>
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: window.innerWidth,
+        height: window.innerHeight
+    })
+    var layer = new Konva.Layer();
+    var out = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 250,
+        fill: '#f0f0f0',
+        stroke: '#ccc',
+        strokeWidth: 4,
+        dash: [12, 12]
+    })
+    var inner = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 150,
+        fill: '#f0f0f0',
+        stroke: '#ccc',
+        strokeWidth: 4,
+        dash: [12, 12]
+    })
+    var center = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 80,
+        fill: 'indigo',
+        stroke: '#ccc',
+        strokeWidth: 30,
+        opacity: .7
+    })
+    var centerText = new Konva.Text({
+        x: stage.getWidth() / 2 - 36,
+        y: stage.getHeight() / 2 - 6,
+        text: 'WEB全栈',
+        fontSize: 18,
+        width: 80,
+        fontFamily: 'Calibri',
+        fill: '#fff',
+        align: 'center'
+    });
+    var quan1 = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 30,
+        fill: 'hotpink',
+        stroke: '#ccc',
+        strokeWidth: 10,
+        opacity: .7,
+        offset: {
+            x: stage.getWidth() / 2,
+            y: stage.getHeight() / 2,
+        }
+    })
+    quan1 = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 30,
+        fill: 'hotpink',
+        stroke: '#ccc',
+        strokeWidth: 10,
+        opacity: .7,
+        offset: {
+            x: 0,
+            y: 145
+        }
+    })
+    var quan1Text = new Konva.Text({
+        x: stage.getWidth() / 2 - 12,
+        y: stage.getHeight() / 2 - 15,
+        text: 'css3',
+        fontSize: 15,
+        fontFamily: 'Calibri',
+        fill: '#fff',
+        align: 'center',
+        offset: {
+            x: stage.getWidth() / 2,
+            y: stage.getHeight() / 2,
+        }
+    });
+    quan1Text = new Konva.Text({
+        x: stage.getWidth() / 2 - 12,
+        y: stage.getHeight() / 2 - 15,
+        text: 'css3',
+        fontSize: 15,
+        width: 30,
+        fontFamily: 'Calibri',
+        fill: '#fff',
+        align: 'center',
+        offset: {
+            x: 0,
+            y: 145
+        }
+    });
+    var quan2 = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 30,
+        fill: 'cornflowerblue',
+        stroke: '#ccc',
+        strokeWidth: 10,
+        opacity: .7,
+        offset: {
+            x: stage.getWidth() / 2,
+            y: stage.getHeight() / 2,
+        }
+    })
+    quan2 = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 30,
+        fill: 'cornflowerblue',
+        stroke: '#ccc',
+        strokeWidth: 10,
+        opacity: .7,
+        offset: {
+            x: 0,
+            y: -145
+        }
+    })
+    var quan2Text = new Konva.Text({
+        x: stage.getWidth() / 2 - 12,
+        y: stage.getHeight() / 2 - 15,
+        text: 'html5',
+        fontSize: 15,
+        fontFamily: 'Calibri',
+        fill: '#fff',
+        padding: 20,
+        align: 'center',
+        offset: {
+            x: stage.getWidth() / 2,
+            y: stage.getHeight() / 2
+        }
+    });
+
+    quan2Text = new Konva.Text({
+        x: stage.getWidth() / 2 - 12,
+        y: stage.getHeight() / 2 - 15,
+        text: 'html5',
+        fontSize: 15,
+        fontFamily: 'Calibri',
+        fill: '#fff',
+        padding: 20,
+        align: 'center',
+        offset: {
+            x: 0,
+            y: -145,
+        }
+    });
+    var quan3 = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 40,
+        fill: 'darkorange',
+        stroke: '#ccc',
+        strokeWidth: 10,
+        opacity: .7,
+        offset: {
+            x: stage.getWidth() / 2,
+            y: stage.getHeight() / 2,
+        }
+    })
+    quan3 = new Konva.Circle({
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        radius: 40,
+        fill: 'darkorange',
+        stroke: '#ccc',
+        strokeWidth: 10,
+        opacity: .7,
+        offset: {
+            x: 0,
+            y: 250
+        }
+    })
+    var quan3Text = new Konva.Text({
+        x: stage.getWidth() / 2 - 20,
+        y: stage.getHeight() / 2 - 20,
+        text: 'JS',
+        fontSize: 18,
+        fontFamily: 'Calibri',
+        fill: '#fff',
+        align: 'center',
+        offset: {
+            x: stage.getWidth() / 2,
+            y: stage.getHeight() / 2,
+        }
+    });
+    quan3Text = new Konva.Text({
+        x: stage.getWidth() / 2 - 20,
+        y: stage.getHeight() / 2 - 20,
+        text: 'JS',
+        fontSize: 18,
+        fontFamily: 'Calibri',
+        fill: '#fff',
+        align: 'center',
+        offset: {
+            x: 0,
+            y: 250,
+        }
+    });
+    layer.add(out);
+    layer.add(inner);
+    layer.add(center);
+    layer.add(quan1);
+    layer.add(quan2);
+    layer.add(quan3);
+    layer.add(centerText);
+    layer.add(quan1Text);
+    layer.add(quan2Text);
+    layer.add(quan3Text);
+    stage.add(layer);
+
+    var angularSpeed = 90;
+    var anim = new Konva.Animation(function(frame) {
+        quan1.rotate(.6);
+        quan1Text.rotate(.6);
+        quan2.rotate(.6);
+        quan2Text.rotate(.6);
+        quan3.rotate(1);
+        quan3Text.rotate(1);
+    }, layer);
+    anim.start();
+</script>
+
+</html>
