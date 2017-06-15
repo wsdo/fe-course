@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=300, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 
 <body>
+    <div class="box"></div>
     <div class="box"></div>
 </body>
 <script>
@@ -27,6 +28,7 @@
         for (var i = 0; i < ev.touches.length; i++) {
             box.innerHTML += "第" + (i + 1) + "根手指信息 <br>";
             box.innerHTML += ev.touches[i].clientX + "<br/>" + ev.touches[i].clientY + "</br>";
+            box.innerHTML += ev.touches[i].pageX + "<br/>" + ev.touches[i].pageY + "</br>";
         }
     })
 

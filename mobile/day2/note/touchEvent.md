@@ -51,3 +51,8 @@ touchcancel
 触摸事件
 ev.touches[i].clientX  
 在苹果手机上是整数，安卓是小数，好多位。
+
+clientY:触摸的瘦子距离视口顶边的距离
+pageY:距离页面顶端的具体。
+screenY:距离显示器顶端的距离。
+
