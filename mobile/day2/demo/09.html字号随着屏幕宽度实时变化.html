@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            font-size: 20px;
+        }
+        
+        div {
+            float: left;
+            border: 1px solid #000;
+            width: 33.3%;
+            height: 6.66rem;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div>马上下课了 <img src="" alt=""> </div>
+    <div>大家是不是想吃饭了</div>
+    <div>想睡觉了</div>
+</body>
+<script>
+    // 先获取字体大小
+    // 根据屏幕的尺寸设置不同的font-size
+    window.onresize = setFontSize;
+    // console.log(fontS);
+
+    // 假如ui给你一张设计图 宽是600此时的字体是 30 px;
+    setFontSize()
+
+    function setFontSize() {
+        var windowWidth = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = 30 * (windowWidth / 600) + 'px';
+    }
+</script>
+
+</html>

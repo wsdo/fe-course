@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        html {
+            font-size: 20px;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            margin: 0 auto;
+        }
+        /*@media only tv {
+            .box {
+                background: red;
+            }
+        }*/
+        
+        @media all and (min-width:1200px) {
+            html {
+                font-size: 20px;
+            }
+            .box::after {
+                content: "pc";
+            }
+            .box {
+                background: red;
+                width: 1200px;
+                height: 500px;
+            }
+        }
+        
+        @media all and (min-width:1024px) and (max-width:1199px) {
+            html {
+                font-size: 20px;
+            }
+            .box::after {
+                content: "ipad pro 或pc";
+            }
+            .box {
+                background: rebeccapurple;
+                width: 1024px;
+                height: 500px;
+            }
+        }
+        
+        @media all and (min-width:768px) and (max-width:1023px) {
+            html {
+                font-size: 19px;
+            }
+            .box::after {
+                content: "ipad";
+            }
+            .box {
+                background: yellow;
+                width: 1024px;
+                height: 500px;
+            }
+        }
+        
+        @media all and (min-width:400px) and (max-width:767px) {
+            html {
+                font-size: 18px;
+            }
+            .box::after {
+                content: "iPhone 6 plus";
+            }
+            .box {
+                background: salmon;
+                width: 1024px;
+                height: 500px;
+            }
+        }
+        
+        @media all and (min-width:321px) and (max-width:399px) {
+            html {
+                font-size: 16.2px;
+            }
+            .box::after {
+                content: "iPhone 6";
+            }
+            .box {
+                background: pink;
+                width: 1024px;
+                height: 500px;
+            }
+        }
+        
+        @media all and (min-width:220px) and (max-width:320px) {
+            html {
+                font-size: 16.2px;
+            }
+            .box::after {
+                content: "iPhone 4 或 iPhone5";
+            }
+            .box {
+                background: aqua;
+                width: 1024px;
+                height: 500px;
+            }
+        }
+        
+        @media all and (max-width:219px) {
+            .box {
+                background: #ccc;
+                width: 1024px;
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        你现在的设备是：
+    </div>
+</body>
+
+</html>

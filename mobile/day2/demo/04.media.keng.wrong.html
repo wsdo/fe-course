@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background: blue;
+        margin: 0 auto;
+    }
+    /*@media all 所有媒体*/
+    /*@media all{
+		 	.box{
+		 		background: red;
+		 	}
+		 }*/
+    
+    @media all and (min-width:800px) and (max-width:1023px) {
+        .box {
+            background: red;
+            height: 400px;
+            width: 400px;
+        }
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

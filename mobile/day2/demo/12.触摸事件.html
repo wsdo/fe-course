@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    var box = document.querySelector('.box');
+
+    document.addEventListener("touchstart", function(ev) {
+
+        box.innerHTML = "你正则用" + ev.touches.length + "根手指触摸页面";
+        console.log(ev.touches[0]);
+
+    })
+
+    document.addEventListener("touchmove", function(ev) {
+        ev.preventDefault(); //这是组织默认事件 如果不阻止这个事件，可能两个手机放大...
+        box.innerHTML = "";
+        for (var i = 0; i < ev.touches.length; i++) {
+            box.innerHTML += "第" + (i + 1) + "根手指信息 <br>";
+            box.innerHTML += ev.touches[i].clientX + "<br/>" + ev.touches[i].clientY + "</br>";
+        }
+    })
+
+    document.addEventListener("touchend", function(ev) {
+        ev.preventDefault();
+        box.innerHTML = "结束了touch！！";
+    })
+</script>
+
+</html>

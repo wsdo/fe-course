@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            margin: 0 auto;
+        }
+        /*@media only tv {
+            .box {
+                background: red;
+            }
+        }*/
+        
+        @media all and (min-width:500px) and (max-width:1000px) {
+            .box {
+                background: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

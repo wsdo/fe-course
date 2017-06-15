@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box::after {
+            color: red;
+        }
+        
+        @media screen and (orientation:portrait) {
+            .box::after {
+                content: "竖屏";
+            }
+            .box {
+                background: darkcyan;
+                width: 100%;
+                height: 100px;
+            }
+        }
+        
+        @media screen and (orientation:landscape) {
+            .box::after {
+                content: "横屏";
+            }
+            .box {
+                background: salmon;
+                width: 100%;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        你现在访问的是：
+    </div>
+</body>
+
+</html>
