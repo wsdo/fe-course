@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section {
+            perspective: 500px;
+        }
+        
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            margin-right: 10px;
+            float: left;
+        }
+        
+        .delete {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <p></p>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <ul id=items>
+        <li>List item 1 <span class=delete>DELETE</span></li>
+        <li>List item 2 <span class=delete>DELETE</span></li>
+    </ul>
+    <script src="zepto.fx.touch.js"></script>
+    <script src="touch.js"></script>
+    <script>
+        // show delete buttons on swipe
+        // $('#items li').swipe(function() {
+        //     $('.delete').hide()
+        //     $('.delete', this).show()
+        // })
+
+        // // delete row on tapping delete button
+        // $('.delete').tap(function() {
+        //     $(this).parent('li').remove()
+        // })
+
+        // $("div").on("touchstart", function() {
+        //     $(this).css("background-color", "red")
+        // })
+        // $("div").on("touchstart", function() {
+        //     $(this).css("background-color", "red")
+        // })
+
+        $("div").longTap(function() {
+                console.log(1111)
+                $(this).css("background-color", "red")
+            })
+            // $("div").on("swiperight", function(ev) {
+            //     ev.preventDefault();
+            //     // $(this).
+            //     console.log(1)
+            //     $(this).css("background-color", "red")
+            // })
+    </script>
+
+</body>
+
+</html>

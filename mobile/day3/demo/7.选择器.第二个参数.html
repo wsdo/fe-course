@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form>
+        <input name="" type="checkbox" />
+        <input name="" type="radio" />
+        <input name="" type="text" />
+        <input name="" type="button" />
+    </form>
+    <form>
+        <input name="" type="checkbox" />
+        <input name="" type="radio" />
+        <input name="" type="text" />
+        <input name="" type="button" />
+    </form>
+    <input name="" type="checkbox" />
+    <input name="" type="radio" />
+    <input name="" type="text" />
+    <input name="" type="button" />
+
+    <script type="text/javascript" src="zepto.fx.touch.js"></script>
+    <script type="text/javascript">
+        // search within all form elements, using a wrapper for context, 
+        // alerts "8 inputs" 
+        alert("selected" + $('input', $('form')).length + ' inputs');
+
+        // search with the first form element, using DOM reference as the context, 
+        // alerts "4 inputs" 
+        alert("selected" + $('input', document.forms[0]).length + ' inputs');
+
+        // search within the body element for all input elements using an expression, 
+        // alerts "12 inputs" 
+        alert("selected" + $('input', 'body').length + ' inputs');
+        alert("selected" + $('input').length + ' inputs');
+    </script>
+</body>
+
+</html>
