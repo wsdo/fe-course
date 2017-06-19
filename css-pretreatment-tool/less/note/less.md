@@ -9,6 +9,18 @@ As an extension to CSS, Less is not only backwards compatible with CSS, but the 
 
 作为CSS的扩展，Less不仅向后兼容CSS，而且增加了使用现有CSS语法的额外功能。
 
+使用方式
+
+#1 在vs code 里面搜索 	Easy LESS
+Easy LESS
+
+Auto-compile LESS to CSS on save
+Installation
+Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.
+
+#其它编辑器也是如此
+直接在编辑器里面搜索插件 less
+
 
 less文档
 http://lesscss.org/features/
