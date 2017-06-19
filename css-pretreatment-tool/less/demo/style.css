@@ -1,6 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+.stark_01 {
+  width: "I am fnord.";
+}
 .box {
   width: 300px;
   height: 400px;
+}
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
 }
 /* 下面是混合的代码 */
 .border {
@@ -36,4 +51,101 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+}
+.sanjiao_test {
+  border-width: 20px;
+  border-color: transparent #ccc transparent transparent;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.postion_test {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+.box_11 {
+  width: 1600px;
+}
+.box_22 {
+  width: 64rem;
+}
+.box_23 {
+  width: 64rem;
+}
+.list {
+  width: 600px;
+  margin: 30px auto;
+  padding: 0;
+  list-style: none;
+}
+.list li {
+  height: 30px;
+  line-height: 30px;
+  background-color: pink;
+  margin-bottom: 5px;
+}
+.list li a {
+  float: left;
+}
+.list li a:hover {
+  color: red;
+}
+.list li span {
+  float: right;
+}
+.list li > div {
+  color: red;
+}
+div {
+  width: 10px;
+  width: 20px;
+  width: 30px;
+  width: 40px;
+  width: 50px;
+}
+.column-1 {
+  width: 25%;
+}
+.column-2 {
+  width: 50%;
+}
+.column-3 {
+  width: 75%;
+}
+.column-4 {
+  width: 100%;
+}
+.border_t {
+  border: 30px red solid;
+}
+/* 外部引入 */
+a {
+  text-decoration: none;
+}
+.myclass {
+  transform: scale(2) rotate(15deg);
+}
+.class1 {
+  background-color: white;
+  color: #7e7e7e;
+}
+.class2 {
+  background-color: black;
+  color: #7e7e9d;
+}
+.box33 {
+  n: 4;
+  content: "Hello, Earth!";
+  content: "2 + 2 = 4";
+  content: 'This is a new string.';
+  content: bar-2;
+  value: coconut;
+  content: 50%;
+  content: 1.7;
+  content: 5cm;
+  content: true;
+  content: #5a8120;
 }

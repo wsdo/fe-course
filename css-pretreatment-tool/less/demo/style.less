@@ -1,9 +1,29 @@
+@import "reset.less";
 // 变量
+
+@fnord:  "I am fnord.";
+@var:    "fnord";
+@content: @@var; // -> @content: @fnord -> @fnord:  "I am fnord.";
+
+.stark_01{
+    width:@content;
+}
+
 @stark_width:300px;
 @stark_height:400px;
 .box{
     width:@stark_width;
     height: @stark_height;
+}
+
+// Variables 变量插值
+@stark: banner;
+
+// Usage
+.@{stark} {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
 }
 
 
@@ -56,3 +76,200 @@
     background-color: green;
     .border_radius(10px);
 }
+
+
+// 匹配模式
+
+// .sanjiao_test{
+//     width:0;
+//     height: 0;
+//     border-width: 10px;
+//     border-color:red transparent transparent transparent;
+//     border-style: solid; 
+// }
+
+.triangle(top,@w:5px,@c:#ccc){
+    border-width: @w;
+    border-color: transparent transparent @c transparent;
+    border-style: solid; 
+}
+.triangle(bottom,@w:5px,@c:#ccc){
+    border-width: @w;
+    border-color: @c transparent transparent transparent;
+    border-style: solid; 
+}
+.triangle(left,@w:5px,@c:#ccc){
+    border-width: @w;
+    border-color: transparent @c transparent  transparent;
+    border-style: solid; 
+}
+.triangle(right,@w:5px,@c:#ccc){
+    border-width: @w;
+    border-color: transparent transparent  transparent @c;
+    border-style: solid; 
+}
+
+.triangle(@_,@w:5px,@c:#ccc){
+    width:0;
+    height: 0;
+    overflow: hidden;
+}
+.sanjiao_test{
+    .triangle(left,20px);
+}
+
+.pos(r){
+    position: relative;
+}
+.pos(a){
+    position: absolute;
+}
+.pos(f){
+    position: fixed;
+}
+
+.pos(@_){
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+.postion_test{
+    .pos(a);
+}
+
+
+// 运算
+@test_01:300;
+.box_11{
+    width:(@test_01 + 20) * 5px;
+}
+.box_22{
+    width:(@test_01 + 20) / 5rem;
+}
+
+.box_23{
+    width:(@test_01 + 20rem) / 5px;
+}
+
+// 嵌套  ul li
+.list{
+    width: 600px;
+    margin: 30px auto;
+    padding: 0;
+    list-style: none;
+    li{
+        height: 30px;
+        line-height: 30px;
+        background-color: pink;
+        margin-bottom: 5px;
+        a{
+            float: left;
+            &:hover{
+                color: red;
+            }
+        }
+        span{
+            float: right;
+        }
+
+        & > div{
+            color: red;
+        }
+    }
+
+}
+
+
+// 循环
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));    // next iteration
+  width: (10px * @counter); // code for each iteration
+}
+
+div {
+  .loop(5); // launch the loop
+}
+
+.generate-columns(4);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+
+
+
+
+
+
+.border_arg(@w:30px,@c:red,@xx:solid){
+    // border: @w @c @xx;
+    border: @arguments;
+}
+
+
+.border_t{
+    .border_arg()
+}
+/* 外部引入 */
+// @import "index";
+@import "index.less";
+
+
+// 合并 + 默认是用逗号 +_ 是用空格合并
+.mixin() {
+  transform+_: scale(2);
+}
+.myclass {
+  .mixin();
+  transform+_: rotate(15deg);
+}
+
+// 50% 就是 255/2 = 127.5
+.mixin (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
+.mixin (@a) {
+  color: @a;
+}
+
+.class1{
+    .mixin(#7e7e7e);   //7e7e7e =126 
+}
+
+.class2{
+    .mixin(#7e7e9d);
+}
+
+// 列表功能
+
+
+.box33{
+    @list: "banana", "tomato", "potato", "peach";
+    n: length(@list);
+
+    content: replace("Hello, Mars?", "Mars\?", "Earth!"); 
+    content: replace("One + one = 4", "one", "2", "gi");
+    content:replace('This is a string.', "(string)\.$", "new $1.");
+    content:replace(~"bar-1", '1', '2');
+    
+//   content: "Hello, Earth!";
+//   content: "2 + 2 = 4";
+//   content: 'This is a new string.';
+//   content: bar-2;
+
+    @list: apple, pear, coconut, orange;
+    value: extract(@list, 3);
+
+    content: percentage(0.5);
+    content: round(1.67, 1);
+    content: sqrt(25cm);
+    content: isnumber(56px);
+    content: rgb(90, 129, 32);
+}
+
