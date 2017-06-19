@@ -50,4 +50,17 @@ touchmove，touchend，手指拖拽，手指滑动轮播图。
 手指轮播图加上定时器，swipe插件讲解源码分析，zepto讲解，插件拓展方式，动画和jQuery的区别，
 icon ： 使用 icomoon 把阿里妈妈的字体图标下载后上传到 icomoon生成自己的图标库，然后用加入class的方式使用，icon-awesome的使用方式，怎么更改icon大小，颜色，宽细。
 利用淘宝的sui框架 实战无线滚动
+作业
+http://api.shudong.wang/v1/db.php
+利用王者荣耀英雄列表api写一个无线滚动，在手机端
+
+自己学习bootstarp 些一个pc 和手机都兼容的网站
+仿照这个网站做一个 手机端和 pc都适用的
+https://www.newsteer.com/
+bootcss.com
+中文网手册 
+一字不落的读完 
+
+周末找一个公开的api
+下周开始做一个移动端的项目
 

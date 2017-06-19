@@ -1,0 +1,39 @@
+.box {
+  width: 300px;
+  height: 400px;
+}
+/* 下面是混合的代码 */
+.border {
+  border: 5px solid pink;
+}
+.box2 {
+  border: 5px solid pink;
+  width: 300px;
+  height: 400px;
+  background-color: red;
+}
+.box3 {
+  border: 5px solid pink;
+  width: 300px;
+  height: 400px;
+  background-color: blue;
+}
+.box4 {
+  border: solid yellow 10px;
+}
+.radius_test {
+  width: 100px;
+  height: 40px;
+  background-color: green;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.radius_test1 {
+  width: 100px;
+  height: 40px;
+  background-color: green;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}

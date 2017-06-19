@@ -1,0 +1,58 @@
+// 变量
+@stark_width:300px;
+@stark_height:400px;
+.box{
+    width:@stark_width;
+    height: @stark_height;
+}
+
+
+// 混合
+
+/* 下面是混合的代码 */
+.border{
+    border: 5px solid pink;
+}
+
+// 传惨
+.border_02(@border_width){
+    border: solid yellow @border_width;
+}
+
+.box2{
+    .border;
+    .box;
+     background-color: red;
+}
+
+.box3{
+     .border;
+     .box;
+      background-color: blue;
+}
+
+.box4{
+    .border_02(10px);
+}
+
+
+// 给函数加上默认值
+.border_radius(@raidus:5px){
+    -webkit-border-radius:@raidus;
+    -moz-border-radius:@raidus;
+    border-radius:@raidus;
+}
+
+.radius_test{
+    width:100px;
+    height: 40px;
+    background-color: green;
+    .border_radius();
+}
+
+.radius_test1{
+    width:100px;
+    height: 40px;
+    background-color: green;
+    .border_radius(10px);
+}
