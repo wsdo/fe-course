@@ -1,0 +1,53 @@
+body {
+  font-family: 'Microsoft YaHei', sans-serif;
+}
+
+.navbar-default {
+  background-color: #fff;
+  border: none;
+  box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.25);
+}
+
+.navbar-default .navbar-brand {
+  font-size: 30px;
+  font-weight: bold;
+  color: skyblue;
+  line-height: 35px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  height: 70px;
+  line-height: 35px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: skyblue;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover {
+  border-color: skyblue;
+  background-color: #45d2b8;
+}
+
+.navbar-default .navbar-toggle {
+  margin-top: 17px;
+}
+
+#home {
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+#home .main-img {
+  width: 0 atuo;
+}
+
+#backendhome {
+  margin-top: 100px;
+}
