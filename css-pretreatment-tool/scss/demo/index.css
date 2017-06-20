@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* 这是sass 的注释*/
+#main p {
+  color: #00ff00;
+  width: 97%; }
+  #main p .redbox {
+    background-color: #ff0000;
+    color: #000000;
+    width: 10px;
+    height: 100px; }
+
+#main {
+  width: 5em;
+  height: 100px; }
+
+a {
+  font-weight: bold;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+  body.firefox a {
+    font-weight: normal; }
+
+.funky {
+  font-family: fantasy;
+  font-size: 30em;
+  font-weight: bold; }
+
+.funky {
+  font: 20px/24px;
+    font-family: fantasy;
+    font-weight: bold; }
+
+/*
+强制注释
+*/
+#main {
+  width: 5em; }
+
+#sidebar {
+  width: 5em; }
+
+#sidebar1 {
+  width: 5em;
+  height: 4px; }
+
+.box {
+  content: lanlingwang; }
+
+/*# sourceMappingURL=index.css.map */

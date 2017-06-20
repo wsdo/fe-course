@@ -14,4 +14,251 @@
 $width: 5em;
 #main {
     width: $width;
+    height: 100px;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+    body.firefox & {
+        font-weight: normal;
+    }
+}
+
+//属性嵌套
+.funky {
+    font: {
+        family: fantasy;
+        size: 30em;
+        weight: bold;
+    }
+}
+
+.funky {
+    font: 20px/24px {
+        family: fantasy;
+        weight: bold;
+    }
+}
+
+.nav {
+    border: 1px solid #000 {
+        left: 0;
+        right: 0;
+    }
+}
+
+
+/*
+强制注释
+*/
+
+#main {
+    $width: 5em !global;
+    ;
+    $height: 4px !global;
+    width: $width;
+}
+
+#sidebar {
+    width: $width;
+}
+
+#sidebar1 {
+    width: $width;
+    height: $height;
+}
+
+$map: (hero: libai, key2: anqila, key3: lanlingwang);
+.box {
+    content: map-get($map, key3);
+    content: map-get(("foo": 1, "bar": 2), "bar");
+    content: map-has-key(("foo": 1, "bar": 2), "foo");
+    content: map-has-key(("foo": 1, "bar": 2), "bzs");
+    content: map-keys(("foo": 1, "bar": 2));
+    content: map-values(("foo": 1, "bar": 2));
+}
+
+.box {
+    content: percentage(0.2);
+}
+
+@mixin firefox-message($selector) {
+    body.firefox #{$selector}:before {
+        content: "Hi, Firefox users!";
+    }
+}
+
+@include firefox-message(".header");
+//  body.firefox .header:before {
+//     content: "Hi, Firefox users!";
+//   }
+p {
+    cursor: e + -resize;
+}
+
+p:before {
+    content: "Foo " + Bar;
+    font-family: sans- + "serif";
+}
+
+// 在有引号的文本字符串中使用 #{} 插值语句可以添加动态的值：
+p:before {
+    content: "I ate #{5 + 10} pies!";
+}
+
+$value: null;
+p:before {
+    content: "I ate #{$value} pies!";
+}
+
+.p1 {
+    $font-size: 12px;
+    $line-height: 30px;
+    font: $font-size/$line-height;
+}
+
+.p2 {
+    $font-size: 12px;
+    $line-height: 30px;
+    font: #{$font-size}/#{$line-height};
+}
+
+$content: "First content";
+$content: "Second content?" !default;
+$new_content: "First time reference" !default;
+#main {
+    content: $content;
+    content: $new_content;
+}
+
+// @import "foo.css";
+// @import "foo" screen;
+// @import "http://foo.com/bar";
+// @import url(foo);
+// @import "1";
+@import "1",
+"2";
+// @import "color";
+.sidebar {
+    width: 300px;
+    @media screen and (orientation: landscape) {
+        width: 500px;
+    }
+}
+
+@media screen {
+    .sidebar {
+        @media (orientation: landscape) {
+            width: 500px;
+        }
+    }
+}
+
+.error {
+    border: 1px #f00;
+    background-color: #fdd;
+}
+
+.seriousError {
+    @extend .error;
+    border-width: 3px;
+}
+
+//混合
+@mixin stark {
+    color: #00ff00;
+    background-color: #fcf;
+}
+
+.box {
+    @include stark;
+}
+
+@mixin stark($text-color, $background) {
+    color: $text-color;
+    background-color: $background;
+    a {
+        color: darken($text-color, 10%);
+    }
+}
+
+.warning {
+    @include stark(red, blue);
+}
+
+.warning-info {
+    @include stark($background: yellow, $text-color: green);
+}
+
+p {
+    @if 1+1==2 {
+        border: 1px solid;
+    }
+    @if 5 < 3 {
+        border: 2px dotted;
+    }
+    @if null {
+        border: 3px double;
+    }
+}
+
+$type: monster;
+p {
+    @if $type==ocean {
+        color: blue;
+    }
+    @else if $type==matador {
+        color: red;
+    }
+    @else if $type==monster {
+        color: green;
+    }
+    @else {
+        color: black;
+    }
+}
+
+@for $i from 1 through 3 {
+    .item-#{$i} {
+        width: 2em * $i;
+    }
+}
+
+@each $animal in puma,
+sea-slug,
+egret,
+salamander {
+    .#{$animal}-icon {
+        background-image: url('/images/#{$animal}.png');
+    }
+}
+
+@each $animal,
+$color,
+$cursor in (puma,
+black,
+default),
+(sea-slug,
+blue,
+pointer),
+(egret,
+white,
+move) {
+    .#{$animal}-icon {
+        background-image: url('/images/#{$animal}.png');
+        border: 2px solid $color;
+        cursor: $cursor;
+    }
+}
+
+$i: 6;
+@while $i>0 {
+    .item-#{$i} {
+        width: 2em * $i;
+    }
+    $i: $i - 2;
 }
