@@ -234,3 +234,25 @@ p {
 .item-2 {
   width: 4em;
 }
+
+#sidebar {
+  width: 240px;
+}
+
+.parent {
+  width: 100px;
+}
+
+.child {
+  height: 100px;
+}
+
+@media print {
+  .error1, .seriousError {
+    border: 1px #f00;
+    background-color: #fdd;
+  }
+  .seriousError {
+    border-width: 3px;
+  }
+}

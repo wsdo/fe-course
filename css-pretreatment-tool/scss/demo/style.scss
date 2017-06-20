@@ -262,3 +262,58 @@ $i: 6;
     }
     $i: $i - 2;
 }
+
+// 函数
+$grid-width: 40px;
+$gutter-width: 10px;
+@function grid-width($n) {
+    @return $n * $grid-width+($n - 1) * $gutter-width;
+}
+
+#sidebar {
+    width: grid-width(5);
+}
+
+// #sidebar {
+//   width: 240px;
+// }
+$colors:(light:#ffffff,
+dark:#000000);
+@function color($key) {
+    @if not map-has-key($colors,
+    $key) {
+        @warn "在$colors 变量里面没有找到 #{$key} 这个key";
+    }
+    @return map-get($colors,
+    $key);
+}
+
+body {
+    background-color: color(lights);
+}
+
+.box {
+    background-color: color(darka);
+}
+
+// 警告与错误信息
+.parent {
+    width: 100px;
+    @at-root .child {
+        height: 100px;
+    }
+}
+
+@media print {
+    .error1 {
+        border: 1px #f00;
+        background-color: #fdd;
+    }
+    .seriousError {
+        @extend .error1;
+        border-width: 3px;
+    }
+}
+
+// .parent { width:100px}
+// .parent .child { width:100px}

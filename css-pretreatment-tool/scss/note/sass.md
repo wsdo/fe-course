@@ -2,8 +2,9 @@ sass 官网
 http://sass-lang.com/documentation/ 
 
 一定要记住这几个单词
+Output Style
 
-nested 嵌套
+nested 嵌套  default
 compact 紧凑
 expanded 扩展
 compressed 压缩
@@ -145,3 +146,29 @@ Sass 在当前地址，或 Rack, Rails, Merb 的 Sass 文件地址寻找 Sass �
 @mixin  名字 （参数1，参数2 ..){
 
 }
+
+
+10. 函数指令 (Function Directives)
+Sass 支持自定义函数，并能在任何属性值或 Sass script 中使用：
+
+// 函数
+$grid-width: 40px;
+$gutter-width: 10px;
+@function grid-width($n) {
+    @return $n * $grid-width+($n - 1) * $gutter-width;
+}
+
+#sidebar {
+    width: grid-width(5);
+}
+
+// #sidebar {
+//   width: 240px;
+// }
+
+
+7.4. @at-root
+The @at-root directive causes one or more rules to be emitted at the root of the document, rather than being nested beneath their parent selectors. It can either be used with a single inline selector:
+
+@at-root指令导致在文档的根目录中发出一个或多个规则，而不是嵌套在它们的父选择器下面。它可以使用单一的内嵌选择器:
+跳出这个层级
