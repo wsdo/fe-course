@@ -317,3 +317,22 @@ body {
 
 // .parent { width:100px}
 // .parent .child { width:100px}
+@media print {
+    .page22 {
+        width: 8in;
+        @at-root (without: media) {
+            .child2 {
+                width: 200px;
+            }
+        }
+    }
+}
+
+@media print {
+    .page11 {
+        width: 8in;
+        @at-root .child11 {
+            width: 200px;
+        }
+    }
+}

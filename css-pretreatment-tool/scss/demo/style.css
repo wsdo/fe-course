@@ -256,3 +256,22 @@ p {
     border-width: 3px;
   }
 }
+
+@media print {
+  .page22 {
+    width: 8in;
+  }
+}
+
+.child2 {
+  width: 200px;
+}
+
+@media print {
+  .page11 {
+    width: 8in;
+  }
+  .child11 {
+    width: 200px;
+  }
+}
