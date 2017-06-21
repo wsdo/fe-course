@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <img class="lazy" data-original="./img/1.png" width="640" height="480">
+    <img class="lazy" data-original="./img/2.png" width="640" height="480">
+    <img class="lazy" data-original="./img/3.png" width="640" height="480">
+    <img class="lazy" data-original="./img/4.png" width="640" height="480">
+    <img class="lazy" data-original="./img/5.png" width="640" height="480">
+    <img class="lazy" data-original="./img/6.png" width="640" height="480">
+    <img class="lazy" data-original="./img/7.png" width="640" height="480">
+    <img class="lazy" data-original="./img/8.png" width="640" height="480">
+    <img class="lazy" data-original="./img/10.png" width="640" height="480">
+    <img class="lazy" data-original="./img/11.png" width="640" height="480">
+    <img class="lazy" data-original="./img/12.png" width="640" height="480">
+    <img class="lazy" data-original="./img/14.png" width="640" height="480">
+    <img class="lazy" data-original="./img/15.png" width="640" height="480">
+    <img class="lazy" data-original="./img/16.png" width="640" height="480">
+    <img class="lazy" data-original="./img/17.png" width="640" height="480">
+    <img class="lazy" data-original="./img/18.png" width="640" height="480">
+    <img class="lazy" data-original="./img/19.png" width="640" height="480">
+    <img class="lazy" data-original="./img/20.png" width="640" height="480">
+    <img class="lazy" data-original="./img/21.png" width="640" height="480">
+    <img class="lazy" data-original="./img/22.png" width="640" height="480">
+    <img class="lazy" data-original="./img/23.png" width="640" height="480">
+    <img class="lazy" data-original="./img/24.png" width="640" height="480">
+    <script src="./jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+    <script>
+        $(function() {
+            $("img.lazy").lazyload({
+                effect: "fadeIn",
+                threshold: 200, // 距离屏幕底下200px的时候加载
+                failure_limit: 5
+            });
+        });
+    </script>
+</body>
+
+</html>

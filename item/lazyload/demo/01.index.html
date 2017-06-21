@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            margin: 100px auto 0;
+            padding: 0;
+        }
+        
+        li {
+            float: left;
+            margin: 0 0 10px 10px;
+            list-style: none;
+            border: 1px solid black;
+        }
+        
+        img {
+            width: 290px;
+            height: 200px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="box">
+        <li><img _src="img/1.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/2.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/3.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/4.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/5.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/6.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/7.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/8.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/9.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/10.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/11.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/12.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/13.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/1.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/2.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/3.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/6.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/7.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/8.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/9.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/10.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/11.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/12.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/13.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/1.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/2.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/3.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/6.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/7.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/8.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/9.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/10.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/11.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/12.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/13.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/1.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/2.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/3.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/6.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/7.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/8.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/9.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/10.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/11.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/12.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/13.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/1.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/2.jpg" src="img/zhanwei.jpg" alt=""></li>
+        <li><img _src="img/3.jpg" src="img/zhanwei.jpg" alt=""></li>
+    </ul>
+    <script>
+        var box = document.getElementById('box');
+        var aImg = document.getElementsByTagName('img');
+        showImg();
+
+        window.onscroll = showImg;
+
+        function showImg() {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            for (var i = 0; i < aImg.length; i++) {
+                // 如果这个图片被加载了， 就把这个图片_src 给这个 的 src
+                if (!aImg[i].isload && getTop(aImg[i]) < (scrollTop + document.documentElement.clientHeight)) {
+                    aImg[i].src = aImg[i].getAttribute('_src');
+                    aImg[i].isload = true;
+                }
+            }
+        }
+
+        function getTop(obj) {
+            var iTop = 0;
+            while (obj) {
+                iTop += obj.offsetTop;
+                obj = obj.offsetParent;
+            }
+
+            console.log(iTop);
+            // console.log(obj);
+            return iTop;
+        }
+    </script>
+</body>
+
+</html>
