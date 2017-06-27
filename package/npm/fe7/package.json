@@ -1,0 +1,12 @@
+{
+  "name": "fe7",
+  "version": "1.0.0",
+  "description": "这是一个用来测试的包，不要去下载，谁去下载会怀孕的！",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
