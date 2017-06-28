@@ -1,0 +1,22 @@
+{
+  "name": "bower",
+  "homepage": "https://github.com/7fe/guide",
+  "authors": [
+    "wang <wang@126.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "jquery": "^3.2.1",
+    "zepto": "^1.2.0"
+  }
+}
