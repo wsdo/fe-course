@@ -65,15 +65,17 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home_home_js__ = __webpack_require__(1);
+var _home = __webpack_require__(1);
 
-const App = function () {
-    let dom = document.getElementById('app');
-    let home = new Home();
+var _home2 = _interopRequireDefault(_home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App() {
+    var dom = document.getElementById('app');
+    var home = new _home2.default();
     console.log(home.template);
     dom.innerHTML = home.template;
 };
@@ -82,25 +84,31 @@ new App();
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_less__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__home_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_html__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__home_html__);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
+var _home = __webpack_require__(2);
 
+var _home2 = _interopRequireDefault(_home);
+
+var _home3 = __webpack_require__(7);
+
+var _home4 = _interopRequireDefault(_home3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function home() {
     return {
         name: 'home',
-        homeCss: __WEBPACK_IMPORTED_MODULE_0__home_less___default.a,
-        template: __WEBPACK_IMPORTED_MODULE_1__home_html___default.a
+        homeCss: _home2.default,
+        template: _home4.default
     };
 }
 
-/* unused harmony default export */ var _unused_webpack_default_export = (home);
+exports.default = home;
 
 /***/ }),
 /* 2 */
