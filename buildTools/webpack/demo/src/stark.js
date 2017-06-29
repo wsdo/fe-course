@@ -1,5 +1,5 @@
 // require('./shudong.js');
-// require('./style.css');
+require('./style.css');
 // require('style-loader!css-loader!./style.css');
 
 function hello() {
@@ -7,3 +7,5 @@ function hello() {
 }
 
 hello();
+
+let stark = 'shudong';

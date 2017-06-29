@@ -146,3 +146,5 @@ chunk 内容的 hash
 
 #插件的使用
 https://doc.webpack-china.org/plugins/html-webpack-plugin/
+下面链接是查看更多参数配置
+https://github.com/jantimon/html-webpack-plugin#configuration
