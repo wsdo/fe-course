@@ -7,4 +7,5 @@
 
 /package/mpm/demo/node_modules/
 /buildTools/gulp/demo/node_modules/
-正则库.md
+
+/buildTools/webpack/demo/node_modules/
