@@ -58,3 +58,91 @@ webpack --config webpack.config.js
 webpack
 
 单独执行webpack就是自己去寻找 webpack.config.js
+
+https://doc.webpack-china.org/api/cli/
+在调试的时候可以使用
+这个参数帮助显示更多的详细信息
+--display-error-details
+
+--display-reasons 显示模块包含在输出中的原因
+
+
+在命令行中编译 css
+
+需要安装：
+npm i style-loader -D
+npm install --save-dev css-loader
+
+执行命令：
+ webpack ./src/stark.js ./dist/bundle.j
+s --module-bind 'css=style-loader!css-loader'
+
+下面这个 --module-bind 后面跟的是需要加载的模块loader
+语法是 css=style-loader 使用！隔开 
+执行顺序是从右到左
+--module-bind 'css=style-loader!css-loader'
+
+列子：
+./src/stark.js ./dist/bundle.j
+s --module-bind 'css=style-loader!css-loader'
+
+NPM 脚本(NPM Scripts)
+考虑到用 CLI 这种方式来运行本地的 webpack 不是特别方便，我们可以设置一个快捷方式。在 package.json 添加一个 npm 脚本(npm script)：
+```
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config webpack.config.js"
+    },
+```
+执行这个脚本：
+  npm run build
+
+
+在webpack1当中使用相对路径是没问题的
+在webpack2中就不可以
+```
+Invalid configuration object. Webpack has been initialised using a configuration o
+bject that does not match the API schema.
+ - configuration.output.path: The provided value "./src/stark.js" is not an absolute path!
+```
+
+output.filename
+
+```
+var path = require('path'); //webpack2必须要求写的
+module.exports = {
+    entry: {
+        stark: './src/stark.js',
+        shudong: './src/shudong.js',
+    }, //入口文件
+    output: {
+        path: path.resolve(__dirname, './dist/'),
+        filename: '[chunkhash]-[name].js'
+        
+    }
+}
+
+[name] 如果只写这个name值，就表示原文件名字输出
+[hash] 把此时打包的hash值都是一样
+[chunkhash] 把每个打包的hash值不一样
+
+```
+Template	Description
+[hash]
+模块标识符(module identifier)的 hash
+[chunkhash]
+chunk 内容的 hash
+[name]
+模块名称
+[id]
+模块标识符(module identifier)
+[file]
+模块文件名称
+[filebase]
+模块 basename
+[query]
+模块的 query，例如，文件名 ? 后面的字符串
+
+
+#插件的使用
+https://doc.webpack-china.org/plugins/html-webpack-plugin/
