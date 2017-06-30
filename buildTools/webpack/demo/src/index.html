@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        <%= HtmlWebpackPlugin.options.title %>
+        <%= htmlWebpackPlugin.options.title %>
+            <%= console.log(htmlWebpackPlugin.options.title ); %>
     </title>
 
 </head>
@@ -14,5 +15,7 @@
 <body>
     <div id="app"></div>
 </body>
+<script src="bundle.js">
+</script>
 
 </html>

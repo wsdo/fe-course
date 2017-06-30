@@ -1,0 +1,45 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'build' ]
+2 info using npm@3.3.3
+3 info using node@v6.10.3
+4 verbose run-script [ 'prebuild', 'build', 'postbuild' ]
+5 info lifecycle demo@1.0.0~prebuild: demo@1.0.0
+6 silly lifecycle demo@1.0.0~prebuild: no script for prebuild, continuing
+7 info lifecycle demo@1.0.0~build: demo@1.0.0
+8 verbose lifecycle demo@1.0.0~build: unsafe-perm in lifecycle true
+9 verbose lifecycle demo@1.0.0~build: PATH: C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;D:\web7\shangke\buildTools\webpack\demo\node_modules\.bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS;C:\WINDOWS\SYSTEM32\WBEM;C:\WINDOWS\SYSTEM32\WINDOWSPOWERSHELL\V1.0\;D:\XAMPP\MYSQL\BIN;D:\XAMPP\PHP;D:\PROGRAM FILES\VAGRANT\BIN;C:\PROGRAMDATA\COMPOSERSETUP\BIN;C:\PROGRAMDATA\COMPOSERSETUP\BIN\;C:\PROGRAM FILES (X86)\QUICKTIME\QTSYSTEM\;D:\PROGRAM FILES\GIT\CMD;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;D:\Program Files\Git\cmd;D:\Program Files\nodejs\;C:\Ruby24-x64\bin;D:\Program Files\Docker Toolbox;C:\Users\Administrator\AppData\Local\atom\bin;C:\Users\Administrator\AppData\Roaming\npm;D:\Program Files (x86)\Microsoft VS Code\bin
+10 verbose lifecycle demo@1.0.0~build: CWD: D:\web7\shangke\buildTools\webpack\demo
+11 silly lifecycle demo@1.0.0~build: Args: [ '/d /s /c', 'webpack --config webpack.config.js' ]
+12 silly lifecycle demo@1.0.0~build: Returned: code: 2  signal: null
+13 info lifecycle demo@1.0.0~build: Failed to exec build script
+14 verbose stack Error: demo@1.0.0 build: `webpack --config webpack.config.js`
+14 verbose stack Exit status 2
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:233:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:886:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid demo@1.0.0
+16 verbose cwd D:\web7\shangke\buildTools\webpack\demo
+17 error Windows_NT 10.0.10586
+18 error argv "D:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "build"
+19 error node v6.10.3
+20 error npm  v3.3.3
+21 error code ELIFECYCLE
+22 error demo@1.0.0 build: `webpack --config webpack.config.js`
+22 error Exit status 2
+23 error Failed at the demo@1.0.0 build script 'webpack --config webpack.config.js'.
+23 error This is most likely a problem with the demo package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     webpack --config webpack.config.js
+23 error You can get their info via:
+23 error     npm owner ls demo
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

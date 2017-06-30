@@ -13,6 +13,8 @@ mkdir webpack-demo && cd webpack-demo
 npm init -y
 npm install --save-dev webpack
 
+-D 相当于 --save-dev  
+-S 相当于 --save
 npm i webpack -D
 
 在window上必须 全局安装 亲测
@@ -29,7 +31,7 @@ webpack可以解决以下的问题
 
 ##　使用webpack命令 cli
 webpack 想要打包的路径/文件  打包后的路径/文件
-webpack ./src/index.js ./dist/bundle.js
+webpack ./src/index.js ./dist/bundle.js --colors
 
 ## 使用一个配置文件
     为什么使用一个配置文件
@@ -59,6 +61,31 @@ webpack
 
 单独执行webpack就是自己去寻找 webpack.config.js
 
+
+
+把多个文件打包成一个文件，使用数组方式
+entry: ['file1.js','file2.js'],
+把多个文件打包成多个文件，使用对象的方式
+entry: {
+    filename1:'file1.js',
+    filename2:'file2.js',
+}
+
+
+如果在 output 里面的filename 里面写的name 就是代表 对象的属性名字 filename1
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist')
+  }
+
+
+
+
+
+
+
+
+
 https://doc.webpack-china.org/api/cli/
 在调试的时候可以使用
 这个参数帮助显示更多的详细信息
@@ -72,6 +99,9 @@ https://doc.webpack-china.org/api/cli/
 需要安装：
 npm i style-loader -D
 npm install --save-dev css-loader
+
+style-loader
+目的是为了在html中以style的方式嵌入css
 
 执行命令：
  webpack ./src/stark.js ./dist/bundle.j
@@ -91,7 +121,7 @@ NPM 脚本(NPM Scripts)
 ```
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack --config webpack.config.js"
+        "build": "webpack --config webpack.config.js --color"
     },
 ```
 执行这个脚本：
@@ -148,3 +178,76 @@ chunk 内容的 hash
 https://doc.webpack-china.org/plugins/html-webpack-plugin/
 下面链接是查看更多参数配置
 https://github.com/jantimon/html-webpack-plugin#configuration
+
+
+postcss-loader 这是webpack用来处理css 的一些特性
+可以给css添加前缀
+module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+}
+
+plugins: [new HtmlWebpackPlugin()]
+直接写这个插件里面什么参数都不加，
+就会单独产生一个index.html 会把你入口文件的js顺便注入进去。
+
+如果想把自己指定的html 打包注入js文件就需要写 tmplate参数
+此时第二个参数filename就是打包后的文件名字
+这个filename的值可以直接写名字，比如 index.html,打包后就是index.html
+写成index-[hash].html 这种方式打包后就是index-hash算法一长串字符.html
+
+
+如果想在html的title标签里面写一些动态的值，就加上title这个参数
+title: 'welcome stark home page',
+在html里面加上    
+ <title>
+        <%= HtmlWebpackPlugin.options.title %>
+    </title>
+    这个里面的HtmlWebpackPlugin.options.title 就代表 参数title里面的值
+
+
+如果想自己规定注入js 的位置，就写inject 这个参数，后面的值是html标签
+比如injec 后的是head 就是把js放在head标签里面
+
+inject: 'body' // 来规定把js放在html中哪个标签里面的位置
+
+
+如果我想打包两个html页面怎么办呢？
+
+就在配置文件里面再new一个就搞定了
+
+
+如果里面写了参数：
+
+template:
+
+template: './src/index.html',
+            filename: 'index-[hash].html',
+            title: 'welcome stark home page',
+            inject: 'body' // 来规定把js放在html中哪个标签里面的位置
+
+关于写了title参数 在模板里面不起作用的问题
+1.html-loader 他俩产生了冲突
+2.可以把index.html  改写成 index.ejs 后缀
+就可以解决冲突 和这个问题
+
+
+为什么要有这个插件
+HtmlWebpackPlugin 这个插件是干嘛的
+
+config
+title: The title to use for the generated HTML document.
+filename: The file to write the HTML to. Defaults to index.html. You can specify a subdirectory here too (eg: assets/admin.html).
+template: Webpack require path to the template. Please see the docs for details.
+inject: true | 'head' | 'body' | false Inject all assets into the given template or templateContent - When passing true or 'body' all javascript resources will be placed at the bottom of the body element. 'head' will place the scripts in the head element.
+
+
+自己去完成 css抽离
+http://www.cnblogs.com/zhongxia/p/5834089.html
+
+并且把它在html 当中自动注入
+html
+css 
+js 
+统一 压缩

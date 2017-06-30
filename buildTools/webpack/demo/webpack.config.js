@@ -36,7 +36,7 @@
 
 
 // 把多个文件打包成 多个文件
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var htmlWebpackPlugin = require('html-webpack-plugin');
 
 var path = require('path'); //webpack2必须要求写的
 module.exports = {
@@ -99,10 +99,18 @@ module.exports = {
 
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
-            template: './src/index.html',
+    plugins: [
+        new htmlWebpackPlugin({
+            title: 'Custom template using Handlebars',
+            template: './src/index.ejs',
             filename: 'index-[hash].html',
-            title: 'welcome stark home page',
+            inject: 'body', // 来规定把js放在html中哪个标签里面的位置
+        }),
+        new htmlWebpackPlugin({
+            template: './src/stark.html',
+            filename: 'stark-[hash].html',
+            inject: 'body', // 来规定把js放在html中哪个标签里面的位置
+            title: 'welcome stark home page'
         }),
 
     ]
