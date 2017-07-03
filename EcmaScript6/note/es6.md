@@ -7,6 +7,10 @@ EcmaScript6 名字简称 ES2015  ES6
 使用babel把ES6编译成ES5大部分浏览器可以执行的代码
 
 
+各大浏览器对es6支持的情况
+http://kangax.github.io/compat-table/es6/
+
+
 npm install --save-dev babel-cli
 使用babel-cli的方式也可以把es6编译
 使用方式
