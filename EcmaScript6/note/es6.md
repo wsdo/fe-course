@@ -7,11 +7,25 @@ EcmaScript6 名字简称 ES2015  ES6
 使用babel把ES6编译成ES5大部分浏览器可以执行的代码
 
 
+npm install --save-dev babel-cli
+使用babel-cli的方式也可以把es6编译
+使用方式
+```
+babel src/index.js --out-file dist/index.js
+
+也可以使用以下简写方式
+
+babel src/index.js -o dist/index.js
+```
+
 搭建es6环境
 webpack 
 babel
 watch 
 webpack-dev-server
+
+如果你的控制台说无法找到该命令，尝试运行 node_modules/.bin/webpack-dev-server。正常情况下你应该把该命令加在 package.json 中，例如："scripts": {"start": "webpack-dev-server"}。
+
 
 利用webpack开发服务器 
 watch 实时监听并重新加载
