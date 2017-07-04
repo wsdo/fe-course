@@ -275,6 +275,7 @@ console.log(xiaoshuang.name);
 console.log(xiaoshuang.age);
 
 
+
 // function timeout(ms) {
 //     return new Promise((resolve, reject) => {
 //         setTimeout(resolve, ms, 'done');
@@ -303,43 +304,45 @@ console.log(xiaoshuang.age);
 // 所以Resolved最后输出。
 
 
-// function loadImageAsync(url) {
-//     return new Promise(function(resolve, reject) {
-//         var image = new Image();
+function loadImageAsync(url) {
+    return new Promise(function(resolve, reject) {
+        var image = new Image();
 
-//         image.onload = function() {
-//             resolve('图片地址是正确的');
-//         };
+        image.onload = function() {
+            resolve('图片地址是正确的');
+        };
 
-//         image.onerror = function() {
-//             reject(new Error('图片加载失败了，走reject ' + url));
-//         };
+        image.onerror = function() {
+            reject(new Error('图片加载失败了，走reject ' + url));
+        };
 
-//         image.src = url;
-//     });
-// }
+        image.src = url;
+    });
+}
 
 // var img = loadImageAsync('./src/1.png');
 // img.then(function(value) {
-//     console.log(value);
+//     console.log(value + '1111111');
+// }, function(err) {
+//     console.log(err + '2222');
 // });
 // promise
 //   .then(function(value) { console.log(value) })
 //   .catch(function(error) { console.log(error) });
 
 
-function* helloWorldGenerator() {
-    yield 'hello';
-    yield 'world';
-    return 'ending';
-}
+// function* helloWorldGenerator() {
+//     yield 'hello';
+//     yield 'world';
+//     return 'ending';
+// }
 
-var hw = helloWorldGenerator();
+// var hw = helloWorldGenerator();
 // hw.next();
-console.log(hw.next());
-console.log(hw.next());
-console.log(hw.next());
-console.log(hw.next());
+// console.log(hw.next());
+// console.log(hw.next());
+// console.log(hw.next());
+// console.log(hw.next());
 
 // {
 //     value : 'hello',
@@ -363,8 +366,36 @@ console.log(hw.next());
 // g.next(true) // { value: 0, done: false }
 
 
-var firstName = 'Michael';
-var lastName = 'Jackson';
-var year = 1958;
+// var firstName = 'Michael';
+// var lastName = 'Jackson';
+// var year = 1958;
 
-export { firstName, lastName, year };
+// export { firstName, lastName, year };
+
+
+let a = 1;
+// const obj = {
+//         a: a
+//     }
+// const obj = { a };
+
+const obj = {
+        fn: function() {
+            console.log(111);
+        },
+        fn2() {
+            console.log(2222);
+        }
+    }
+    // console.log(obj);
+obj.fn();
+obj.fn2();
+
+
+let obj1 = { a: 1 };
+let obj2 = { a: 2, b: 3 };
+let obj3 = { c: 'aaa' };
+
+Object.assign(obj1, obj2, obj3);
+
+console.log(obj1);
