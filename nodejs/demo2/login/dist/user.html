@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js">
+    </script>
+</head>
+
+<body>
+    <script>
+        window.onload = function() {
+
+            $('#login_btn').click(function() {
+                var username = $('#user').val();
+                var pass = $('#pass').val();
+                $.ajax({
+                    url: '/user',
+                    data: {
+                        act: 'login',
+                        user: username,
+                        pass: pass
+                    },
+                    type: 'get',
+                    success: function(data) {
+                        var json = eval('(' + data + ')');
+                        if (json.status == 1) {
+                            alert(json.data);
+                        } else {
+                            alert(json.data);
+                        }
+                    },
+                    error: function(data) {
+                        alert('系统繁忙，请稍后再试！');
+                    }
+
+                })
+
+            })
+
+
+
+            $('#reg_btn').click(function() {
+                var username = $('#user').val();
+                var pass = $('#pass').val();
+                $.ajax({
+                    url: '/user',
+                    data: {
+                        act: 'reg',
+                        user: username,
+                        pass: pass
+                    },
+                    type: 'get',
+                    success: function(data) {
+                        var json = eval('(' + data + ')');
+                        if (json.status == 1) {
+                            alert(json.data);
+                        } else {
+                            alert(json.data);
+                        }
+                    },
+                    error: function(data) {
+                        alert('系统繁忙，请稍后再试！');
+                    }
+
+                })
+
+            })
+        }
+    </script>
+
+    用户：<input type="text" id="user"> 密码：
+    <input type="password" id="pass">
+    <input type="button" value="注册" id="reg_btn">
+    <input type="button" value="登录" id="login_btn">
+</body>
+
+</html>
