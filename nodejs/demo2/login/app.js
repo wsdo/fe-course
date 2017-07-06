@@ -49,7 +49,12 @@ const server = http.createServer(function(req, res) {
         res.end();
     } else {
         // 读取文件
+        // obj.pathname
+        // url = jquery.js
         var file_name = 'dist' + url;
+        console.log(url);
+        console.log(file_name);
+        // file_name // dist/jquery.js
         fs.readFile(file_name, function(err, data) {
                 if (err) {
                     res.write('hi，guys,你访问的页面未找到！404！！！');
