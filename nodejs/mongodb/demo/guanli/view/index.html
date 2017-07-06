@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生成绩管理系统</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <script src="jquery.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="underscore-min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="#">学生成绩系统</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">学生列表 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/add">增加信息</a></li>
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>英语成绩</th>
+                <th>数学成绩</th>
+            </tr>
+        </table>
+
+        <script type="text/template" id="template">
+            <tr>
+                <td>
+                    <%=xuehao%>
+                </td>
+                <td>
+                    <%=name%>
+                </td>
+                <td>
+                    <%=age%>
+                </td>
+                <td>
+                    <%=sex%>
+                </td>
+                <td>
+                    <%=english%>
+                </td>
+                <td>
+                    <%=math%>
+                </td>
+            </tr>
+        </script>
+
+
+        <script>
+            var tpl = $("#template").html();
+            var compileFuntion = _.template(tpl);
+            $.get("/all", function(data) {
+                _.each(data.data, function(data) {
+                    var html = compileFuntion(data);
+                    $("table").append($(html));
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>

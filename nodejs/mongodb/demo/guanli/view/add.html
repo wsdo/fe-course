@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生成绩管理系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="#">学生成绩系统</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">学生列表 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/add">增加信息</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container">
+        <form id="biaodan">
+            <p>学号：<input type="text" name="xuehao"> </p>
+            <p>姓名：<input type="text" name="name"> </p>
+            <p>年龄：<input type="number" name="age"></p>
+            <p>
+                英语成绩：<input type="text" name="english">
+
+            </p>
+            <p>
+                数学成绩：<input type="text" name="math">
+            </p>
+
+            <p>
+                <input type="button" value="提交" id="submit">
+            </p>
+        </form>
+
+    </div>
+
+    <script>
+        $("#submit").click(function() {
+            var str = $("form").serialize();
+
+            $.get('/insert?' + str, function(data) {
+                if (data.status == 10) {
+                    alert('插入成功');
+                    // $("input[type=text]").val("");
+                } else if (data.status == 20) {
+                    //学号冲突
+                    alert(data.data);
+                } else if (data.status == 30) {
+                    //当数据库出现问题的时候
+                    alert("貌似发生了一些事情，程序哥哥正在紧急修复");
+                }
+
+            })
+        })
+    </script>
+</body>
+
+</html>
