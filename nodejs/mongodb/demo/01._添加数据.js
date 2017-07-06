@@ -15,11 +15,9 @@ MongoClient.connect(url, function(err, db) {
         if (err) {
             console.log("数据插入失败");
             return;
-
         }
         console.log("数据插入成功");
         db.close();
         console.log("数据库连接关闭");
     })
-
 })
