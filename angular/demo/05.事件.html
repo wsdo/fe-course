@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="app" ng-init="data='hello';key='您输入的数据是：'">
+    <input type="text" name="" value="" ng-model="data">
+
+    <div ng-controller="main">
+        <button ng-click="clickRed()" ng-bind="btn.red"></button>
+        <button ng-click="clickGreen()" ng-bind="btn.green"></button>
+        <button ng-click="clickBlue()" ng-bind="btn.blue"></button>
+
+        <p>您选择的颜色是:{{chooseColor}}</p>
+        <span>{{key}}</span>
+        <span>{{data}}</span>
+    </div>
+</body>
+<script src="angular.min.js">
+</script>
+<script>
+    var app = angular.module('app', []);
+
+    app.controller('main', function($scope) {
+        // console.log($scope.data);
+        // console.log($scope.key);
+
+        // 这可以用来做初始化
+        // ng-init 写在dom初始化，一般不推荐
+        // $scope.key = "hello";
+        // $scope.data = 'stark';
+
+        var self = this;
+
+        $scope.btn = {
+            red: '红色',
+            green: '绿色',
+            blue: '蓝色'
+        }
+
+        $scope.chooseColor = '';
+
+        $scope.clickRed = function() {
+            $scope.chooseColor = $scope.btn.red;
+        }
+
+        $scope.clickGreen = function() {
+            $scope.chooseColor = $scope.btn.green;
+        }
+
+        $scope.clickBlue = function() {
+            $scope.chooseColor = $scope.btn.blue;
+        }
+
+    })
+</script>
+
+</html>

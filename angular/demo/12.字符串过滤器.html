@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="app">
+
+    <div ng-controller="main">
+        <div>{{msg | limitTo: 6}}</div>
+        <div>{{msg | limitTo: 3}}</div>
+        <div>{{msg | uppercase}}</div>
+        <div>{{msg | lowercase}}</div>
+        <div>{{msg.toUpperCase()}}</div>
+    </div>
+</body>
+<script src="angular.min.js">
+</script>
+<script>
+    var app = angular.module('app', []);
+
+    app.controller('main', function($scope) {
+
+        $scope.msg = 'ThisIsStudent';
+
+        $scope.color = ['red', 'Blue', 'Yellow', 'orange'];
+    })
+</script>
+
+</html>

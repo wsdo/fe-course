@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="app">
+
+    <div ng-controller="main">
+        <div>{{date}}</div>
+        <div>{{date | date}}</div>
+        <div>{{date | date :'yyyy'}}</div>
+        <div>{{date | date :'MMM'}}</div>
+        <div>{{date | date :'d'}}</div>
+        <div>{{date | date :'hh'}}</div>
+        <div>{{date | date :'mm'}}</div>
+        <div>{{date | date :'ss'}}</div>
+        <div>{{date | date :'EEE'}}</div>
+        <div>{{date | date :'MM yyyy hh'}}</div>
+        <div>{{date | date :'fullDate'}}</div>
+        <div>{{date | date :'medium'}}</div>
+        <div>{{date | date :'shortTime'}}</div>
+        <div>{{date | date :'longDate'}}</div>
+    </div>
+</body>
+<script src="angular.min.js">
+</script>
+<script>
+    var app = angular.module('app', []);
+
+    app.controller('main', function($scope) {
+
+        $scope.date = new Date();
+    })
+</script>
+
+</html>

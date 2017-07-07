@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="app">
+
+    <div ng-controller="main">
+        <!--2017年7月7日 16:53-->
+
+        <p>{{date|date: 'yyyy年MM月dd日 hh:mm'}}</p>
+    </div>
+</body>
+<script src="angular.min.js">
+</script>
+<script>
+    var app = angular.module('app', []);
+
+    app.controller('main', function($scope) {
+
+        $scope.date = new Date();
+    })
+</script>
+
+</html>

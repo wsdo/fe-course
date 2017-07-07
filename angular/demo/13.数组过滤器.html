@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="app">
+
+    <div ng-controller="main">
+        {{arr | orderBy:'age':true | orderBy:'weight':true}}
+    </div>
+</body>
+<script src="angular.min.js">
+</script>
+<script>
+    var app = angular.module('app', []);
+
+    app.controller('main', function($scope) {
+        $scope.arr = [{
+                name: 'stark',
+                age: 24,
+                weight: 160
+            }, {
+                name: 'shudong',
+                age: 24,
+                weight: 170
+            }, {
+                name: 'lishuang',
+                age: 25,
+                weight: 120
+            }, {
+                name: 'yuyunyun',
+                age: 22,
+                weight: 82
+            }
+
+        ];
+
+    })
+</script>
+
+</html>
