@@ -19,4 +19,8 @@ exports.insert = function(req, res) {
 
 exports.all = function(req, res) {
     console.log(res, res);
+
+    db.findAll("student", {}, { "xuehao": -1 }, function(err, result) {
+        res.json({ "status": 10, "data": result });
+    })
 }

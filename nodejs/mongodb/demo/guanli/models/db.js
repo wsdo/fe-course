@@ -1,6 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
 
-let url = "mongodb://120.27.245.209:27017/student";
+let url = "mongodb://123.207.172.26:27018/student";
+
+// 123.207.172.26
+// 120.27.245.209
 let ObjectId = require('mongodb').ObjectID;
 
 
@@ -50,7 +53,7 @@ exports.findAll = function(collection, data, sort, callback) {
                 console.log("数据查询成功");
                 // console.log(doc.name, doc.age);
                 result.push(doc);
-                callback(null, result);
+
                 // db.close();
             } else {
                 callback(null, result);
