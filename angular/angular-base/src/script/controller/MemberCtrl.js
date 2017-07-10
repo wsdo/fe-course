@@ -10,7 +10,8 @@ angular.module('controllers').controller('MemberCtrl', [
         $MemberManage
     ) {
         $MemberManage.fetchMemberInfo().then(function(data) {
-            $scope.userinfo = data.data.stark;
+            console.log(data);
+            $scope.userinfo = data.data.member;
         })
     }
 ])

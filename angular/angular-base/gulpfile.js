@@ -6,10 +6,34 @@ var open = require('open');
 
 //定义路径
 var app = {
-    devPath: 'bulid/',
-    distPath: 'dist/',
-    srcPath: 'src/'
+    devPath: './bulid/',
+    distPath: './dist/',
+    srcPath: './src/'
 }
+
+gulp.task('copy-bundle', function() {
+    gulp.src([
+            './bower_components/angular-material/angular-material.min.css',
+            './bower_components/bootstrap/dist/css/bootstrap.min.css',
+            'src/style/font-awesome.min.css'
+        ])
+        .pipe($.plumber())
+        .pipe($.concat('bundle.css'))
+        .pipe(gulp.dest(app.devPath + '/static/style'));
+
+    gulp.src([
+            './bower_components/angular/angular.min.js',
+            './bower_components/angular-route/angular-route.min.js',
+            './bower_components/angular-messages/angular-messages.min.js',
+        ])
+        .pipe($.plumber())
+        .pipe($.concat('bundle.js'))
+        .pipe(gulp.dest(app.devPath + 'static/js'));
+});
+
+
+
+
 
 gulp.task('bundle', function() {
     gulp.src(['./src/script/app.js', './src/script/route.js'])
@@ -61,6 +85,7 @@ gulp.task('watch', function() {
 })
 
 gulp.task('serve', function() {
+    console.log(app.devPath);
     connect.server({
         root: [app.devPath],
         livereload: true,
@@ -74,7 +99,8 @@ gulp.task('dev', [
     'script',
     'template',
     'data',
-    'bundle'
+    'bundle',
+    'copy-bundle'
 ])
 
 gulp.task('dist', [

@@ -16,11 +16,17 @@ app.config(
     ['$routeProvider',
         function($routeProvider) {
             $routeProvider
+                .when('/', {
+                    template: '<div><h1>今天天气不错哦！{{msg}}</h1> </div>',
+                    controller: function($scope) {
+                        $scope.msg = '呵呵';
+                    }
+                })
                 .when('/activity', {
                     templateUrl: '/view/activity/index.html',
                     controller: 'ActivityCtrl'
                 })
-                .when('member', {
+                .when('/member', {
                     templateUrl: '/view/member/index.html',
                     controller: 'MemberCtrl'
                 })
@@ -40,7 +46,8 @@ angular.module('controllers').controller('MemberCtrl', [
         $MemberManage
     ) {
         $MemberManage.fetchMemberInfo().then(function(data) {
-            $scope.userinfo = data.data.stark;
+            console.log(data);
+            $scope.userinfo = data.data.member;
         })
     }
 ])
