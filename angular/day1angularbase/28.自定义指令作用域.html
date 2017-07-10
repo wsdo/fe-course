@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="app" ng-app="app">
+        <my-repeat child-repeat="8">
+            <h1>hello shudong</h1>
+        </my-repeat>
+
+
+    </div>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+        //定义指令
+        app.directive('myRepeat', function() {
+            // 返回值是描述指令的
+            return {
+                restrict: 'E',
+                template: '<h1> hello stark</h1>',
+                replace: true,
+                controller: function($scope, $element, $attrs) {
+
+                },
+                link: function(scope, jqlite, attrs) {
+                    // console.log(jqlite);
+                    var el = jqlite.clone();
+                    console.log(el);
+                    console.log(attrs.childRepeat);
+                    for (var i = 0; i < attrs.childRepeat; i++) {
+                        jqlite.append(el.clone())
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="app" ng-app="app">
+        <div my-title></div>
+        <div class="my-title"></div>
+        <!-- directive:my-title -->
+        <my-title> </my-title>
+
+
+    </div>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+        //定义指令
+        app.directive('myTitle', function() {
+            // 返回值是描述指令的
+            return {
+                restrict: 'ECMA',
+                template: '<h1> hello stark </h1>',
+                replace: true,
+            }
+        })
+    </script>
+</body>
+
+</html>
