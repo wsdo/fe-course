@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.min.js">
+    </script>
+</head>
+
+<body ng-app="app">
+    <div ng-controller="main">
+        <form name="appForm">
+            <label for="">姓名：</label>
+            <!--ng-pattern="/^\d{4,6}$/"-->
+            <input type="text" name="username" value="" ng-model="uname" ng-maxlength="5">
+            <!--<input type="number" name="password" value="" ng-model="uname" ng-pattern="/^\d{4,6}$/">-->
+            <button type="" ng-click="check()">提交</button>
+            <div ng-show="appForm.username.$invalid"> 您输入的内容大于了5位</div>
+            <!--<div ng-show="appForm.password.$invalid"> 您输入的内容必须是不符合这个要求</div>-->
+            <p ng-show="checkRegist"> 请输入正确的信息 </p>
+
+
+        </form>
+        </dive>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('main', function($scope) {
+        $scope.uname = '';
+
+        $scope.check = function() {
+            console.log($scope.appForm.$invalid);
+            if ($scope.appForm.$invalid) {
+                $scope.checkRegist = true;
+            } else {
+                $scope.checkRegist = false;
+            }
+        }
+    })
+</script>
+
+</html>

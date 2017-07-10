@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.min.js">
+    </script>
+    <style>
+        .grey {
+            background: #666;
+        }
+        
+        .red {
+            background: red;
+        }
+        
+        .green {
+            background: green;
+        }
+        
+        .yellow {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="app">
+        <div ng-controller="main">
+            <ul>
+                <li ng-repeat="item in colors" ng-class="{grey:$even,red:$first,green:$last,yellow:$odd}">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('main', function($scope) {
+            $scope.colors = ['red', 'yellow', 'green', 'orange', 'stark', 'shudong'];
+        });
+
+        //$even 表示奇数行
+        //$first 表示第一行
+        //$last 表示最后一行
+        //$odd 表示偶数行
+
+        //ng-repeat 表示遍历
+    </script>
+
+</body>
+
+</html>
