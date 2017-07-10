@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--<script src="angular.min.js">-->
+    <script src="https://cdn.bootcss.com/angular.js/1.4.11/angular.min.js"></script>
+    </script>
+</head>
+
+<body ng-app="app">
+    <div ng-controller="main">
+        <input type="text" ng-model="name" ng-keyup="change(name)">
+        <input type="button" name="" ng-click="change(name)" value="搜索">
+        <ul>
+            <li ng-repeat="item in data">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('main', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+            $scope.stark = 10;
+            $scope.shudong = 0;
+            $scope.wang = 10;
+
+
+            $scope.$watch('stark', function() {
+                $scope.shudong = $scope.stark * 2;
+            })
+        }])
+    </script>
+
+
+    <div ng-controller="main">
+        <input type="text" ng-model="stark"> {{shudong}} {{stark * 2}}
+
+    </div>
+</body>
+
+</html>

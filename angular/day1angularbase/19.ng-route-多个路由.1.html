@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="app">
+
+        <head>
+            <h2>页面头部</h2>
+        </head>
+        <div ng-view>
+
+        </div>
+    </div>
+    <script>
+        angular.module('app', ['ngRoute'])
+            .config(function($routeProvider) {
+                $routeProvider
+                    .when('/', {
+                        template: '<div><h1>今天天气不错哦！{{msg}}</h1> </div>',
+                        controller: function($scope) {
+                            $scope.msg = '呵呵';
+                        }
+                    })
+                    .when('/stark', {
+                        template: '<h1>{{data}}</h1>',
+                        controller: function($scope) {
+                            $scope.data = 'stark.wang';
+                        }
+                    })
+                    .otherwise({
+                        redirectTo: '/' //当上面的路由都匹配不到的话，就会走到这里面
+                    })
+
+            })
+    </script>
+</body>
+
+</html>

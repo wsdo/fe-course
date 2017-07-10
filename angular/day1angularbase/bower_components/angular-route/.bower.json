@@ -1,0 +1,12 @@
+{
+  "name": "angular-route.min",
+  "_cacheHeaders": {
+    "Last-Modified": "Mon, 03 Jul 2017 16:42:35 GMT",
+    "Content-Type": "application/x-javascript"
+  },
+  "main": "index.js",
+  "_source": "https://code.angularjs.org/1.6.5/angular-route.min.js",
+  "_target": "*",
+  "_originalSource": "https://code.angularjs.org/1.6.5/angular-route.min.js",
+  "_direct": true
+}
