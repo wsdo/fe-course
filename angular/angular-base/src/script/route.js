@@ -16,6 +16,10 @@ app.config(
                     templateUrl: '/view/member/index.html',
                     controller: 'MemberCtrl'
                 })
+                .when('/blog', {
+                    templateUrl: '/view/blog/index.html',
+                    controller: 'BlogCtrl'
+                })
         }
 
     ]

@@ -1,8 +1,9 @@
 var app = angular.module('starkapp', [
-    'ngRoute',
     // 'ngMaterial',
+    // 'ngMessages',
+    'ngRoute',
     'controllers',
-    'services',
+    'services'
 ]);
 
 

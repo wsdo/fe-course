@@ -22,9 +22,29 @@ gulp.task('copy-bundle', function() {
         .pipe(gulp.dest(app.devPath + '/static/style'));
 
     gulp.src([
+            './bower_components/jquery/dist/jquery.min.js',
             './bower_components/angular/angular.min.js',
             './bower_components/angular-route/angular-route.min.js',
-            './bower_components/angular-messages/angular-messages.min.js',
+            // './bower_components/angular-animate/angular-animate.min.js',
+            // './bower_components/angular-aria/angular-aria.min.js',
+            // './bower_components/angular-material/angular-material.min.js',
+            // './bower_components/angular-messages/angular-messages.min.js',
+            // // './bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+            // './bower_components/angular-bootstrap/ui-bootstrap.min.js',
+
+
+            // './bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+            // './bower_components/moment/min/moment.min.js',
+            // './bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js',
+            // './bower_components/angular-jquery/dist/angular-jquery.min.js',
+            // './bower_components/ng-lodash/build/ng-lodash.min.js',
+            // './bower_components/ng-file-upload/ng-file-upload.min.js',
+            // './bower_components/textAngular/dist/textAngular-rangy.min.js',
+            // './bower_components/textAngular/dist/textAngular-sanitize.min.js',
+            // './bower_components/textAngular/dist/textAngular.min.js',
+            // './bower_components/ng-table/dist/ng-table.js',
+            // './bower_components/ng-tags-input/ng-tags-input.min.js',
+            // './bower_components/bootstrap/dist/js/bootstrap.min.js',
         ])
         .pipe($.plumber())
         .pipe($.concat('bundle.js'))
@@ -81,7 +101,7 @@ gulp.task('default', function() {
 gulp.task('watch', function() {
     gulp.watch('./src/script/**/*.js', ['script']);
     gulp.watch('./src/data/*.json', ['data']);
-    gulp.watch('./view/**/*.html', ['template']);
+    gulp.watch('./src/view/**/*.html', ['template']);
 })
 
 gulp.task('serve', function() {

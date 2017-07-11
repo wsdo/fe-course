@@ -1,0 +1,17 @@
+<div>
+    标题： 文章：
+
+    <div ng-repeat="item in blog">
+
+        <div class="panel panel-success">
+            <div class="panel-body">
+                标题：{{item.title.rendered}}
+            </div>
+            <a href="{{item.link}}">此文章永久链接：</a>
+            <div class="panel-footer">
+                <p ng-bind="item.content.rendered"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--http://blog.shudong.wang/wp-json/wp/v2/posts-->
