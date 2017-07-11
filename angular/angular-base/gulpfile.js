@@ -100,7 +100,8 @@ gulp.task('dev', [
     'template',
     'data',
     'bundle',
-    'copy-bundle'
+    'copy-bundle',
+    'watch'
 ])
 
 gulp.task('dist', [

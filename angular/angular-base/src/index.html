@@ -8,16 +8,19 @@
     <title>Document</title>
 </head>
 
-<body>
-    <!--頭部-->
+<body ng-app="starkapp">
+    <!--头部-->
     <div app-head></div>
 
+
+    hello stark
     <md-content ng-view>
     </md-content>
 
-    <script src="/static/js/bundle.js">
-    </script>
+    <!--把所有的lib库都打包成bundle.js-->
+    <script src="/static/js/bundle.js"></script>
 
+    <!--把所有自己写的东西打包成all.js-->
     <script src="/static/js/all.js"></script>
 </body>
 
