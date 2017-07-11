@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" name="" v-model="msg" value="">
+        <p>{{msg}}</p>
+    </div>
+    <script>
+        let data = {
+            msg: "hello world"
+        }
+
+        var vm = new Vue({
+            el: "#box",
+            data: data
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .fontSize {
+            font-size: 50px;
+        }
+        
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <span class="fontSize" :class="{red:addClass}"> hello  stark</span>
+    </div>
+    <script>
+        let obj = {
+            addClass: true
+        };
+        var vm = new Vue({
+            el: "#box",
+            data: obj
+        })
+    </script>
+</body>
+
+</html>

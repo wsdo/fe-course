@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="vue-r.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" v-model="word" @keyup="get()" name="" value="">
+        <ul>
+            <li v-for="value in myData">
+                {{value}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                myData: [],
+                word: ''
+            },
+            methods: {
+                get: function() {
+                    this.$http.jsonp(
+                        "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su", {
+                            wd: this.word
+                        }, {
+                            jsonp: 'cb'
+                        }).then(function(res) {
+                        this.myData = res.data.s;
+                    }, function() {
+
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .bg {
+            background: yellow
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        let obj = {
+            html: '<h1>stark</h1>',
+            stark: "wangshudong"
+        }
+        var vm = new Vue({
+            el: "#box",
+            data: obj,
+            render(createElement) {
+                return createElement(
+                    "ul", {
+                        class: {
+                            bg: true
+                        },
+                        style: {
+                            fontSize: "30px"
+                        },
+                        attrs: {
+                            stark: "shudong.wang"
+                        }
+
+                    }, [
+                        createElement("li", 2),
+                        createElement("li", 3),
+                        createElement("li", 1),
+                    ]
+                )
+            }
+
+        })
+    </script>
+</body>
+
+</html>
