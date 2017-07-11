@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="vue.js"></script>
-    <script src="vue-r.js"></script>
+    <script src="vue-resource.js"></script>
 </head>
 
 <body>
@@ -28,10 +28,22 @@
             },
             methods: {
                 get: function() {
+                    // this.$http.jsonp(
+                    //     "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su", {
+                    //         wd: this.word
+                    //     }, {
+                    //         jsonp: 'cb'
+                    //     }).then(function(res) {
+                    //     this.myData = res.data.s;
+                    // }, function() {
+
+                    // })
+
                     this.$http.jsonp(
                         "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su", {
-                            wd: this.word
-                        }, {
+                            params: {
+                                wd: this.word
+                            },
                             jsonp: 'cb'
                         }).then(function(res) {
                         this.myData = res.data.s;

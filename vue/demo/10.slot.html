@@ -11,31 +11,35 @@
 
 <body>
     <div id="box">
-        <ul>
-            <li>333333</li>
-            <li>333333</li>
-            <li>333333</li>
-            <li>333333</li>
-        </ul>
+        <aaa>
+            <ul slot="ul-slot">
+                <li>ul</li>
+                <li>33</li>
+                <li>44</li>
+                <li>替换默认情况的位置</li>
+            </ul>
+        </aaa>
+        <hr>
+        <aaa>
+        </aaa>
     </div>
 
-    <aaa></aaa>
 
-
-    <template id="temp">
-        <div>
-            <span>hi</span>
-        </div>
+    <template id="aaa">
+        <h1>slot开始</span>
+        <slot name="ul-slot">
+                ul-slot 位置
+        </slot>
     </template>
     <script>
         var vm = new Vue({
             el: '#box',
             data: {
-                a: 'bbb'
+                a: 'aaa'
             },
             components: {
-                'aaa': {
-                    template: '#temp'
+                'Aaa': {
+                    template: '#aaa'
                 }
             }
         })
