@@ -1,8 +1,8 @@
 <template>
     <div class="hello">
     <div class="about">{{msg}}</div>
-    <router-link to="{name:'About'}">学习</router-link>
-    <router-link to="{name:'Work'}">工作</router-link>
+    <router-link :to="{name:'About'}">学习</router-link>
+    <router-link :to="{name:'Work'}">工作</router-link>
     <router-view> </router-view>
   </div>
 </template>
