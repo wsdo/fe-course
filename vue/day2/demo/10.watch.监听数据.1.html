@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+
+    <div id="box">
+        {{a}}
+        <br> {{b}}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                obj: {
+                    name: 'stark',
+                    age: 18
+                },
+                b: 2
+            }
+        })
+        vm.$watch('obj', function() {
+            alert(this.obj.name);
+            //不弹出，因为需要深层次监听
+        })
+
+        document.onclick = function() {
+            vm.obj.name = 'shudong';
+            vm.obj.age = '11';
+        }
+    </script>
+
+</body>
+
+</html>

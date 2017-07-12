@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--<link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" rel="stylesheet">-->
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.css" rel="stylesheet">
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <ui-button text="复制"></ui-button>
+        <ui-button text="剪切"></ui-button>
+        <ui-button text="提交"></ui-button>
+        <ui-button text="保存"></ui-button>
+    </div>
+    <script>
+        Vue.component('ui-button', {
+            template: "<button class='ui teal button' > {{text}} </button>",
+            props: ['text']
+        })
+        var vm = new Vue({
+            el: '#box'
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+
+    <div id="box">
+        {{a}}
+        <br> {{b}}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                stark: "shudong",
+                a: 111,
+                b: 222
+            }
+        })
+
+        vm.$watch('a', function() {
+            alert('a值发生了变化');
+
+            this.b = this.a + 100;
+        })
+
+        document.onclick = function() {
+            vm.a = 1;
+        }
+    </script>
+
+</body>
+
+</html>

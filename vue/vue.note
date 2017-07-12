@@ -1,0 +1,34 @@
+ui组件
+别人写好的一些东西
+目的：提高开发效率
+直接拿过来用
+
+bootstrap
+
+vue
+    elementUi
+    http://element.eleme.io
+
+    安装 npm ielement-ui -D
+
+    引入 main.js 入口文件
+    import ElementUI from 'element-ui'
+    import 'element-ui/lib/theme-default/index.css'
+
+使用组件
+    Vue.use(ElementUI)
+
+mint-ui
+    mint-ui.github.io
+    http://mint-ui.github.io/docs/#/en2
+
+vue  ui
+https://www.iviewui.com/
+
+
+这个东西
+https://nuxtjs.org/
+nuxt  
+ssr
+
+https://zh.nuxtjs.org/guide/
