@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <cutom-dom></cutom-dom>
+    </div>
+
+    <div id="box2">
+        <cutom-dom></cutom-dom>
+    </div>
+
+
+    <script>
+        // // 注册组件，传入一个扩展过的构造器
+        // Vue.component('my-component', Vue.extend({ /* ... */ }))
+        //     // 注册组件，传入一个选项对象（自动调用 Vue.extend）
+        // Vue.component('my-component', { /* ... */ })
+        //     // 获取注册的组件（始终返回构造器）
+        // var MyComponent = Vue.component('my-component')
+
+
+        Vue.component('cutom-dom', {
+            data: function() {
+                return {
+                    shows: false
+                }
+            },
+            template: `
+                <div> 
+                    <h1> stark wang </h1>
+                </div>
+            `
+        })
+
+
+        new Vue({
+            el: '#box'
+        })
+
+        new Vue({
+            el: '#box2'
+        })
+    </script>
+</body>
+
+</html>

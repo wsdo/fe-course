@@ -65,6 +65,7 @@ gulp.task('bundle', function() {
         .pipe(gulp.dest(app.distPath + 'static/js'))
 })
 
+// 打包开发的js文件
 gulp.task('script', function() {
     gulp.src('./src/script/**/*.js')
         .pipe($.plumber())

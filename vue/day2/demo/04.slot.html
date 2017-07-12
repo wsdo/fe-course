@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <!--自定义组件-->
+        <custom>
+            <div>
+                我是一些内容
+            </div>
+        </custom>
+    </div>
+    <script>
+        Vue.component("custom", {
+            template: `
+                <div>
+                    <p> 第一个位置 </p>
+                    <p> 第二个位置 </p>
+                    <p> 第三个位置 </p>
+                </div>
+            `
+        })
+
+        new Vue({
+            el: '#box'
+        })
+
+        //这个文件说明，在组件里面写的内容，被覆盖了，如果想在组件里面写内容不被覆盖，请看下集。
+    </script>
+</body>
+
+</html>

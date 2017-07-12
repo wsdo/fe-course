@@ -6,11 +6,18 @@ angular.module('starkapp')
         ) {
             return {
                 fetchPosts: function() {
-                    var url = 'http://blog.shudong.wang/wp-json/wp/v2/posts';
-                    return $http.get(url).then(function(data) {
-                        return data;
-                    })
-                }
+                        var url = 'http://blog.shudong.wang/wp-json/wp/v2/posts';
+                        return $http.get(url).then(function(data) {
+                            return data;
+                        })
+                    }
+                    // ,
+                    // createData: function(data) {
+                    //     var url = 'http://blog.shudong.wang/wp-json/wp/v2/posts';
+                    //     return $http.post(url).then(function(data) {
+                    //         return data;
+                    //     })
+                    // }
 
             }
         }

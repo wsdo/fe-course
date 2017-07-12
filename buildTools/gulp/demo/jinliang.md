@@ -5,7 +5,7 @@
 ## 使用的基本条件
 
 ### 1.全局安装gulp：
-    $   npm install --global guip
+    $   npm install --global gulp
 
 ### 2.作为项目的开发依赖安装：
     $   npm install --save-dev gulp

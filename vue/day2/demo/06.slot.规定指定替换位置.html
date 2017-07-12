@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <!--自定义组件-->
+        <custom>
+            <div slot="two">
+                我想替换第二个位置
+            </div>
+            <div slot="three">
+                我想替换第三个位置
+            </div>
+            <div slot="one"> 我想替换第一个位置</div>
+
+            <div>
+                我是一个不替换的slot标签，哈哈哈，你咬我啊！！！
+            </div>
+        </custom>
+    </div>
+    <script>
+        Vue.component("custom", {
+            template: `
+                <div>
+                    <slot name="one"> <p> 第一个位置 </p> </slot>
+                    <slot name="two"> <p> 第二个位置 </p> </slot>
+                    <slot name="three"> <p> 第三个位置 </p> </slot>
+                    <slot>我就咬你啊！！！ </slot>
+                </div>
+            `
+        })
+
+        new Vue({
+            el: '#box'
+        })
+
+        //这个文件说明，在组件里面写的内容，被覆盖了，如果想在组件里面写内容不被覆盖，请看下集。
+    </script>
+</body>
+
+</html>

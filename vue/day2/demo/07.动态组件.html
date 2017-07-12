@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="button" @click="stark='hello'" name="" value="hello组件">
+        <input type="button" @click="stark='world'" name="" value="world组件">
+        <component :is="stark"></component>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                stark: "hello"
+            },
+            components: {
+                'hello': {
+                    template: '<h2>我是hello组件 </h2>'
+                },
+                'world': {
+                    template: '<h2> 我是world组件</h2>'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
