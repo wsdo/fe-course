@@ -18,10 +18,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <router-link to="/home" tag="li"> <a> 首页 </a></router-link> <span class="sr-only">(current)</span>
+                    <router-link to="/" exact tag="li"> <a> 首页 </a></router-link> <span class="sr-only">(current)</span>
                     <router-link to="/learn" tag="li"> <a> 学习 </a> </router-link>
                     <router-link to="/bbs" tag="li"> <a> 论坛 </a> </router-link>
                     <router-link to="/blog" tag="li"> <a> 博客 </a> </router-link>
+                    <router-link to="/user" tag="li"> <a> 用户 </a> </router-link>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">二级导航 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -52,7 +53,8 @@
     </nav>
         <!-- router-link -->
 
-        <router-view></router-view>
+        <router-view class="text-center" name="slider"></router-view>
+        <router-view class="text-center"></router-view>
     </div>
 </template>
 
