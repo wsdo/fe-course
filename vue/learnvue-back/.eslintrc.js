@@ -1,13 +1,13 @@
 // http://eslint.org/docs/user-guide/configuring
 
 module.exports = {
-  root: false,
+  root: true,
   parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module'
   },
   env: {
-    browser: false,
+    browser: true,
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',

@@ -1,39 +1,35 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import About from '@/components/About'
+import VueRouter from 'vue-router'
 
-Vue.use(Router)
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
-const Study = { template: '<div>这是我学习的东西嘿嘿！！！</div>' }
-const Work = { template: '<div>这是我工作的内容哈哈哈，很辛苦的！！！</div>' }
+Vue.use(VueRouter)
 
-export default new Router({
-  mode: 'history', // 默认是hash模式 带着#号，如果不想带#号请切换 history
+const Home = { template: '<div>This Home page</div>' }
+const Bbs = { template: '<div>This Bbs page</div>' }
+const Learn = { template: '<div>This Learn page</div>' }
+const Blog = { template: '<div>This blog page</div>' }
+const About = { template: '<div>This About page</div>' }
+let router = new VueRouter({
+  mode: 'history',
+  linkActiveClass: 'active',
   routes: [
     {
-      path: '/',
-      name: 'Hello',
-      component: Hello
+      path: '/home',
+      component: Home
     },
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar },
     {
+      path: '/bbs',
+      component: Bbs
+    }, {
+      path: '/learn',
+      component: Learn
+    }, {
+      path: '/blog',
+      component: Blog
+    }, {
       path: '/about',
-      component: About,
-      children: [
-        {
-          path: '',
-          name: 'About',
-          component: Study
-        },
-        {
-          path: '/work',
-          name: 'Work',
-          component: Work
-        }
-      ]
+      component: About
     }
   ]
 })
+
+export default router

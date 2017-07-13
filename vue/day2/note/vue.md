@@ -30,6 +30,15 @@ npm run dev
 切换淘宝镜像
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
+
+cnpm install webpack -D
+
+
+-D --save-dev
+-S --save
+
+
+
 或者使用nrm 
 nrm use taobao
 
