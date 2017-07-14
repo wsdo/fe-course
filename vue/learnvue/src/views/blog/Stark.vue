@@ -1,15 +1,21 @@
 <template>
     <div>
-      blog page
+      Content page
+
       <div v-for="item in data"> {{item.goods_name}}</div>
+
+      <!-- <swipe/> -->
     </div>
 </template>
 
 <script>
   import jsonp from 'jsonp'
-  
+  import Vue from 'vue'
+  import VueAwesomeSwiper from 'vue-awesome-swiper'
+  Vue.use(VueAwesomeSwiper)
+  import Swipe from '@/components/Swipe'
   export default {
-    name: 'blog',
+    name: 'Stark',
     data () {
       return {
         data: {}
@@ -19,6 +25,9 @@
       this.getGoods()
       this.getJsonp()
     },
+    components:{
+        swipe:Swipe
+      },
     methods: {
       getGoods () {
         this.$http.get('http://lc.shudong.wang/api_goods.php')

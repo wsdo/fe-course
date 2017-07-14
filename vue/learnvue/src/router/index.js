@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import User from '@/views/user/index'
-import Blog from '@/views/blog/index'
+import Blog from '@/views/Blog'
+import Home from '@/views/home/index'
 
 Vue.use(VueRouter)
 
-const Home = { template: '<div>This Home page</div>' }
+// const Home = { template: '<div>This Home page</div>' }
 const Bbs = { template: '<div>This Bbs page</div>' }
 // const User = { template: '<div>{{$route.params.userId}}</div>' }
 const Learn = { template: '<div>This Learn page</div>' }

@@ -7,20 +7,21 @@
             <p> 性别：{{userInfo.sex}}</p>
             <p> 爱好：{{userInfo.hobby}}</p>
         </div>
-
         <!-- 他的关注， 他的分享 -->
-
-        <router-link exact to="?info=follow" > 他的关注 </router-link>
-        <router-link exact to="?info=share" > 他的分享 </router-link>
-
-        <div>
-            {{$route.query}}
+        <div v-if="userInfo.userName">
+            <router-link exact to="?info=follow" > 他的关注 </router-link>
+            <router-link exact to="?info=share" > 他的分享 </router-link>
+            
+            <div>
+                {{$route.query}}
+            </div>
         </div>
-
     </div>
 </template>
 
 <script>
+    import $ from 'jquery'
+
 
     let data = [
       {
@@ -63,6 +64,7 @@
             // 渲染这个组件会调用一次这个生命周期函数
             // 复用这个组件，这个函数就不会再次调用了，
             this.getData()
+            this.useJq()
         },
         methods:{
             getData(){
@@ -78,6 +80,10 @@
                 }
 
                 console.log(this.userInfo);
+            },
+            useJq(){
+               let html =  $('#stark').val()
+                console.log(html)
             }
         }
     }
