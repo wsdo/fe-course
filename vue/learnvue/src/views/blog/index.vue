@@ -6,6 +6,8 @@
 </template>
 
 <script>
+  import jsonp from 'jsonp'
+  
   export default {
     name: 'blog',
     data () {
@@ -15,6 +17,7 @@
     },
     created () {
       this.getGoods()
+      this.getJsonp()
     },
     methods: {
       getGoods () {
@@ -25,6 +28,16 @@
           .catch((error) => {
             console.log(error)
           })
+      },
+      getJsonp () {
+        jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', null, function (err, data) {
+          if (err) {
+            console.error(err.message);
+          } else {
+            console.log(data);
+          }
+        });
+
       }
     }
   }

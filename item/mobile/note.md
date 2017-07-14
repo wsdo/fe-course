@@ -51,3 +51,9 @@ https://github.com/jokermonn/-Api/blob/master/YoudaoDic.md
 李盘军	图虫	https://github.com/jokermonn/-Api/blob/master/Tuchong.md
 胡宴怀	图虫	https://github.com/jokermonn/-Api/blob/master/Tuchong.md
 
+商城
+lc.shudong.wang
+
+http://apistore.baidu.com/
+showapi.com
+juhe.cn

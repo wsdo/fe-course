@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import User from '@/views/user/index'
+import User from '@/views/user/index'
 import Blog from '@/views/blog/index'
 
 Vue.use(VueRouter)
@@ -40,8 +40,8 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/user/:userId?',
-      component: Blog
+      path: '/user/:userId?/:xiaorong?', //?代表可写，也可以不写 /user/1
+      component: User
     },
     {
       path: '/about',
