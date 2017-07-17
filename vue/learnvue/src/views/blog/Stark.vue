@@ -23,7 +23,8 @@
     },
     created () {
       this.getGoods()
-      this.getJsonp()
+      // this.getJsonp()
+      this.getUser()
     },
     components:{
         swipe:Swipe
@@ -47,6 +48,15 @@
           }
         });
 
+      },
+      getUser(){
+        this.$http.get('/api/')
+          .then((res) => {
+              console.log(res)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       }
     }
   }
